@@ -20,8 +20,4 @@
         <None Include="D:\Workspace\OMS\OfficeManagementSystem.Configuration\Configuration.Domain\.editorconfig" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Entities\" />
-    </ItemGroup>
-
 </Project>

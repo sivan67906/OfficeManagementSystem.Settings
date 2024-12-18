@@ -39,14 +39,14 @@ namespace Settings.Infrastructure.Services
             existingProduct.ClientName = client.ClientName;
             existingProduct.ClientCode = client.ClientCode;
             existingProduct.Description = client.Description;
-            existingProduct.Email = client.Email;
+            //existingProduct.Email = client.Email;
             existingProduct.PhoneNumber = client.PhoneNumber;
-            existingProduct.CompanyName = client.CompanyName;
-            existingProduct.Address1 = client.Address1;
+           // existingProduct.CompanyName = client.CompanyName;
+           // existingProduct.Address1 = client.Address1;
             existingProduct.Address2 = client.Address2;
-            existingProduct.Country = client.Country;
-            existingProduct.State = client.State;
-            existingProduct.City = client.City;
+            //existingProduct.Country = client.Country;
+            //existingProduct.State = client.State;
+           // existingProduct.City = client.City;
             existingProduct.ZipCode = client.ZipCode;
 
             // Call the repository's UpdateAsync method

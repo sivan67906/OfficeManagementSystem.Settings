@@ -1,0 +1,26 @@
+﻿using MediatR;
+using Settings.Domain.Interfaces;
+
+namespace Settings.Application.Features.Applications.Commands.CreateApplication;
+public class CreateApplicationCommandHandler : IRequestHandler<CreateApplicationCommand, int>
+{
+    private readonly IGenericRepository<Domain.Entities.Applications> _applirepo;
+    public CreateApplicationCommandHandler(IGenericRepository<Domain.Entities.Applications> applirepo) => _applirepo = applirepo;
+
+    public async Task<int> Handle(CreateApplicationCommand request, CancellationToken cancellationToken)
+    {
+        var application = new Domain.Entities.Applications
+        {
+            DateFormat = request.DateFormat,
+            TimeFormat = request.TimeFormat,
+            DefaultTimezone = request.DefaultTimezone,
+            CurrencyId = request.CurrencyId,
+            Language = request.Language,
+            DatatableRowLimit = request.DatatableRowLimit,
+            EmployeeCanExportData = request.EmployeeCanExportData,
+           
+        };
+        await _applirepo.CreateAsync(application);
+        return application.Id;
+    }
+}
