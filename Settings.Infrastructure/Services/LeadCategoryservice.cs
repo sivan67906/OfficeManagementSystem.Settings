@@ -23,7 +23,7 @@ namespace Settings.Infrastructure.Services
                 p => p.CategoryName.Contains(categoryName, StringComparison.OrdinalIgnoreCase));
         }
 
-        public async Task UpdateCategoryAsync(LeadCategory category)
+        public async System.Threading.Tasks.Task UpdateCategoryAsync(LeadCategory category)
         {
             var existingProduct = await _repository.GetByIdAsync(category.Id);
 

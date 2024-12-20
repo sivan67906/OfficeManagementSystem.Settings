@@ -1,16 +1,10 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Settings.Application.Features.Client.Commands.CreateClient;
 using Settings.Application.Features.Client.Commands.DeleteClient;
 using Settings.Application.Features.Client.Commands.UpdateClient;
 using Settings.Application.Features.Client.Queries.GetAllClients;
 using Settings.Application.Features.Client.Queries.GetClientById;
-using Settings.Application.Features.Currencies.Commands.CreateCurrency;
-using Settings.Application.Features.Currencies.Commands.DeleteCurrency;
-using Settings.Application.Features.Currencies.Commands.UpdateCurrency;
-using Settings.Application.Features.Currencies.Queries.GetAllCurrencies;
-using Settings.Application.Features.Currencies.Queries.GetCurrencyById;
 
 namespace Settings.API.Controllers;
 [Route("api/[controller]")]

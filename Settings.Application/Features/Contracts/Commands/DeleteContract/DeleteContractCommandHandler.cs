@@ -7,7 +7,7 @@ public class DeleteContractCommandHandler : IRequestHandler<DeleteContractComman
 {
     private readonly IGenericRepository<Contract> _contractRepository;
     public DeleteContractCommandHandler(IGenericRepository<Contract> contractRepository) => _contractRepository = contractRepository;
-public async Task Handle(DeleteContractCommand request, CancellationToken cancellationToken)
+public async System.Threading.Tasks.Task Handle(DeleteContractCommand request, CancellationToken cancellationToken)
     {
         if (request == null || request.Id == null)
         {

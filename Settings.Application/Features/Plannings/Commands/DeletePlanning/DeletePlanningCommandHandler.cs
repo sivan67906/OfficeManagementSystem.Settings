@@ -1,10 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using Settings.Domain.Entities;
+using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Plannings.Commands.DeletePlanning;
-internal class DeletePlanningCommandHandler
+public class DeletePlanningCommandHandler : IRequestHandler<DeletePlanningCommand>
 {
+    private readonly IGenericRepository<Planning> _planrepo;
+    public DeletePlanningCommandHandler(IGenericRepository<Planning> planrepo) => _planrepo = planrepo;
+
+    public async System.Threading.Tasks.Task Handle(DeletePlanningCommand request, CancellationToken cancellationToken)
+    {
+        if (request == null || request.Id == null)
+        {
+            throw new ArgumentNullException(nameof(request), "Request or Request.Id cannot be null.");
+        }
+
+        await _planrepo.DeleteAsync(request.Id);
+    }
 }

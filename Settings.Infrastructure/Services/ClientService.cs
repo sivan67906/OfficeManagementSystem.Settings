@@ -23,7 +23,7 @@ namespace Settings.Infrastructure.Services
                 p => p.ClientName.Contains(client, StringComparison.OrdinalIgnoreCase));
         }
 
-        public async Task UpdateLeadAgentAsync(Client client)
+        public async System.Threading.Tasks.Task UpdateLeadAgentAsync(Client client)
         {
             var existingProduct = await _clientRepository.GetByIdAsync(client.Id);
 

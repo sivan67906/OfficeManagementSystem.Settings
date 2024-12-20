@@ -6,7 +6,7 @@ namespace Settings.Application.Services
     {
         Task<LeadSource> GetByLeadSourceNameAsync(string leadSource);
         Task<IEnumerable<LeadSource>> SearchLeadSourceByNameAsync(string leadSource);
-        Task UpdateLeadSourceAsync(LeadSource leadSource);
+        System.Threading.Tasks.Task UpdateLeadSourceAsync(LeadSource leadSource);
     }
 }
  

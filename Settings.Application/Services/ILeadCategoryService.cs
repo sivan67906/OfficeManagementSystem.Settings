@@ -6,6 +6,6 @@ namespace Settings.Application.Services
     {
         Task<LeadCategory> GetByCategoryNameAsync(string categoryName);
         Task<IEnumerable<LeadCategory>> SearchCategoryByNameAsync(string categoryName);
-        Task UpdateCategoryAsync(LeadCategory category);
+        System.Threading.Tasks.Task UpdateCategoryAsync(LeadCategory category);
     }
 }

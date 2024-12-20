@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using Settings.Application.DTOs;
 
 namespace Settings.Application.Features.Plannings.Queries.GetAllPlannings;
-internal class GetAllPlanningsQuery
+public class GetAllPlanningsQuery : IRequest<IEnumerable<PlanningDTO>>
 {
+
 }

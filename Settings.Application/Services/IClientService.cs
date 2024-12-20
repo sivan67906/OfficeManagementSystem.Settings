@@ -6,6 +6,6 @@ namespace Settings.Application.Services
     {
         Task<Client> GetByLeadAgentNameAsync(string client);
         Task<IEnumerable<Client>> SearchLeadAgentByNameAsync(string client);
-        Task UpdateLeadAgentAsync(Client client);
+        System.Threading.Tasks.Task UpdateLeadAgentAsync(Client client);
     }
 }

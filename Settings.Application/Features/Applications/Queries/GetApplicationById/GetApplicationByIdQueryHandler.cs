@@ -1,5 +1,7 @@
-﻿using MediatR;
+﻿using Azure.Core;
+using MediatR;
 using Settings.Application.DTOs;
+using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Applications.Queries.GetApplicationById;
@@ -19,6 +21,8 @@ public class GetApplicationByIdQueryHandler : IRequestHandler<GetApplicationById
             TimeFormat = application.TimeFormat,
             DefaultTimezone = application.DefaultTimezone,
             CurrencyId = application.CurrencyId,
+            CurrencyCode = application.Currency.CurrencyCode,
+            CurrencySymbol = application.Currency.CurrencySymbol,
             Language = application.Language,
             DatatableRowLimit = application.DatatableRowLimit,
             EmployeeCanExportData = application.EmployeeCanExportData,

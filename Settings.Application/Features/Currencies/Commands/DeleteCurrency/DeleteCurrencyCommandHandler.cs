@@ -8,7 +8,7 @@ public class DeleteCurrencyCommandHandler : IRequestHandler<DeleteCurrencyComman
     private readonly IGenericRepository<Currency> _currencyRepo;
     public DeleteCurrencyCommandHandler(IGenericRepository<Currency> currencyRepo) => _currencyRepo = currencyRepo;
 
-    public async Task Handle(DeleteCurrencyCommand request, CancellationToken cancellationToken)
+    public async System.Threading.Tasks.Task Handle(DeleteCurrencyCommand request, CancellationToken cancellationToken)
     {
         if (request == null || request.Id == null)
         {

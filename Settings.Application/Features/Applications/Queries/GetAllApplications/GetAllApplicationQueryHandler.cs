@@ -19,6 +19,8 @@ public class GetAllApplicationQueryHandler : IRequestHandler<GetAllApplicationQu
             TimeFormat = x.TimeFormat,
             DefaultTimezone = x.DefaultTimezone,
             CurrencyId = x.CurrencyId,
+            CurrencyCode=x.Currency?.CurrencyCode,
+            CurrencySymbol=x.Currency?.CurrencySymbol,
             Language = x.Language,
             DatatableRowLimit = x.DatatableRowLimit,
             EmployeeCanExportData = x.EmployeeCanExportData,

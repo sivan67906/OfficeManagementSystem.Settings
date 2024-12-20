@@ -24,7 +24,7 @@ namespace ConfigurationServices.CQRS.Infrastucture.Services
             return leads.Where(p => p.source.Contains(leadSource, StringComparison.OrdinalIgnoreCase));
         }
 
-        public async Task UpdateLeadSourceAsync(LeadSource leadSource)
+        public async System.Threading.Tasks.Task UpdateLeadSourceAsync(LeadSource leadSource)
         {
             var existingProduct = await _leadRepository.GetByIdAsync(leadSource.Id);
 

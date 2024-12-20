@@ -192,6 +192,56 @@ namespace Settings.Infrastructure.Migrations
                     b.ToTable("LeadStatuses");
                 });
 
+            modelBuilder.Entity("Settings.Domain.Entities.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("All")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("AllowChatClientEmployee")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Allowchatclientadmin")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("OnlyProjectMembercanwithclient")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("SoundNotifyAlert")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Method")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Payment");
+                });
+
             modelBuilder.Entity("Settings.Domain.Entities.Planning", b =>
                 {
                     b.Property<int>("Id")
@@ -233,6 +283,116 @@ namespace Settings.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Plannings");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.Task", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("AddFile")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("AfterXDate")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("AssignedBy")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("AssignedTo")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("BeforeXDate")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Comment")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CopyTaskLink")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CustomFields")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Description")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("DueDate")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("History")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("HoursLogged")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Label")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("MakePrivate")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Notes")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Priority")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Project")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("SendReminderDueDate")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("StartDate")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Statuss")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("SubTask")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TaskCategory")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("TaskboardLength")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("TimeEstimate")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Timesheet")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tasks");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.Tax", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Rate")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Taxes");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Applications", b =>
