@@ -3,17 +3,20 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Settings.Infrastructure.Persistence;
 
 #nullable disable
 
-namespace Settings.Infrastructure.Migrations
+namespace Settings.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241223171440_third")]
+    partial class third
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -359,9 +362,6 @@ namespace Settings.Infrastructure.Migrations
                     b.Property<bool>("IsSendReminder")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ProjectReminderPersonId")
-                        .HasColumnType("int");
-
                     b.Property<int>("RemindBefore")
                         .HasColumnType("int");
 
@@ -372,9 +372,6 @@ namespace Settings.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProjectReminderPersonId")
-                        .IsUnique();
 
                     b.ToTable("ProjectSettings");
                 });
@@ -534,25 +531,9 @@ namespace Settings.Infrastructure.Migrations
                     b.Navigation("Currency");
                 });
 
-            modelBuilder.Entity("Settings.Domain.Entities.ProjectSetting", b =>
-                {
-                    b.HasOne("Settings.Domain.Entities.ProjectReminderPerson", "ProjectReminderPerson")
-                        .WithOne("ProjectSetting")
-                        .HasForeignKey("Settings.Domain.Entities.ProjectSetting", "ProjectReminderPersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ProjectReminderPerson");
-                });
-
             modelBuilder.Entity("Settings.Domain.Entities.Currency", b =>
                 {
                     b.Navigation("Applications");
-                });
-
-            modelBuilder.Entity("Settings.Domain.Entities.ProjectReminderPerson", b =>
-                {
-                    b.Navigation("ProjectSetting");
                 });
 #pragma warning restore 612, 618
         }

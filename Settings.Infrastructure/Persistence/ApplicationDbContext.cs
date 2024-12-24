@@ -15,7 +15,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     {
         //modelBuilder.ApplyConfiguration(new ConsumerSeedData());
         modelBuilder.Entity<Applications>().Navigation(e => e.Currency).AutoInclude();
-        
+        modelBuilder.Entity<ProjectSetting>().Navigation(e => e.ProjectReminderPerson).AutoInclude();
+
     }
     public DbSet<LeadStatus> LeadStatuses { get; set; }
     public DbSet<LeadSource> LeadSources { get; set; }
@@ -30,6 +31,9 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<Payment> Payment { get; set; }
     public DbSet<Domain.Entities.Task> Tasks { get; set; }
     public DbSet<Tax> Taxes { get; set; }
-
+    public DbSet<ProjectCategory> ProjectCategories { get; set; }
+    public DbSet<ProjectStatus> ProjectStatuses { get; set; }
+    public DbSet<ProjectSetting> ProjectSettings { get; set; }
+    public DbSet<ProjectReminderPerson> ProjectReminderPersons { get; set; }
 
 }
