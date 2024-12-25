@@ -31,6 +31,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<Payment> Payment { get; set; }
     public DbSet<Domain.Entities.Task> Tasks { get; set; }
     public DbSet<Tax> Taxes { get; set; }
+    public DbSet<Notification> Notifications { get; set; }
+    public DbSet<Purchase> Purchases { get; set; }
     public DbSet<ProjectCategory> ProjectCategories { get; set; }
     public DbSet<ProjectStatus> ProjectStatuses { get; set; }
     public DbSet<ProjectSetting> ProjectSettings { get; set; }

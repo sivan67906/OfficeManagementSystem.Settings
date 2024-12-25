@@ -3,17 +3,20 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Settings.Infrastructure.Persistence;
 
 #nullable disable
 
-namespace Settings.Infrastructure.Migrations
+namespace Settings.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241225101318_Intial2")]
+    partial class Intial2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -221,220 +224,6 @@ namespace Settings.Infrastructure.Migrations
                     b.ToTable("Messages");
                 });
 
-            modelBuilder.Entity("Settings.Domain.Entities.Notification", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("AgentTicket")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("AttendanceReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("AutoTaskReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ContractSigned")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("EmployeeAssigntoProject")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("EstimateDeclined")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("EventInvite")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("EventReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("FollowUpReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("InvoiceCreated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("InvoiceReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Leadnotification")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LeaveApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LeaveRejected")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LeaveUpdated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ModulesEmailNotificationAttendanceReminderNew")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ModulesEmailNotificationEventInviteNew")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ModulesEmailNotificationEventReminderNew")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ModulesEmailNotificationTestNotification")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("MultipleLeaveApplication")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewClientTask")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewExpenseAddedbyAdmin")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewExpenseAddedbyMember")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewFileUploadedtoProject")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewLeaveApplication")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewLeaveRequest")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewMultipleLeaveApplication")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewNoticePublished")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewOrder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewPayment")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewProductPurchase")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewProject")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewPropoInvoiceUpdatedsal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewProposal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewRecurringInvoice")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewSupportTicketRequest")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewTask")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewTicketReply")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewTicketRequest")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NoticeUpdated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("OrderUpdated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PaymentReceived")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PaymentReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ProjectReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ProposalApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ProposalRejected")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RecurringExpenseStatusUpdated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RecurringInvoiceStatusUpdated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestAdminNotification")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestApprovedLead")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestApprovedUser")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestReject")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestRejectLead")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestRejectUser")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("SubTaskAssigneeAdded")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("SubTaskCompleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TaskComment")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TaskCompleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TaskCompletedClient")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TaskNote")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TaskReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TaskUpdateClient")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TaskUpdated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TwoFactorCode")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("UserJoinViaInvitation")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("UserRegistrationAddedbyAdmin")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Notifications");
-                });
-
             modelBuilder.Entity("Settings.Domain.Entities.Payment", b =>
                 {
                     b.Property<int>("Id")
@@ -622,55 +411,6 @@ namespace Settings.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProjectStatuses");
-                });
-
-            modelBuilder.Entity("Settings.Domain.Entities.Purchase", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("BillOrderNumberDigits")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BillOrderNumberExample")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BillOrderNumberSeperater")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BillOrderPrefix")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PurchaseOrderNumberDigits")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PurchaseOrderNumberExample")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PurchaseOrderNumberSeperater")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PurchaseOrderPrefix")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VendorCreditNumberDigits")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VendorCreditNumberExample")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VendorCreditNumberSeperater")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VendorCreditPrefix")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Purchases");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Task", b =>
