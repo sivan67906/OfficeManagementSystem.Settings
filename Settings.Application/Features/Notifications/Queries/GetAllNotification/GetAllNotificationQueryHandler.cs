@@ -4,7 +4,7 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Notifications.Queries.GetAllNotification;
-public class GetAllNotificationQueryHandler : IRequestHandler<GetAllNotificationQuery, IEnumerable<NotificationDTO>>
+public class GetAllNotificationQueryHandler : IRequestHandler<GetAllNotificationQuery, IEnumerable<NotificatonDTO>>
 {
     private readonly IGenericRepository<Notification> _notifyrepo;
     public GetAllNotificationQueryHandler(IGenericRepository<Notification> notifyrepo)
@@ -12,11 +12,11 @@ public class GetAllNotificationQueryHandler : IRequestHandler<GetAllNotification
         _notifyrepo = notifyrepo;
     }
 
-    public async Task<IEnumerable<NotificationDTO>> Handle(GetAllNotificationQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<NotificatonDTO>> Handle(GetAllNotificationQuery request, CancellationToken cancellationToken)
     {
         var clients = await _notifyrepo.GetAllAsync();
 
-        var clientlist = clients.Select(x => new NotificationDTO
+        var clientlist = clients.Select(x => new NotificatonDTO
         {
             Id = x.Id,
             ContractSigned = x.ContractSigned,

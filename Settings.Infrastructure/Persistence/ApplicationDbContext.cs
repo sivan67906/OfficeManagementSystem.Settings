@@ -78,9 +78,3 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<Address> Addresses { get; set; }
     public DbSet<TimeLog> TimeLogs { get; set; }
 }
-    public DbSet<BillOrder> BillOrders { get; set; }
-    public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
-    public DbSet<VendorCredit> VendorCredit { get; set; }
-    //public DbSet<Employee>Employees { get; set; }
-
-}

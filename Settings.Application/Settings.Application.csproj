@@ -7,19 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Features\IsToggleType\**" />
-    <Compile Remove="Features\Notification\**" />
-    <EmbeddedResource Remove="Features\IsToggleType\**" />
-    <EmbeddedResource Remove="Features\Notification\**" />
-    <None Remove="Features\IsToggleType\**" />
-    <None Remove="Features\Notification\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="DTOs\IsToggleTypeDTO.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EditorConfigFiles Remove="D:\Workspace\OMS\OfficeManagementSystem.Settings\Settings.Application\.editorconfig" />
   </ItemGroup>
 

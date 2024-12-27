@@ -1,6 +1,3 @@
-﻿using Settings.Domain.Entities;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace Settings.Application.DTOs;
 
 public class StateDTO
@@ -13,6 +10,5 @@ public class StateDTO
     public DateTime CreatedDate { get; set; }
     public DateTime? UpdatedDate { get; set; }
     public bool IsActive { get; set; }
-
 }
 

@@ -2,6 +2,6 @@
 using Settings.Application.DTOs;
 
 namespace Settings.Application.Features.Notifications.Queries.GetAllNotification;
-public class GetAllNotificationQuery : IRequest<IEnumerable<NotificationDTO>>
+public class GetAllNotificationQuery : IRequest<IEnumerable<NotificatonDTO>>
 {
 }

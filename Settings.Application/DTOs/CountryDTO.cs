@@ -1,6 +1,5 @@
-﻿namespace Settings.Domain.Entities;
+namespace Settings.Domain.Entities;
 
-namespace Settings.Application.DTOs;
 public class CountryDTO
 {
     public int Id { get; set; }

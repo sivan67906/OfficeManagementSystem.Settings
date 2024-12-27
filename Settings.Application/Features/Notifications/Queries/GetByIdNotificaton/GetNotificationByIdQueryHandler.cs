@@ -4,7 +4,7 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Notifications.Queries.GetByIdNotificaton;
-public class GetNotificationByIdQueryHandler : IRequestHandler<GetNotificationByIdQuery, NotificationDTO>
+public class GetNotificationByIdQueryHandler : IRequestHandler<GetNotificationByIdQuery, NotificatonDTO>
 {
     private readonly IGenericRepository<Notification> _repository;
     public GetNotificationByIdQueryHandler(IGenericRepository<Notification> repository)
@@ -12,11 +12,11 @@ public class GetNotificationByIdQueryHandler : IRequestHandler<GetNotificationBy
         _repository = repository;
     }
 
-    public async Task<NotificationDTO> Handle(GetNotificationByIdQuery request, CancellationToken cancellationToken)
+    public async Task<NotificatonDTO> Handle(GetNotificationByIdQuery request, CancellationToken cancellationToken)
     {
         var notification = await _repository.GetByIdAsync(request.Id);
         if (notification == null) return null;
-        return new NotificationDTO
+        return new NotificatonDTO
         {
             Id = notification.Id,
             ContractSigned = notification.ContractSigned,
