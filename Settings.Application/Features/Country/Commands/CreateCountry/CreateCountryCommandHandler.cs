@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.Countries.Commands.CreateCountry;
+namespace Settings.Application.Features.Countries.Commands.CreateCountry;
 
 internal class CreateCountryCommandHandler(
     IGenericRepository<Country> countryRepository) : IRequestHandler<CreateCountryCommand>
@@ -20,6 +20,7 @@ internal class CreateCountryCommandHandler(
         await countryRepository.CreateAsync(country);
     }
 }
+
 
 
 

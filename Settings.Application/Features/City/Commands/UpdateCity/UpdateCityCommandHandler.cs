@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.Cities.Commands.UpdateCity;
+namespace Settings.Application.Features.Cities.Commands.UpdateCity;
 
 internal class UpdateCityCommandHandler : IRequestHandler<UpdateCityCommand>
 {
@@ -26,6 +26,7 @@ internal class UpdateCityCommandHandler : IRequestHandler<UpdateCityCommand>
         await _cityRepository.UpdateAsync(city);
     }
 }
+
 
 
 

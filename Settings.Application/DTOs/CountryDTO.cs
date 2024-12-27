@@ -1,4 +1,4 @@
-﻿using Settings.Domain.Entities;
+﻿namespace Settings.Domain.Entities;
 
 namespace Settings.Application.DTOs;
 public class CountryDTO
@@ -10,3 +10,4 @@ public class CountryDTO
     public DateTime? UpdatedDate { get; set; }
     public bool IsActive { get; set; }
 }
+

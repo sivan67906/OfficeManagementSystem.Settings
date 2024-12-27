@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.States.Commands.UpdateState;
+namespace Settings.Application.Features.States.Commands.UpdateState;
 
 internal class UpdateStateCommandHandler : IRequestHandler<UpdateStateCommand>
 {
@@ -26,6 +26,7 @@ internal class UpdateStateCommandHandler : IRequestHandler<UpdateStateCommand>
         await _stateRepository.UpdateAsync(state);
     }
 }
+
 
 
 

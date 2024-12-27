@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Settings.Domain.Entities;
+
 public class City
 {
     public int Id { get; set; }
@@ -15,3 +16,4 @@ public class City
     public int StateId { get; set; }
     public State State { get; set; } = null!;
 }
+

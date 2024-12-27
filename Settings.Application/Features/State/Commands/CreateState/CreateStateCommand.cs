@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Configuration.Application.Features.States.Commands.CreateState;
+namespace Settings.Application.Features.States.Commands.CreateState;
 
 public class CreateStateCommand : IRequest
 {
@@ -10,6 +10,7 @@ public class CreateStateCommand : IRequest
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     public bool IsActive { get; set; } = true;
 }
+
 
 
 

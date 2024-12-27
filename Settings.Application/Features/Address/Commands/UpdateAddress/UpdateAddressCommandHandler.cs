@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.Addresses.Commands.UpdateAddress;
+namespace Settings.Application.Features.Addresses.Commands.UpdateAddress;
 
 internal class UpdateAddressCommandHandler : IRequestHandler<UpdateAddressCommand>
 {
@@ -20,15 +20,17 @@ internal class UpdateAddressCommandHandler : IRequestHandler<UpdateAddressComman
             Address1 = request.Address1,
             Address2 = request.Address2,
             ZipCode = request.ZipCode,
-
+            Latitude = request.Latitude,
+            Longitude = request.Longitude,
             CityId = request.CityId,
-
+            IsPrimary = request.IsPrimary,
             UpdatedDate = request.UpdatedDate
         };
 
         await _addressRepository.UpdateAsync(address);
     }
 }
+
 
 
 

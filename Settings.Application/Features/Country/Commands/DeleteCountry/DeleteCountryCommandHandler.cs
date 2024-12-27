@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.Countries.Commands.DeleteCountry;
+namespace Settings.Application.Features.Countries.Commands.DeleteCountry;
 
 internal class DeleteCountryCommandHandler : IRequestHandler<DeleteCountryCommand>
 {
@@ -16,6 +16,7 @@ internal class DeleteCountryCommandHandler : IRequestHandler<DeleteCountryComman
         await _countryRepository.DeleteAsync(request.Id);
     }
 }
+
 
 
 

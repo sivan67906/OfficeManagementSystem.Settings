@@ -3,7 +3,7 @@ using Settings.Application.DTOs;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.States.Queries.GetStateById;
+namespace Settings.Application.Features.States.Queries.GetStateById;
 
 internal class GetStateByIdQueryHandler : IRequestHandler<GetStateByIdQuery, StateDTO>
 {
@@ -29,6 +29,7 @@ internal class GetStateByIdQueryHandler : IRequestHandler<GetStateByIdQuery, Sta
         };
     }
 }
+
 
 
 

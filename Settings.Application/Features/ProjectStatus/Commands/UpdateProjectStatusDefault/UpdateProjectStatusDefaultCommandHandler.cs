@@ -12,7 +12,7 @@ internal class UpdateProjectStatusDefaultCommandHandler : IRequestHandler<Update
         _projectStatusRepository = projectStatusRepository;
     }
 
-    public async Task Handle(UpdateProjectStatusDefaultCommand request, CancellationToken cancellationToken)
+    public async System.Threading.Tasks.Task Handle(UpdateProjectStatusDefaultCommand request, CancellationToken cancellationToken)
     {
         var projectStatus = await _projectStatusRepository.GetByIdAsync(request.Id);
 

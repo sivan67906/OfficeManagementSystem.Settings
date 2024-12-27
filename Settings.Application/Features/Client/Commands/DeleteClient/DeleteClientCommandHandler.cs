@@ -7,7 +7,7 @@ public class DeleteClientCommandHandler : IRequestHandler<DeleteClientCommand>
     private readonly IGenericRepository<Domain.Entities.Client> _repository;
     public DeleteClientCommandHandler(IGenericRepository<Domain.Entities.Client> repository) => _repository = repository;
 
-    public async Task Handle(DeleteClientCommand request, CancellationToken cancellationToken)
+    public async System.Threading.Tasks.Task Handle(DeleteClientCommand request, CancellationToken cancellationToken)
     {
         if (request == null || request.Id == null)
         {

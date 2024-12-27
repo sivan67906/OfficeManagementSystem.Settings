@@ -1,8 +1,8 @@
 using MediatR;
-using Settings.Application.DTOs;
+using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.Countries.Queries.GetCountryById;
+namespace Settings.Application.Features.Countries.Queries.GetCountryById;
 
 internal class GetCountryByIdQueryHandler : IRequestHandler<GetCountryByIdQuery, CountryDTO>
 {
@@ -27,6 +27,7 @@ internal class GetCountryByIdQueryHandler : IRequestHandler<GetCountryByIdQuery,
         };
     }
 }
+
 
 
 

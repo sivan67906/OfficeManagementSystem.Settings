@@ -3,7 +3,7 @@ using Settings.Application.DTOs;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.States.Queries.GetAllStates;
+namespace Settings.Application.Features.States.Queries.GetAllStates;
 
 internal class GetAllStatesQueryHandler : IRequestHandler<GetAllStatesQuery, IEnumerable<StateDTO>>
 {
@@ -31,6 +31,7 @@ internal class GetAllStatesQueryHandler : IRequestHandler<GetAllStatesQuery, IEn
         return stateList;
     }
 }
+
 
 
 

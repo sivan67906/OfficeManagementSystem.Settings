@@ -1,4 +1,5 @@
-﻿namespace Settings.Domain.Entities;
+namespace Settings.Domain.Entities;
+
 public class Country
 {
     public int Id { get; set; }
@@ -11,3 +12,4 @@ public class Country
     // Navigation Property
     public ICollection<State> States { get; set; } = new List<State>();
 }
+

@@ -1,9 +1,9 @@
-using MediatR;
 using Settings.Application.DTOs;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
+using MediatR;
 
-namespace Configuration.Application.Features.Cities.Queries.GetAllCities;
+namespace Settings.Application.Features.Cities.Queries.GetAllCities;
 
 internal class GetAllCitiesQueryHandler : IRequestHandler<GetAllCitiesQuery, IEnumerable<CityDTO>>
 {
@@ -29,6 +29,7 @@ internal class GetAllCitiesQueryHandler : IRequestHandler<GetAllCitiesQuery, IEn
         return cityList;
     }
 }
+
 
 
 

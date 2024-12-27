@@ -8,7 +8,7 @@ namespace Settings.Application.Feauters.LeadAgent.Commands.DeleteLeadAgent
         private readonly IGenericRepository<Domain.Entities.LeadAgent> _repository;
         public DeleteLeadAgentCommandHandler(IGenericRepository<Domain.Entities.LeadAgent> repository) => _repository = repository;
 
-        public async Task Handle(DeleteLeadAgentCommand request, CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task Handle(DeleteLeadAgentCommand request, CancellationToken cancellationToken)
         {
             if (request == null || request.Id == null)
             {

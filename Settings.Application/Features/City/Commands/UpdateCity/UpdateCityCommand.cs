@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Configuration.Application.Features.Cities.Commands.UpdateCity;
+namespace Settings.Application.Features.Cities.Commands.UpdateCity;
 
 public class UpdateCityCommand : IRequest
 {
@@ -10,6 +10,7 @@ public class UpdateCityCommand : IRequest
     public int StateId { get; set; }
     public DateTime UpdatedDate { get; set; }
 }
+
 
 
 

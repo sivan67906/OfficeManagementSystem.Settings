@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.Cities.Commands.CreateCity;
+namespace Settings.Application.Features.Cities.Commands.CreateCity;
 
 internal class CreateCityCommandHandler(
     IGenericRepository<City> cityRepository) : IRequestHandler<CreateCityCommand>
@@ -21,6 +21,7 @@ internal class CreateCityCommandHandler(
         await cityRepository.CreateAsync(city);
     }
 }
+
 
 
 

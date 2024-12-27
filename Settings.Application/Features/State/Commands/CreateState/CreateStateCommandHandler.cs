@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.States.Commands.CreateState;
+namespace Settings.Application.Features.States.Commands.CreateState;
 
 internal class CreateStateCommandHandler(
     IGenericRepository<State> stateRepository) : IRequestHandler<CreateStateCommand>
@@ -20,9 +20,8 @@ internal class CreateStateCommandHandler(
 
         await stateRepository.CreateAsync(state);
     }
-
-    
 }
+
 
 
 

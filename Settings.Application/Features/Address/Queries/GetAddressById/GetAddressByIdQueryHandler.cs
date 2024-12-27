@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Application.DTOs;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.Addresses.Queries.GetAddressById;
+namespace Settings.Application.Features.Addresses.Queries.GetAddressById;
 
 internal class GetAddressByIdQueryHandler : IRequestHandler<GetAddressByIdQuery, AddressDTO>
 {
@@ -22,11 +22,15 @@ internal class GetAddressByIdQueryHandler : IRequestHandler<GetAddressByIdQuery,
             Address1 = address.Address1,
             Address2 = address.Address2,
             ZipCode = address.ZipCode,
+            Latitude = address.Latitude,
+            Longitude = address.Longitude,
+            IsPrimary = address.IsPrimary,
             CreatedDate = address.CreatedDate,
             IsActive = address.IsActive
         };
     }
 }
+
 
 
 

@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Application.DTOs;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.Cities.Queries.GetCityById;
+namespace Settings.Application.Features.Cities.Queries.GetCityById;
 
 internal class GetCityByIdQueryHandler : IRequestHandler<GetCityByIdQuery, CityDTO>
 {
@@ -26,6 +26,7 @@ internal class GetCityByIdQueryHandler : IRequestHandler<GetCityByIdQuery, CityD
         };
     }
 }
+
 
 
 

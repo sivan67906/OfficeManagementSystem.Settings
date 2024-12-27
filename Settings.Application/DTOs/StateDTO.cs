@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Settings.Application.DTOs;
+
 public class StateDTO
 {
     public int Id { get; set; }
@@ -14,3 +15,4 @@ public class StateDTO
     public bool IsActive { get; set; }
 
 }
+

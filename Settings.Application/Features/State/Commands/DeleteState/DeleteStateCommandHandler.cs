@@ -1,8 +1,8 @@
-using MediatR;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
+using MediatR;
 
-namespace Configuration.Application.Features.States.Commands.DeleteState;
+namespace Settings.Application.Features.States.Commands.DeleteState;
 
 internal class DeleteStateCommandHandler : IRequestHandler<DeleteStateCommand>
 {
@@ -16,6 +16,7 @@ internal class DeleteStateCommandHandler : IRequestHandler<DeleteStateCommand>
         await _stateRepository.DeleteAsync(request.Id);
     }
 }
+
 
 
 

@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Configuration.Application.Features.Countries.Commands.CreateCountry;
+namespace Settings.Application.Features.Countries.Commands.CreateCountry;
 
 public class CreateCountryCommand : IRequest
 {
@@ -9,6 +9,7 @@ public class CreateCountryCommand : IRequest
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     public bool IsActive { get; set; } = true;
 }
+
 
 
 

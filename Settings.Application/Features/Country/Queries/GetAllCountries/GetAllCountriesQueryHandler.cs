@@ -1,9 +1,8 @@
 using MediatR;
-using Settings.Application.DTOs;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.Countries.Queries.GetAllCountries;
+namespace Settings.Application.Features.Countries.Queries.GetAllCountries;
 
 internal class GetAllCountriesQueryHandler : IRequestHandler<GetAllCountriesQuery, IEnumerable<CountryDTO>>
 {
@@ -30,6 +29,7 @@ internal class GetAllCountriesQueryHandler : IRequestHandler<GetAllCountriesQuer
         return countryList;
     }
 }
+
 
 
 

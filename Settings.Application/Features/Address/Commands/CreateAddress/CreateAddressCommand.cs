@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Configuration.Application.Features.Addresses.Commands.CreateAddress;
+namespace Settings.Application.Features.Addresses.Commands.CreateAddress;
 
 public class CreateAddressCommand : IRequest
 {
@@ -14,6 +14,7 @@ public class CreateAddressCommand : IRequest
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     public bool IsActive { get; set; } = true;
 }
+
 
 
 

@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Configuration.Application.Features.Cities.Commands.CreateCity;
+namespace Settings.Application.Features.Cities.Commands.CreateCity;
 
 public class CreateCityCommand : IRequest
 {
@@ -10,6 +10,7 @@ public class CreateCityCommand : IRequest
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     public bool IsActive { get; set; } = true;
 }
+
 
 
 

@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Configuration.Application.Features.Countries.Commands.UpdateCountry;
+namespace Settings.Application.Features.Countries.Commands.UpdateCountry;
 
 public class UpdateCountryCommand : IRequest
 {
@@ -9,6 +9,7 @@ public class UpdateCountryCommand : IRequest
     public required string Name { get; set; }
     public DateTime UpdatedDate { get; set; }
 }
+
 
 
 

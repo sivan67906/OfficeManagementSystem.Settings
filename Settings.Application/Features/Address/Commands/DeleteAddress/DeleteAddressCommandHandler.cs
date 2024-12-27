@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.Addresses.Commands.DeleteAddress;
+namespace Settings.Application.Features.Addresses.Commands.DeleteAddress;
 
 internal class DeleteAddressCommandHandler : IRequestHandler<DeleteAddressCommand>
 {
@@ -16,6 +16,7 @@ internal class DeleteAddressCommandHandler : IRequestHandler<DeleteAddressComman
         await _addressRepository.DeleteAsync(request.Id);
     }
 }
+
 
 
 

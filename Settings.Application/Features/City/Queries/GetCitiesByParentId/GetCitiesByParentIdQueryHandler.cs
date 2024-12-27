@@ -1,9 +1,9 @@
-﻿using Configuration.Application.Features.Cities.Queries.GetCitiesByParentId;
-using Configuration.Application.Services;
-using MediatR;
 using Settings.Application.DTOs;
+using Settings.Application.Features.Cities.Queries.GetCitiesByParentId;
+using Settings.Application.Services;
+using MediatR;
 
-namespace Configuration.Application.Features.Citys.Queries.GetCitysByParentId;
+namespace Settings.Application.Features.Citys.Queries.GetCitysByParentId;
 public class GetCitiesByParentIdQueryHandler : IRequestHandler<GetCitiesByParentIdQuery, IEnumerable<CityDTO>>
 {
     private readonly ICityService _cityService;
@@ -32,3 +32,4 @@ public class GetCitiesByParentIdQueryHandler : IRequestHandler<GetCitiesByParent
         return cityList;
     }
 }
+

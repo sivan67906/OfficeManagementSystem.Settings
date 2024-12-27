@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Configuration.Application.Features.Addresses.Commands.UpdateAddress;
+namespace Settings.Application.Features.Addresses.Commands.UpdateAddress;
 
 public class UpdateAddressCommand : IRequest
 {
@@ -14,6 +14,7 @@ public class UpdateAddressCommand : IRequest
     public bool IsPrimary { get; set; }
     public DateTime UpdatedDate { get; set; }
 }
+
 
 
 

@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.Countries.Commands.UpdateCountry;
+namespace Settings.Application.Features.Countries.Commands.UpdateCountry;
 
 internal class UpdateCountryCommandHandler : IRequestHandler<UpdateCountryCommand>
 {
@@ -25,6 +25,7 @@ internal class UpdateCountryCommandHandler : IRequestHandler<UpdateCountryComman
         await _countryRepository.UpdateAsync(country);
     }
 }
+
 
 
 

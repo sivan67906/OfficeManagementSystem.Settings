@@ -1,8 +1,9 @@
-﻿using Settings.Domain.Entities;
+using Settings.Domain.Entities;
 
-namespace Configuration.Application.Services;
+namespace Settings.Application.Services;
 
 public interface IStateService
 {
     Task<IEnumerable<State>> GetStatesByParentId(int countryId);
 }
+

@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Configuration.Application.Features.Addresses.Commands.CreateAddress;
+namespace Settings.Application.Features.Addresses.Commands.CreateAddress;
 
 internal class CreateAddressCommandHandler(
     IGenericRepository<Address> addressRepository) : IRequestHandler<CreateAddressCommand>
@@ -14,9 +14,10 @@ internal class CreateAddressCommandHandler(
             Address1 = request.Address1,
             Address2 = request.Address2,
             ZipCode = request.ZipCode,
-
+            Latitude = request.Latitude,
+            Longitude = request.Longitude,
             CityId = request.CityId,
-
+            IsPrimary = request.IsPrimary,
             CreatedDate = DateTime.Now,
             IsActive = true
         };
@@ -24,6 +25,7 @@ internal class CreateAddressCommandHandler(
         await addressRepository.CreateAsync(address);
     }
 }
+
 
 
 

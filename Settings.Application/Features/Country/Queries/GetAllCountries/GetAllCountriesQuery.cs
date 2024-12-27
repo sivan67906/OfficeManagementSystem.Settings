@@ -1,11 +1,12 @@
+using Settings.Domain.Entities;
 using MediatR;
-using Settings.Application.DTOs;
 
-namespace Configuration.Application.Features.Countries.Queries.GetAllCountries;
+namespace Settings.Application.Features.Countries.Queries.GetAllCountries;
 
 public class GetAllCountriesQuery : IRequest<IEnumerable<CountryDTO>>
 {
 }
+
 
 
 

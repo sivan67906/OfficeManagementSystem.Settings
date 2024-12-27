@@ -1,8 +1,8 @@
-﻿using Configuration.Application.Services;
-using MediatR;
 using Settings.Application.DTOs;
+using Settings.Application.Services;
+using MediatR;
 
-namespace Configuration.Application.Features.States.Queries.GetStatesByParentId;
+namespace Settings.Application.Features.States.Queries.GetStatesByParentId;
 public class GetStatesByParentIdQueryHandler : IRequestHandler<GetStatesByParentIdQuery, IEnumerable<StateDTO>>
 {
     private readonly IStateService _stateService;
@@ -31,3 +31,4 @@ public class GetStatesByParentIdQueryHandler : IRequestHandler<GetStatesByParent
         return consumers;
     }
 }
+

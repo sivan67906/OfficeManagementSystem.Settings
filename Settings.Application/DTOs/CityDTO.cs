@@ -1,4 +1,5 @@
 ﻿namespace Settings.Application.DTOs;
+
 public class CityDTO
 {
     public int Id { get; set; }
@@ -10,3 +11,4 @@ public class CityDTO
     public DateTime? UpdatedDate { get; set; }
     public bool IsActive { get; set; }
 }
+
