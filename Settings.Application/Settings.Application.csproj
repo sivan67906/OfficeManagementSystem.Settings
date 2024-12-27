@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\IsToggleType\**" />
+    <EmbeddedResource Remove="Features\IsToggleType\**" />
+    <None Remove="Features\IsToggleType\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTOs\IsToggleTypeDTO.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EditorConfigFiles Remove="D:\Workspace\OMS\OfficeManagementSystem.Settings\Settings.Application\.editorconfig" />
   </ItemGroup>
 

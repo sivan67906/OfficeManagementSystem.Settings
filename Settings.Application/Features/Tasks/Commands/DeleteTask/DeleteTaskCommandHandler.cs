@@ -10,7 +10,7 @@ public class DeleteTaskCommandHandler : IRequestHandler<DeleteTaskCommand>
         _repository = repository;
     }
 
-    public async Task Handle(DeleteTaskCommand request, CancellationToken cancellationToken)
+    public async System.Threading.Tasks.Task Handle(DeleteTaskCommand request, CancellationToken cancellationToken)
     {
         if (request == null || request.Id == null)
         {

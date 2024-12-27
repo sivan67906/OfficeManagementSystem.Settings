@@ -8,7 +8,7 @@ public class DeleteApplicationCommandHandler : IRequestHandler<DeleteApplication
 
     public DeleteApplicationCommandHandler(IGenericRepository<Domain.Entities.Applications> repository) => _appliRepo = repository;
 
-    public async Task Handle(DeleteApplicationCommand request, CancellationToken cancellationToken)
+    public async System.Threading.Tasks.Task Handle(DeleteApplicationCommand request, CancellationToken cancellationToken)
     {
         if (request == null || request.Id == null)
         {

@@ -16,7 +16,24 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         //modelBuilder.ApplyConfiguration(new ConsumerSeedData());
         modelBuilder.Entity<Applications>().Navigation(e => e.Currency).AutoInclude();
         modelBuilder.Entity<ProjectSetting>().Navigation(e => e.ProjectReminderPerson).AutoInclude();
-
+        modelBuilder.Entity<RecruitCustomQuestionSetting>().Navigation(e => e.CustomQuestionType).AutoInclude();
+        modelBuilder.Entity<RecruitCustomQuestionSetting>().Navigation(e => e.CustomQuestionCategory).AutoInclude();
+        modelBuilder.Entity<RecruitJobApplicationStatusSetting>().Navigation(e => e.JobApplicationPosition).AutoInclude();
+        modelBuilder.Entity<RecruitJobApplicationStatusSetting>().Navigation(e => e.JobApplicationCategory).AutoInclude();
+        modelBuilder.Entity<TimeLog>().Navigation(e => e.role).AutoInclude();
+        modelBuilder.Entity<Company>().Navigation(e => e.BusinessType).AutoInclude();
+        modelBuilder.Entity<Company>().Navigation(e => e.Category).AutoInclude();
+        modelBuilder.Entity<Department>().Navigation(e => e.Company).AutoInclude();
+        modelBuilder.Entity<Designation>().Navigation(e => e.Company).AutoInclude();
+        modelBuilder.Entity<Designation>().Navigation(e => e.Department).AutoInclude();
+        modelBuilder.Entity<Role>().Navigation(e => e.Company).AutoInclude();
+        modelBuilder.Entity<Role>().Navigation(e => e.Department).AutoInclude();
+        modelBuilder.Entity<Role>().Navigation(e => e.Designation).AutoInclude();
+        modelBuilder.Entity<BusinessLocation>().Navigation(e => e.Company).AutoInclude();
+        modelBuilder.Entity<BusinessLocation>().Navigation(e => e.Address).AutoInclude();
+        modelBuilder.Entity<BusinessLocation>().Navigation(e => e.Country).AutoInclude();
+        modelBuilder.Entity<BusinessLocation>().Navigation(e => e.State).AutoInclude();
+        modelBuilder.Entity<BusinessLocation>().Navigation(e => e.City).AutoInclude();
     }
     public DbSet<LeadStatus> LeadStatuses { get; set; }
     public DbSet<LeadSource> LeadSources { get; set; }
@@ -35,5 +52,28 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<ProjectStatus> ProjectStatuses { get; set; }
     public DbSet<ProjectSetting> ProjectSettings { get; set; }
     public DbSet<ProjectReminderPerson> ProjectReminderPersons { get; set; }
-
+    public DbSet<CustomQuestionCategory> CustomQuestionCategories { get; set; }
+    public DbSet<CustomQuestionType> CustomQuestionTypes { get; set; }
+    public DbSet<JobApplicationCategory> JobApplicationCategories { get; set; }
+    public DbSet<JobApplicationPosition> JobApplicationPositions { get; set; }
+    public DbSet<RecruitCustomQuestionSetting> RecruitCustomQuestionSettings { get; set; }
+    public DbSet<RecruiterSetting> RecruiterSettings { get; set; }
+    public DbSet<RecruitFooterSetting> RecruitFooterSettings { get; set; }
+    public DbSet<RecruitGeneralSetting> RecruitGeneralSettings { get; set; }
+    public DbSet<RecruitJobApplicationStatusSetting> RecruitJobApplicationStatusSettings { get; set; }
+    public DbSet<RecruitNotificationSetting> RecruitNotificationSettings { get; set; }
+    public DbSet<Company> Companies { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<BusinessType> BusinessTypes { get; set; }
+    public DbSet<BusinessLocation> BusinessLocations { get; set; }
+    public DbSet<Department> Departments { get; set; }
+    public DbSet<Designation> Designations { get; set; }
+    public DbSet<Role> Roles { get; set; }
+    public DbSet<Client> clients { get; set; }
+    public DbSet<State> States { get; set; }
+    public DbSet<Country> Countries { get; set; }
+    public DbSet<City> Cities { get; set; }
+    public DbSet<Address> Addresses { get; set; }
+    public DbSet<TimeLog> TimeLogs { get; set; }
+    public DbSet<Notification> Notifications { get; set; }
 }
