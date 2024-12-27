@@ -77,5 +77,4 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<City> Cities { get; set; }
     public DbSet<Address> Addresses { get; set; }
     public DbSet<TimeLog> TimeLogs { get; set; }
-    public DbSet<Notification> Notifications { get; set; }
 }

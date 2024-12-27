@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\IsToggleTypeController.cs" />
+    <Compile Remove="Controllers\NotificationController.cs" />
   </ItemGroup>
 
     <ItemGroup>
