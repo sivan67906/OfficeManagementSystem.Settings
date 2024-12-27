@@ -1,5 +1,5 @@
-﻿namespace Settings.Domain.Entities;
-public class Notification
+﻿namespace Settings.Application.DTOs;
+public class NotificatonDTO
 {
     public int Id { get; set; }
     public bool ContractSigned { get; set; }
@@ -96,5 +96,4 @@ public class Notification
     public bool RemovalRequestRejectLead { get; set; }
     public bool RemovalRequestRejectUser { get; set; }
     public bool RemovalRequestApprovedUser { get; set; }
-
 }

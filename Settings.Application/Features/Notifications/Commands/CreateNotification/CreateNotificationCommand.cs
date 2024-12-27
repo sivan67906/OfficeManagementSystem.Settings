@@ -1,5 +1,7 @@
-﻿namespace Settings.Domain.Entities;
-public class Notification
+﻿using MediatR;
+
+namespace Settings.Application.Features.Notifications.Commands.CreateNotification;
+public class CreateNotificationCommand : IRequest<int>
 {
     public int Id { get; set; }
     public bool ContractSigned { get; set; }
@@ -96,5 +98,6 @@ public class Notification
     public bool RemovalRequestRejectLead { get; set; }
     public bool RemovalRequestRejectUser { get; set; }
     public bool RemovalRequestApprovedUser { get; set; }
-
 }
+
+
