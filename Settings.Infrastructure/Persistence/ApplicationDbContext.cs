@@ -37,5 +37,9 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<ProjectStatus> ProjectStatuses { get; set; }
     public DbSet<ProjectSetting> ProjectSettings { get; set; }
     public DbSet<ProjectReminderPerson> ProjectReminderPersons { get; set; }
+    public DbSet<BillOrder> BillOrders { get; set; }
+    public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+    public DbSet<VendorCredit> VendorCredit { get; set; }
+    //public DbSet<Employee>Employees { get; set; }
 
 }
