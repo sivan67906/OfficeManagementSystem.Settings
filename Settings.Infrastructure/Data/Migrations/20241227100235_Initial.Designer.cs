@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Settings.Infrastructure.Persistence;
 
@@ -11,9 +12,11 @@ using Settings.Infrastructure.Persistence;
 namespace Settings.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241227100235_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -592,150 +595,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("Designations");
                 });
 
-            modelBuilder.Entity("Settings.Domain.Entities.FinanceInvoiceSetting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FIAuthorisedImageFileName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FIAuthorisedImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FICBClientInfoJsonSettings")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FICBGeneralJsonSettings")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("FIDueAfter")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FILanguageId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FILogoImageFileName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FILogoPath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FIOtherInfo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("FISendReminderAfterEvery")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FISendReminderAfterEveryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FISendReminderBefore")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FITerms")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FILanguageId");
-
-                    b.ToTable("FinanceInvoiceSettings");
-                });
-
-            modelBuilder.Entity("Settings.Domain.Entities.FinanceInvoiceTemplateSetting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FIRBTemplateJsonSettings")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FinanceInvoiceTemplateSettings");
-                });
-
-            modelBuilder.Entity("Settings.Domain.Entities.FinancePrefixSetting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FICBPrefixJsonSettings")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FinancePrefixSettings");
-                });
-
-            modelBuilder.Entity("Settings.Domain.Entities.FinanceUnitSetting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("FIsDefault")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("FUnitCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FUnitName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FinanceUnitSettings");
-                });
-
             modelBuilder.Entity("Settings.Domain.Entities.JobApplicationCategory", b =>
                 {
                     b.Property<int>("Id")
@@ -790,34 +649,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("JobApplicationPositions");
-                });
-
-            modelBuilder.Entity("Settings.Domain.Entities.Language", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LanguageCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LanguageName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Languages");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.LeadAgent", b =>
@@ -2012,17 +1843,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.Navigation("Department");
                 });
 
-            modelBuilder.Entity("Settings.Domain.Entities.FinanceInvoiceSetting", b =>
-                {
-                    b.HasOne("Settings.Domain.Entities.Language", "Language")
-                        .WithMany("FinanceInvoiceSettings")
-                        .HasForeignKey("FILanguageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Language");
-                });
-
             modelBuilder.Entity("Settings.Domain.Entities.ProjectSetting", b =>
                 {
                     b.HasOne("Settings.Domain.Entities.ProjectReminderPerson", "ProjectReminderPerson")
@@ -2182,11 +2002,6 @@ namespace Settings.Infrastructure.Data.Migrations
             modelBuilder.Entity("Settings.Domain.Entities.JobApplicationPosition", b =>
                 {
                     b.Navigation("RecruitJobApplicationStatusSettings");
-                });
-
-            modelBuilder.Entity("Settings.Domain.Entities.Language", b =>
-                {
-                    b.Navigation("FinanceInvoiceSettings");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.ProjectReminderPerson", b =>
