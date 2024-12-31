@@ -633,7 +633,11 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("Designations");
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("Settings.Domain.Entities.Employee", b =>
+=======
+            modelBuilder.Entity("Settings.Domain.Entities.FinanceInvoiceSetting", b =>
+>>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -641,6 +645,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+<<<<<<< HEAD
                     b.Property<int>("AddressId")
                         .HasColumnType("int");
 
@@ -689,6 +694,142 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasIndex("StateId");
 
                     b.ToTable("Employees");
+=======
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FIAuthorisedImageFileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FIAuthorisedImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FICBClientInfoJsonSettings")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FICBGeneralJsonSettings")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FIDueAfter")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FILanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FILogoImageFileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FILogoPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FIOtherInfo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FISendReminderAfterEvery")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FISendReminderAfterEveryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FISendReminderBefore")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FITerms")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FILanguageId");
+
+                    b.ToTable("FinanceInvoiceSettings");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.FinanceInvoiceTemplateSetting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FIRBTemplateJsonSettings")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FinanceInvoiceTemplateSettings");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.FinancePrefixSetting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FICBPrefixJsonSettings")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FinancePrefixSettings");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.FinanceUnitSetting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("FIsDefault")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FUnitCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FUnitName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FinanceUnitSettings");
+>>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.JobApplicationCategory", b =>
@@ -745,6 +886,34 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("JobApplicationPositions");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.Language", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LanguageCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LanguageName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Languages");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.LeadAgent", b =>
@@ -851,6 +1020,8 @@ namespace Settings.Infrastructure.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("AgentTicket")
+<<<<<<< HEAD
+=======
                         .HasColumnType("bit");
 
                     b.Property<bool>("AttendanceReminder")
@@ -1054,6 +1225,230 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Notifications");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.NotificationMain", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CommonNotificationJson")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("InvoiceNotificationJson")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+>>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("AttendanceReminder")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("AutoTaskReminder")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ContractSigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("EmployeeAssigntoProject")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("EstimateDeclined")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("EventInvite")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("EventReminder")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("FollowUpReminder")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("InvoiceCreated")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("InvoiceReminder")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Leadnotification")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LeaveApproved")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LeaveRejected")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LeaveUpdated")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ModulesEmailNotificationAttendanceReminderNew")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ModulesEmailNotificationEventInviteNew")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ModulesEmailNotificationEventReminderNew")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ModulesEmailNotificationTestNotification")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("MultipleLeaveApplication")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewClientTask")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewExpenseAddedbyAdmin")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewExpenseAddedbyMember")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewFileUploadedtoProject")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewLeaveApplication")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewLeaveRequest")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewMultipleLeaveApplication")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewNoticePublished")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewOrder")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewPayment")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewProductPurchase")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewProject")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewPropoInvoiceUpdatedsal")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewProposal")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewRecurringInvoice")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewSupportTicketRequest")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewTask")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewTicketReply")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NewTicketRequest")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("NoticeUpdated")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("OrderUpdated")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PaymentReceived")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PaymentReminder")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ProjectReminder")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ProposalApproved")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ProposalRejected")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RecurringExpenseStatusUpdated")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RecurringInvoiceStatusUpdated")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RemovalRequestAdminNotification")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RemovalRequestApproved")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RemovalRequestApprovedLead")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RemovalRequestApprovedUser")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RemovalRequestReject")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RemovalRequestRejectLead")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RemovalRequestRejectUser")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("SubTaskAssigneeAdded")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("SubTaskCompleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TaskComment")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TaskCompleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TaskCompletedClient")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TaskNote")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TaskReminder")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TaskUpdateClient")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TaskUpdated")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TwoFactorCode")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("UserJoinViaInvitation")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("UserRegistrationAddedbyAdmin")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("NotificationMains");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Payment", b =>
@@ -1294,6 +1689,7 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("Purchases");
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("Settings.Domain.Entities.PurchaseOrder", b =>
                 {
                     b.Property<int>("Id")
@@ -1319,6 +1715,8 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("PurchaseOrders");
                 });
 
+=======
+>>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
             modelBuilder.Entity("Settings.Domain.Entities.RecruitCustomQuestionSetting", b =>
                 {
                     b.Property<int>("Id")
@@ -1787,7 +2185,11 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("TimeLogs");
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("Settings.Domain.Entities.VendorCredit", b =>
+=======
+            modelBuilder.Entity("Settings.Domain.Entities.TimesheetSetting", b =>
+>>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1795,6 +2197,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+<<<<<<< HEAD
                     b.Property<string>("VendorCreditNumberDigits")
                         .HasColumnType("nvarchar(max)");
 
@@ -1810,6 +2213,57 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("VendorCredit");
+=======
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EndDateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EndTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Memo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("StartDateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StartTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TaskId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalHours")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("TaskId");
+
+                    b.ToTable("TimesheetSettings");
+>>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Address", b =>
@@ -1980,6 +2434,7 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.Navigation("Department");
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("Settings.Domain.Entities.Employee", b =>
                 {
                     b.HasOne("Settings.Domain.Entities.Address", "Address")
@@ -2029,6 +2484,17 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.Navigation("Department");
 
                     b.Navigation("State");
+=======
+            modelBuilder.Entity("Settings.Domain.Entities.FinanceInvoiceSetting", b =>
+                {
+                    b.HasOne("Settings.Domain.Entities.Language", "Language")
+                        .WithMany("FinanceInvoiceSettings")
+                        .HasForeignKey("FILanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+>>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.ProjectSetting", b =>
@@ -2129,6 +2595,25 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.Navigation("role");
                 });
 
+            modelBuilder.Entity("Settings.Domain.Entities.TimesheetSetting", b =>
+                {
+                    b.HasOne("Settings.Domain.Entities.ProjectSetting", "projectSetting")
+                        .WithMany("TimesheetSettings")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Settings.Domain.Entities.Task", "Task")
+                        .WithMany()
+                        .HasForeignKey("TaskId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Task");
+
+                    b.Navigation("projectSetting");
+                });
+
             modelBuilder.Entity("Settings.Domain.Entities.BusinessType", b =>
                 {
                     b.Navigation("Companies");
@@ -2194,9 +2679,19 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.Navigation("RecruitJobApplicationStatusSettings");
                 });
 
+            modelBuilder.Entity("Settings.Domain.Entities.Language", b =>
+                {
+                    b.Navigation("FinanceInvoiceSettings");
+                });
+
             modelBuilder.Entity("Settings.Domain.Entities.ProjectReminderPerson", b =>
                 {
                     b.Navigation("ProjectSetting");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.ProjectSetting", b =>
+                {
+                    b.Navigation("TimesheetSettings");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Role", b =>
