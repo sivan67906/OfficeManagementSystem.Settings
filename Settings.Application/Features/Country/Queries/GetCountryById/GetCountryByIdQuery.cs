@@ -1,5 +1,5 @@
-using Settings.Domain.Entities;
 using MediatR;
+using Settings.Domain.Entities;
 
 namespace Settings.Application.Features.Countries.Queries.GetCountryById
 {

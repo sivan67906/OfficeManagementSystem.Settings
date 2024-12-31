@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Settings.Application.DTOs;
+using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Client.Queries.GetClientById;
@@ -19,14 +20,19 @@ public class GetClientByIdQueryHandler : IRequestHandler<GetClientByIdQuery, Cli
             ClientCode = client.ClientCode,
             Description = client.Description,
             Email = client.Email,
-            //CompanyId = client.CompanyId,
             PhoneNumber = client.PhoneNumber,
-            Address1 = client.Address1,
-            Address2 = client.Address2,
-            //CountryId = client.CountryId,
-            //StateId = client.StateId,
-            //CityId = client.CityId,
-            ZipCode = client.ZipCode
+            CompanyId = client.CompanyId,
+            CompanyName=client.Company.Name,
+            AddressId = client.AddressId,
+            Address1 = client.Address.Address1,
+            Address2 = client.Address.Address2,
+            ZipCode = client.Address.ZipCode,
+            CountryId = client.CountryId,
+            StateId = client.StateId,
+            CityId = client.CityId,
+            CountryName = client.Country.Name,
+            StateName = client.State.Name,
+            CityName = client.City.Name,
         };
     }
 }

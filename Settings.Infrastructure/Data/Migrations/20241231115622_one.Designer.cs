@@ -12,8 +12,18 @@ using Settings.Infrastructure.Persistence;
 namespace Settings.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
+<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241231115622_one.Designer.cs
     [Migration("20241231115622_one")]
     partial class one
+=======
+<<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241227161757_Intial1.Designer.cs
+    [Migration("20241227161757_Intial1")]
+    partial class Intial1
+========
+    [Migration("20241228232740_AddedFinanceTables")]
+    partial class AddedFinanceTables
+>>>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1:Settings.Infrastructure/Data/Migrations/20241228232740_AddedFinanceTables.Designer.cs
+>>>>>>> 0c054cde543e8ed5b774f918a889888c72dbd037:Settings.Infrastructure/Data/Migrations/20241228232740_AddedFinanceTables.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,6 +114,31 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasIndex("CurrencyId");
 
                     b.ToTable("Applications");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.BillOrder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BillOrderNumberDigits")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BillOrderNumberExample")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BillOrderNumberSeperater")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BillOrderPrefix")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BillOrders");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.BusinessLocation", b =>
@@ -256,7 +291,64 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("StateId");
 
+<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241231115622_one.Designer.cs
                     b.ToTable("City");
+=======
+                    b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.Client", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ClientCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StateId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddressId");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("StateId");
+
+                    b.ToTable("clients");
+>>>>>>> 0c054cde543e8ed5b774f918a889888c72dbd037:Settings.Infrastructure/Data/Migrations/20241228232740_AddedFinanceTables.Designer.cs
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Company", b =>
@@ -1095,6 +1187,8 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("Notifications");
                 });
 
+<<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241227161757_Intial1.Designer.cs
+========
             modelBuilder.Entity("Settings.Domain.Entities.NotificationMain", b =>
                 {
                     b.Property<int>("Id")
@@ -1147,6 +1241,7 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("NotificationMains");
                 });
 
+>>>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1:Settings.Infrastructure/Data/Migrations/20241228232740_AddedFinanceTables.Designer.cs
             modelBuilder.Entity("Settings.Domain.Entities.Payment", b =>
                 {
                     b.Property<int>("Id")
@@ -1385,6 +1480,34 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("Purchases");
                 });
 
+<<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241227161757_Intial1.Designer.cs
+            modelBuilder.Entity("Settings.Domain.Entities.PurchaseOrder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("PurchaseOrderNumberDigits")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PurchaseOrderNumberExample")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PurchaseOrderNumberSeperater")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PurchaseOrderPrefix")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PurchaseOrders");
+                });
+
+========
+>>>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1:Settings.Infrastructure/Data/Migrations/20241228232740_AddedFinanceTables.Designer.cs
             modelBuilder.Entity("Settings.Domain.Entities.RecruitCustomQuestionSetting", b =>
                 {
                     b.Property<int>("Id")
@@ -1853,7 +1976,11 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("TimeLogs");
                 });
 
+<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241231115622_one.Designer.cs
             modelBuilder.Entity("Settings.Domain.Entities.TimesheetSetting", b =>
+=======
+            modelBuilder.Entity("Settings.Domain.Entities.VendorCredit", b =>
+>>>>>>> 0c054cde543e8ed5b774f918a889888c72dbd037:Settings.Infrastructure/Data/Migrations/20241228232740_AddedFinanceTables.Designer.cs
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1861,6 +1988,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241231115622_one.Designer.cs
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -1910,6 +2038,23 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasIndex("TaskId");
 
                     b.ToTable("TimesheetSettings");
+=======
+                    b.Property<string>("VendorCreditNumberDigits")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VendorCreditNumberExample")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VendorCreditNumberSeperater")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VendorCreditPrefix")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VendorCredit");
+>>>>>>> 0c054cde543e8ed5b774f918a889888c72dbd037:Settings.Infrastructure/Data/Migrations/20241228232740_AddedFinanceTables.Designer.cs
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Address", b =>
@@ -1984,6 +2129,49 @@ namespace Settings.Infrastructure.Data.Migrations
                         .HasForeignKey("StateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("State");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.Client", b =>
+                {
+                    b.HasOne("Settings.Domain.Entities.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Settings.Domain.Entities.City", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Settings.Domain.Entities.Company", "Company")
+                        .WithMany("Clients")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Settings.Domain.Entities.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Settings.Domain.Entities.State", "State")
+                        .WithMany()
+                        .HasForeignKey("StateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Address");
+
+                    b.Navigation("City");
+
+                    b.Navigation("Company");
+
+                    b.Navigation("Country");
 
                     b.Navigation("State");
                 });
@@ -2178,6 +2366,8 @@ namespace Settings.Infrastructure.Data.Migrations
             modelBuilder.Entity("Settings.Domain.Entities.Company", b =>
                 {
                     b.Navigation("BusinessLocations");
+
+                    b.Navigation("Clients");
 
                     b.Navigation("Departments");
 

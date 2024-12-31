@@ -30,6 +30,7 @@ public sealed class Company
     public ICollection<Department>? Departments { get; set; }
     public ICollection<Designation>? Designations { get; set; }
     public ICollection<Role>? Roles { get; set; }
+    public ICollection<Client>? Clients { get; set; }
 
 }
 

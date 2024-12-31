@@ -8,7 +8,7 @@ using Settings.Application.Features.Currencies.Queries.GetCurrencyById;
 
 namespace Settings.API.Controllers;
 [Route("api/[controller]")]
-[ApiController]
+[ApiController] 
 public class CurrencyController : ControllerBase
 {
     private readonly IMediator _mediator;

@@ -6,17 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Settings.Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
-<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241231115622_one.cs
-    public partial class one : Migration
-=======
     public partial class Intial : Migration
->>>>>>> 0c054cde543e8ed5b774f918a889888c72dbd037:Settings.Infrastructure/Data/Migrations/20241227100235_Initial.cs
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "BusinessType",
+                name: "BusinessTypes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -29,11 +25,11 @@ namespace Settings.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BusinessType", x => x.Id);
+                    table.PrimaryKey("PK_BusinessTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -46,11 +42,7 @@ namespace Settings.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241231115622_one.cs
-                    table.PrimaryKey("PK_Category", x => x.Id);
-=======
                     table.PrimaryKey("PK_Categories", x => x.Id);
->>>>>>> 0c054cde543e8ed5b774f918a889888c72dbd037:Settings.Infrastructure/Data/Migrations/20241227100235_Initial.cs
                 });
 
             migrationBuilder.CreateTable(
@@ -70,7 +62,7 @@ namespace Settings.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Country",
+                name: "Countries",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -83,7 +75,7 @@ namespace Settings.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Country", x => x.Id);
+                    table.PrimaryKey("PK_Countries", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -143,56 +135,6 @@ namespace Settings.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FinanceInvoiceTemplateSettings",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FIRBTemplateJsonSettings = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FinanceInvoiceTemplateSettings", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "FinancePrefixSettings",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FICBPrefixJsonSettings = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FinancePrefixSettings", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "FinanceUnitSettings",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FUnitCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FUnitName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FIsDefault = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FinanceUnitSettings", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "JobApplicationCategories",
                 columns: table => new
                 {
@@ -224,23 +166,6 @@ namespace Settings.Infrastructure.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_JobApplicationPositions", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Languages",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    LanguageCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LanguageName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Languages", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -669,7 +594,7 @@ namespace Settings.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Company",
+                name: "Companies",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -689,23 +614,23 @@ namespace Settings.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Company", x => x.Id);
+                    table.PrimaryKey("PK_Companies", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Company_BusinessType_BusinessTypeId",
+                        name: "FK_Companies_BusinessTypes_BusinessTypeId",
                         column: x => x.BusinessTypeId,
-                        principalTable: "BusinessType",
+                        principalTable: "BusinessTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_Company_Category_CategoryId",
+                        name: "FK_Companies_Categories_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Category",
+                        principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
-                name: "State",
+                name: "States",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -719,11 +644,11 @@ namespace Settings.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_State", x => x.Id);
+                    table.PrimaryKey("PK_States", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_State_Country_CountryId",
+                        name: "FK_States_Countries_CountryId",
                         column: x => x.CountryId,
-                        principalTable: "Country",
+                        principalTable: "Countries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
@@ -818,40 +743,6 @@ namespace Settings.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FinanceInvoiceSettings",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FILogoPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FILogoImageFileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FIAuthorisedImagePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FIAuthorisedImageFileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FILanguageId = table.Column<int>(type: "int", nullable: false),
-                    FIDueAfter = table.Column<int>(type: "int", nullable: false),
-                    FISendReminderBefore = table.Column<int>(type: "int", nullable: false),
-                    FISendReminderAfterEveryId = table.Column<int>(type: "int", nullable: false),
-                    FISendReminderAfterEvery = table.Column<int>(type: "int", nullable: false),
-                    FICBGeneralJsonSettings = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FICBClientInfoJsonSettings = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FITerms = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FIOtherInfo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FinanceInvoiceSettings", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_FinanceInvoiceSettings_Languages_FILanguageId",
-                        column: x => x.FILanguageId,
-                        principalTable: "Languages",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ProjectSettings",
                 columns: table => new
                 {
@@ -876,7 +767,7 @@ namespace Settings.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Department",
+                name: "Departments",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -892,17 +783,17 @@ namespace Settings.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Department", x => x.Id);
+                    table.PrimaryKey("PK_Departments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Department_Company_CompanyId",
+                        name: "FK_Departments_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Company",
+                        principalTable: "Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
-                name: "City",
+                name: "Cities",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -916,55 +807,17 @@ namespace Settings.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_City", x => x.Id);
+                    table.PrimaryKey("PK_Cities", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_City_State_StateId",
+                        name: "FK_Cities_States_StateId",
                         column: x => x.StateId,
-                        principalTable: "State",
+                        principalTable: "States",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TimesheetSettings",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProjectId = table.Column<int>(type: "int", nullable: false),
-                    TaskId = table.Column<int>(type: "int", nullable: false),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false),
-                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    StartTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StartDateTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    EndTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EndDateTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Memo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TotalHours = table.Column<int>(type: "int", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TimesheetSettings", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_TimesheetSettings_ProjectSettings_ProjectId",
-                        column: x => x.ProjectId,
-                        principalTable: "ProjectSettings",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
-                    table.ForeignKey(
-                        name: "FK_TimesheetSettings_Tasks_TaskId",
-                        column: x => x.TaskId,
-                        principalTable: "Tasks",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Designation",
+                name: "Designations",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -980,23 +833,23 @@ namespace Settings.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Designation", x => x.Id);
+                    table.PrimaryKey("PK_Designations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Designation_Company_CompanyId",
+                        name: "FK_Designations_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Company",
+                        principalTable: "Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_Designation_Department_DepartmentId",
+                        name: "FK_Designations_Departments_DepartmentId",
                         column: x => x.DepartmentId,
-                        principalTable: "Department",
+                        principalTable: "Departments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Address",
+                name: "Addresses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -1014,17 +867,17 @@ namespace Settings.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Address", x => x.Id);
+                    table.PrimaryKey("PK_Addresses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Address_City_CityId",
+                        name: "FK_Addresses_Cities_CityId",
                         column: x => x.CityId,
-                        principalTable: "City",
+                        principalTable: "Cities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Role",
+                name: "Roles",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -1041,29 +894,29 @@ namespace Settings.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Role", x => x.Id);
+                    table.PrimaryKey("PK_Roles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Role_Company_CompanyId",
+                        name: "FK_Roles_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Company",
+                        principalTable: "Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_Role_Department_DepartmentId",
+                        name: "FK_Roles_Departments_DepartmentId",
                         column: x => x.DepartmentId,
-                        principalTable: "Department",
+                        principalTable: "Departments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_Role_Designation_DesignationId",
+                        name: "FK_Roles_Designations_DesignationId",
                         column: x => x.DesignationId,
-                        principalTable: "Designation",
+                        principalTable: "Designations",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
-                name: "BusinessLocation",
+                name: "BusinessLocations",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -1083,35 +936,35 @@ namespace Settings.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BusinessLocation", x => x.Id);
+                    table.PrimaryKey("PK_BusinessLocations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_BusinessLocation_Address_AddressId",
+                        name: "FK_BusinessLocations_Addresses_AddressId",
                         column: x => x.AddressId,
-                        principalTable: "Address",
+                        principalTable: "Addresses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_BusinessLocation_City_CityId",
+                        name: "FK_BusinessLocations_Cities_CityId",
                         column: x => x.CityId,
-                        principalTable: "City",
+                        principalTable: "Cities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_BusinessLocation_Company_CompanyId",
+                        name: "FK_BusinessLocations_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Company",
+                        principalTable: "Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_BusinessLocation_Country_CountryId",
+                        name: "FK_BusinessLocations_Countries_CountryId",
                         column: x => x.CountryId,
-                        principalTable: "Country",
+                        principalTable: "Countries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_BusinessLocation_State_StateId",
+                        name: "FK_BusinessLocations_States_StateId",
                         column: x => x.StateId,
-                        principalTable: "State",
+                        principalTable: "States",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
@@ -1187,16 +1040,16 @@ namespace Settings.Infrastructure.Data.Migrations
                 {
                     table.PrimaryKey("PK_TimeLogs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TimeLogs_Role_RoleId",
+                        name: "FK_TimeLogs_Roles_RoleId",
                         column: x => x.RoleId,
-                        principalTable: "Role",
+                        principalTable: "Roles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Address_CityId",
-                table: "Address",
+                name: "IX_Addresses_CityId",
+                table: "Addresses",
                 column: "CityId");
 
             migrationBuilder.CreateIndex(
@@ -1205,40 +1058,36 @@ namespace Settings.Infrastructure.Data.Migrations
                 column: "CurrencyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BusinessLocation_AddressId",
-                table: "BusinessLocation",
+                name: "IX_BusinessLocations_AddressId",
+                table: "BusinessLocations",
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BusinessLocation_CityId",
-                table: "BusinessLocation",
+                name: "IX_BusinessLocations_CityId",
+                table: "BusinessLocations",
                 column: "CityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BusinessLocation_CompanyId",
-                table: "BusinessLocation",
+                name: "IX_BusinessLocations_CompanyId",
+                table: "BusinessLocations",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BusinessLocation_CountryId",
-                table: "BusinessLocation",
+                name: "IX_BusinessLocations_CountryId",
+                table: "BusinessLocations",
                 column: "CountryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BusinessLocation_StateId",
-                table: "BusinessLocation",
+                name: "IX_BusinessLocations_StateId",
+                table: "BusinessLocations",
                 column: "StateId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_City_StateId",
-                table: "City",
+                name: "IX_Cities_StateId",
+                table: "Cities",
                 column: "StateId");
 
             migrationBuilder.CreateIndex(
-<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241231115622_one.cs
-                name: "IX_Company_BusinessTypeId",
-                table: "Company",
-=======
                 name: "IX_clients_AddressId",
                 table: "clients",
                 column: "AddressId");
@@ -1266,33 +1115,27 @@ namespace Settings.Infrastructure.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Companies_BusinessTypeId",
                 table: "Companies",
->>>>>>> 0c054cde543e8ed5b774f918a889888c72dbd037:Settings.Infrastructure/Data/Migrations/20241227100235_Initial.cs
                 column: "BusinessTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Company_CategoryId",
-                table: "Company",
+                name: "IX_Companies_CategoryId",
+                table: "Companies",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Department_CompanyId",
-                table: "Department",
+                name: "IX_Departments_CompanyId",
+                table: "Departments",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Designation_CompanyId",
-                table: "Designation",
+                name: "IX_Designations_CompanyId",
+                table: "Designations",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Designation_DepartmentId",
-                table: "Designation",
+                name: "IX_Designations_DepartmentId",
+                table: "Designations",
                 column: "DepartmentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_FinanceInvoiceSettings_FILanguageId",
-                table: "FinanceInvoiceSettings",
-                column: "FILanguageId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProjectSettings_ProjectReminderPersonId",
@@ -1321,39 +1164,29 @@ namespace Settings.Infrastructure.Data.Migrations
                 column: "JobApplicationPositionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Role_CompanyId",
-                table: "Role",
+                name: "IX_Roles_CompanyId",
+                table: "Roles",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Role_DepartmentId",
-                table: "Role",
+                name: "IX_Roles_DepartmentId",
+                table: "Roles",
                 column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Role_DesignationId",
-                table: "Role",
+                name: "IX_Roles_DesignationId",
+                table: "Roles",
                 column: "DesignationId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_State_CountryId",
-                table: "State",
+                name: "IX_States_CountryId",
+                table: "States",
                 column: "CountryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TimeLogs_RoleId",
                 table: "TimeLogs",
                 column: "RoleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TimesheetSettings_ProjectId",
-                table: "TimesheetSettings",
-                column: "ProjectId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TimesheetSettings_TaskId",
-                table: "TimesheetSettings",
-                column: "TaskId");
         }
 
         /// <inheritdoc />
@@ -1363,22 +1196,13 @@ namespace Settings.Infrastructure.Data.Migrations
                 name: "Applications");
 
             migrationBuilder.DropTable(
-                name: "BusinessLocation");
+                name: "BusinessLocations");
+
+            migrationBuilder.DropTable(
+                name: "clients");
 
             migrationBuilder.DropTable(
                 name: "Contracts");
-
-            migrationBuilder.DropTable(
-                name: "FinanceInvoiceSettings");
-
-            migrationBuilder.DropTable(
-                name: "FinanceInvoiceTemplateSettings");
-
-            migrationBuilder.DropTable(
-                name: "FinancePrefixSettings");
-
-            migrationBuilder.DropTable(
-                name: "FinanceUnitSettings");
 
             migrationBuilder.DropTable(
                 name: "LeadAgents");
@@ -1414,6 +1238,9 @@ namespace Settings.Infrastructure.Data.Migrations
                 name: "ProjectCategories");
 
             migrationBuilder.DropTable(
+                name: "ProjectSettings");
+
+            migrationBuilder.DropTable(
                 name: "ProjectStatuses");
 
             migrationBuilder.DropTable(
@@ -1438,22 +1265,22 @@ namespace Settings.Infrastructure.Data.Migrations
                 name: "RecruitNotificationSettings");
 
             migrationBuilder.DropTable(
+                name: "Tasks");
+
+            migrationBuilder.DropTable(
                 name: "Taxes");
 
             migrationBuilder.DropTable(
                 name: "TimeLogs");
 
             migrationBuilder.DropTable(
-                name: "TimesheetSettings");
-
-            migrationBuilder.DropTable(
                 name: "Currencies");
 
             migrationBuilder.DropTable(
-                name: "Address");
+                name: "Addresses");
 
             migrationBuilder.DropTable(
-                name: "Languages");
+                name: "ProjectReminderPersons");
 
             migrationBuilder.DropTable(
                 name: "CustomQuestionCategories");
@@ -1468,40 +1295,31 @@ namespace Settings.Infrastructure.Data.Migrations
                 name: "JobApplicationPositions");
 
             migrationBuilder.DropTable(
-                name: "Role");
+                name: "Roles");
 
             migrationBuilder.DropTable(
-                name: "ProjectSettings");
+                name: "Cities");
 
             migrationBuilder.DropTable(
-                name: "Tasks");
+                name: "Designations");
 
             migrationBuilder.DropTable(
-                name: "City");
+                name: "States");
 
             migrationBuilder.DropTable(
-                name: "Designation");
+                name: "Departments");
 
             migrationBuilder.DropTable(
-                name: "ProjectReminderPersons");
+                name: "Countries");
 
             migrationBuilder.DropTable(
-                name: "State");
+                name: "Companies");
 
             migrationBuilder.DropTable(
-                name: "Department");
+                name: "BusinessTypes");
 
             migrationBuilder.DropTable(
-                name: "Country");
-
-            migrationBuilder.DropTable(
-                name: "Company");
-
-            migrationBuilder.DropTable(
-                name: "BusinessType");
-
-            migrationBuilder.DropTable(
-                name: "Category");
+                name: "Categories");
         }
     }
 }
