@@ -6,14 +6,14 @@ namespace Settings.Application.Features.TimesheetSettings.Commands.DeleteTimeshe
 
 internal class DeleteTimesheetSettingCommandHandler : IRequestHandler<DeleteTimesheetSettingCommand>
 {
-    private readonly IGenericRepository<TimesheetSetting> _timeLogRepository;
+    private readonly IGenericRepository<TimesheetSetting> _timeSheetSettingRepository;
 
     public DeleteTimesheetSettingCommandHandler(
-        IGenericRepository<TimesheetSetting> timeLogRepository) =>
-        _timeLogRepository = timeLogRepository;
+        IGenericRepository<TimesheetSetting> timeSheetSettingRepository) =>
+        _timeSheetSettingRepository = timeSheetSettingRepository;
     public async System.Threading.Tasks.Task Handle(DeleteTimesheetSettingCommand request, CancellationToken cancellationToken)
     {
-        await _timeLogRepository.DeleteAsync(request.Id);
+        await _timeSheetSettingRepository.DeleteAsync(request.Id);
     }
 }
 

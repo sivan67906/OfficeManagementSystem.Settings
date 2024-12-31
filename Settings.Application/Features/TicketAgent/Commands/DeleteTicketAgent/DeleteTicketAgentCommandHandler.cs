@@ -6,16 +6,22 @@ namespace Settings.Application.Features.TicketAgents.Commands.DeleteTicketAgent;
 
 internal class DeleteTicketAgentCommandHandler : IRequestHandler<DeleteTicketAgentCommand>
 {
-    private readonly IGenericRepository<TicketAgent> _timeLogRepository;
+    private readonly IGenericRepository<TicketAgent> _ticketAgentRepository;
 
     public DeleteTicketAgentCommandHandler(
-        IGenericRepository<TicketAgent> timeLogRepository) =>
-        _timeLogRepository = timeLogRepository;
+        IGenericRepository<TicketAgent> ticketAgentRepository) =>
+        _ticketAgentRepository = ticketAgentRepository;
     public async System.Threading.Tasks.Task Handle(DeleteTicketAgentCommand request, CancellationToken cancellationToken)
     {
-        await _timeLogRepository.DeleteAsync(request.Id);
+        await _ticketAgentRepository.DeleteAsync(request.Id);
     }
 }
+
+
+
+
+
+
 
 
 

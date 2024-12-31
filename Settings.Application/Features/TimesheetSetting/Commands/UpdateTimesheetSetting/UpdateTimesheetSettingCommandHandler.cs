@@ -17,8 +17,17 @@ internal class UpdateTimesheetSettingCommandHandler : IRequestHandler<UpdateTime
         var timesheetSetting = new TimesheetSetting
         {
             Id = request.Id,
-            TimesheetSettingCode = request.TimesheetSettingCode,
-            TimesheetSettingName = request.TimesheetSettingName,
+            ProjectId = request.ProjectId,
+            TaskId = request.TaskId,
+            EmployeeId = request.EmployeeId,
+            StartDate = request.StartDate,
+            StartTime = request.StartTime,
+            StartDateTime = request.StartDateTime,
+            EndDate = request.EndDate,
+            EndTime = request.EndTime,
+            EndDateTime = request.EndDateTime,
+            Memo = request.Memo,
+            TotalHours = request.TotalHours,
             UpdatedDate = DateTime.Now
         };
 

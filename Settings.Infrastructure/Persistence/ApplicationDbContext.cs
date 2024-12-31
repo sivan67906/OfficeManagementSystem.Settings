@@ -35,6 +35,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         modelBuilder.Entity<BusinessLocation>().Navigation(e => e.State).AutoInclude();
         modelBuilder.Entity<BusinessLocation>().Navigation(e => e.City).AutoInclude();
         modelBuilder.Entity<FinanceInvoiceSetting>().Navigation(e => e.Language).AutoInclude();
+        modelBuilder.Entity<TimesheetSetting>().Navigation(e => e.projectSetting).AutoInclude();
     }
     public DbSet<LeadStatus> LeadStatuses { get; set; }
     public DbSet<LeadSource> LeadSources { get; set; }
@@ -84,5 +85,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<FinanceInvoiceTemplateSetting> FinanceInvoiceTemplateSettings { get; set; }
     public DbSet<FinancePrefixSetting> FinancePrefixSettings { get; set; }
     public DbSet<FinanceUnitSetting> FinanceUnitSettings { get; set; }
+    public DbSet<TimesheetSetting> TimesheetSettings { get; set; }
 
 }

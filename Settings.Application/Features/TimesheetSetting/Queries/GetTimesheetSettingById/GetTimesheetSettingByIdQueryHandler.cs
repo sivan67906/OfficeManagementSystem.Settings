@@ -20,8 +20,20 @@ internal class GetTimesheetSettingByIdQueryHandler : IRequestHandler<GetTimeshee
         return new TimesheetSettingDTO
         {
             Id = timesheetSetting.Id,
-            TimesheetSettingCode = timesheetSetting.TimesheetSettingCode,
-            TimesheetSettingName = timesheetSetting.TimesheetSettingName
+            ProjectId = timesheetSetting.ProjectId,
+            //ProjectName = timesheetSetting.ProjectName,
+            TaskId = timesheetSetting.TaskId,
+            //TaskName = timesheetSetting.TaskName,
+            EmployeeId = timesheetSetting.EmployeeId,
+            //EmployeeName = timesheetSetting.EmployeeName,
+            StartDate = timesheetSetting.StartDate,
+            StartTime = timesheetSetting.StartTime,
+            StartDateTime = timesheetSetting.StartDateTime,
+            EndDate = timesheetSetting.EndDate,
+            EndTime = timesheetSetting.EndTime,
+            EndDateTime = timesheetSetting.EndDateTime,
+            Memo = timesheetSetting.Memo,
+            TotalHours = timesheetSetting.TotalHours
         };
     }
 }

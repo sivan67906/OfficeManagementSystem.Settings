@@ -16,4 +16,5 @@ public sealed class ProjectSetting
 
     [ForeignKey(nameof(ProjectReminderPersonId))]
     public ProjectReminderPerson? ProjectReminderPerson { get; set; }
+    public ICollection<TimesheetSetting>? TimesheetSettings { get; set; }
 }

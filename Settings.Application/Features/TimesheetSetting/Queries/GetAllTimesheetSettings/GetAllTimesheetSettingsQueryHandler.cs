@@ -21,8 +21,20 @@ internal class GetAllTimesheetSettingsQueryHandler : IRequestHandler<GetAllTimes
         var timesheetSettingList = timesheetSettings.Select(x => new TimesheetSettingDTO
         {
             Id = x.Id,
-            TimesheetSettingCode = x.TimesheetSettingCode,
-            TimesheetSettingName = x.TimesheetSettingName
+            ProjectId = x.ProjectId,
+            //ProjectName = x.ProjectName,
+            TaskId = x.TaskId,
+            //TaskName = x.TaskName,
+            EmployeeId = x.EmployeeId,
+            //EmployeeName = x.EmployeeName,
+            StartDate = x.StartDate,
+            StartTime = x.StartTime,
+            StartDateTime = x.StartDateTime,
+            EndDate = x.EndDate,
+            EndTime = x.EndTime,
+            EndDateTime = x.EndDateTime,
+            Memo = x.Memo,
+            TotalHours = x.TotalHours
         }).ToList();
 
         return timesheetSettingList;

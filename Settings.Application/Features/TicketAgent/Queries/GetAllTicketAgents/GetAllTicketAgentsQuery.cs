@@ -46,3 +46,9 @@ public class GetAllTicketAgentsQuery : IRequest<IEnumerable<TicketAgentDTO>>
 
 
 
+
+
+
+
+
+
