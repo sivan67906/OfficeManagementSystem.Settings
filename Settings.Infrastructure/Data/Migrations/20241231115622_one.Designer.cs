@@ -12,8 +12,8 @@ using Settings.Infrastructure.Persistence;
 namespace Settings.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241228232740_AddedFinanceTables")]
-    partial class AddedFinanceTables
+    [Migration("20241231115622_one")]
+    partial class one
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,7 +67,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("CityId");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Address");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Applications", b =>
@@ -162,7 +162,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("StateId");
 
-                    b.ToTable("BusinessLocations");
+                    b.ToTable("BusinessLocation");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.BusinessType", b =>
@@ -192,7 +192,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BusinessTypes");
+                    b.ToTable("BusinessType");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Category", b =>
@@ -222,7 +222,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.City", b =>
@@ -256,44 +256,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("StateId");
 
-                    b.ToTable("Cities");
-                });
-
-            modelBuilder.Entity("Settings.Domain.Entities.Client", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Address2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClientCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClientName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ZipCode")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("clients");
+                    b.ToTable("City");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Company", b =>
@@ -352,7 +315,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Companies");
+                    b.ToTable("Company");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Contract", b =>
@@ -406,7 +369,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Countries");
+                    b.ToTable("Country");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Currency", b =>
@@ -548,7 +511,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Departments");
+                    b.ToTable("Department");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Designation", b =>
@@ -592,7 +555,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Designations");
+                    b.ToTable("Designation");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.FinanceInvoiceSetting", b =>
@@ -1704,7 +1667,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("DesignationId");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Role");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.State", b =>
@@ -1738,7 +1701,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("States");
+                    b.ToTable("State");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Task", b =>
@@ -1888,6 +1851,65 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("TimeLogs");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.TimesheetSetting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EndDateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EndTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Memo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("StartDateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StartTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TaskId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalHours")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("TaskId");
+
+                    b.ToTable("TimesheetSettings");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Address", b =>
@@ -2124,6 +2146,25 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.Navigation("role");
                 });
 
+            modelBuilder.Entity("Settings.Domain.Entities.TimesheetSetting", b =>
+                {
+                    b.HasOne("Settings.Domain.Entities.ProjectSetting", "projectSetting")
+                        .WithMany("TimesheetSettings")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Settings.Domain.Entities.Task", "Task")
+                        .WithMany()
+                        .HasForeignKey("TaskId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Task");
+
+                    b.Navigation("projectSetting");
+                });
+
             modelBuilder.Entity("Settings.Domain.Entities.BusinessType", b =>
                 {
                     b.Navigation("Companies");
@@ -2195,6 +2236,11 @@ namespace Settings.Infrastructure.Data.Migrations
             modelBuilder.Entity("Settings.Domain.Entities.ProjectReminderPerson", b =>
                 {
                     b.Navigation("ProjectSetting");
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.ProjectSetting", b =>
+                {
+                    b.Navigation("TimesheetSettings");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Role", b =>

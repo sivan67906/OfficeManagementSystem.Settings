@@ -41,7 +41,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<LeadSource> LeadSources { get; set; }
     public DbSet<LeadAgent> LeadAgents { get; set; }
     public DbSet<LeadCategory> LeadCategories { get; set; }
-    //public DbSet<Client> Clients { get; set; }
     public DbSet<Applications> Applications { get; set; }
     public DbSet<Planning> Plannings { get; set; }
     public DbSet<Contract> Contracts { get; set; }
@@ -66,18 +65,18 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<RecruitGeneralSetting> RecruitGeneralSettings { get; set; }
     public DbSet<RecruitJobApplicationStatusSetting> RecruitJobApplicationStatusSettings { get; set; }
     public DbSet<RecruitNotificationSetting> RecruitNotificationSettings { get; set; }
-    public DbSet<Company> Companies { get; set; }
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<BusinessType> BusinessTypes { get; set; }
-    public DbSet<BusinessLocation> BusinessLocations { get; set; }
-    public DbSet<Department> Departments { get; set; }
-    public DbSet<Designation> Designations { get; set; }
-    public DbSet<Role> Roles { get; set; }
-    public DbSet<Client> clients { get; set; }
-    public DbSet<State> States { get; set; }
-    public DbSet<Country> Countries { get; set; }
-    public DbSet<City> Cities { get; set; }
-    public DbSet<Address> Addresses { get; set; }
+    //public DbSet<Company> Companies { get; set; }
+    //public DbSet<Category> Categories { get; set; }
+    //public DbSet<BusinessType> BusinessTypes { get; set; }
+    //public DbSet<BusinessLocation> BusinessLocations { get; set; }
+    //public DbSet<Department> Departments { get; set; }
+    //public DbSet<Designation> Designations { get; set; }
+    //public DbSet<Role> Roles { get; set; }
+    //public DbSet<Client> clients { get; set; }
+    //public DbSet<State> States { get; set; }
+    //public DbSet<Country> Countries { get; set; }
+    //public DbSet<City> Cities { get; set; }
+    //public DbSet<Address> Addresses { get; set; }
     public DbSet<TimeLog> TimeLogs { get; set; }
     public DbSet<NotificationMain> NotificationMains { get; set; }
     public DbSet<Language> Languages { get; set; }

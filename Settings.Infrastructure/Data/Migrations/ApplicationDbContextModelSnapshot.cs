@@ -64,7 +64,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("CityId");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Address");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Applications", b =>
@@ -159,7 +159,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("StateId");
 
-                    b.ToTable("BusinessLocations");
+                    b.ToTable("BusinessLocation");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.BusinessType", b =>
@@ -189,7 +189,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BusinessTypes");
+                    b.ToTable("BusinessType");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Category", b =>
@@ -219,7 +219,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.City", b =>
@@ -253,44 +253,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("StateId");
 
-                    b.ToTable("Cities");
-                });
-
-            modelBuilder.Entity("Settings.Domain.Entities.Client", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Address2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClientCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClientName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ZipCode")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("clients");
+                    b.ToTable("City");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Company", b =>
@@ -349,7 +312,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Companies");
+                    b.ToTable("Company");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Contract", b =>
@@ -403,7 +366,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Countries");
+                    b.ToTable("Country");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Currency", b =>
@@ -545,7 +508,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Departments");
+                    b.ToTable("Department");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Designation", b =>
@@ -589,7 +552,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Designations");
+                    b.ToTable("Designation");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.FinanceInvoiceSetting", b =>
@@ -1701,7 +1664,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("DesignationId");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Role");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.State", b =>
@@ -1735,7 +1698,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("States");
+                    b.ToTable("State");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Task", b =>
