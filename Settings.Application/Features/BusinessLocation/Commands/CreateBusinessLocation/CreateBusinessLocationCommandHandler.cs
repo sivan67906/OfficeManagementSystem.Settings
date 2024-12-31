@@ -24,7 +24,7 @@ internal class CreateBusinessLocationCommandHandler(
             IsActive = true
         };
         var insertedAddress = await addressRepository.CreateAsyncwithEntity(address);
-
+            
         var businessLocation = new BusinessLocation
         {
             Code = request.Code,

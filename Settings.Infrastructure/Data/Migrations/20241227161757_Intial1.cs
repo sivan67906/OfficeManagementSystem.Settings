@@ -5,7 +5,7 @@
 namespace Settings.Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class Intial4 : Migration
+    public partial class Intial1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

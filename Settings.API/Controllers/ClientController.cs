@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Settings.Application.Features.Cities.Commands.CreateCity;
 using Settings.Application.Features.Client.Commands.CreateClient;
 using Settings.Application.Features.Client.Commands.DeleteClient;
 using Settings.Application.Features.Client.Commands.UpdateClient;
@@ -27,9 +28,10 @@ public class ClientController : ControllerBase
     [HttpPost("Create")]
     public async Task<IActionResult> Create(CreateClientCommand command)
     {
-        var id = await _mediator.Send(command);
-        return CreatedAtAction(nameof(GetById), new { id }, command);
+         await _mediator.Send(command);
+        return Ok("Client Created Successfully.");
     }
+
 
     [HttpPut("Update")]
     public async Task<IActionResult> Update(UpdateClientCommand command)

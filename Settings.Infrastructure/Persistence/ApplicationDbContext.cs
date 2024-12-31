@@ -39,7 +39,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<LeadSource> LeadSources { get; set; }
     public DbSet<LeadAgent> LeadAgents { get; set; }
     public DbSet<LeadCategory> LeadCategories { get; set; }
-    //public DbSet<Client> Clients { get; set; }
     public DbSet<Applications> Applications { get; set; }
     public DbSet<Planning> Plannings { get; set; }
     public DbSet<Contract> Contracts { get; set; }
@@ -77,4 +76,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<City> Cities { get; set; }
     public DbSet<Address> Addresses { get; set; }
     public DbSet<TimeLog> TimeLogs { get; set; }
+    public DbSet<BillOrder> BillOrders { get; set; }
+    public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+    public DbSet<VendorCredit> VendorCredit { get; set; }
+    public DbSet<Employee> Employees { get; set; }
 }

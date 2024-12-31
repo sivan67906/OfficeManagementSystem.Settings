@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Settings.Infrastructure.Persistence;
 
@@ -11,9 +12,11 @@ using Settings.Infrastructure.Persistence;
 namespace Settings.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241227155710_Intial")]
+    partial class Intial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,31 +104,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasIndex("CurrencyId");
 
                     b.ToTable("Applications");
-                });
-
-            modelBuilder.Entity("Settings.Domain.Entities.BillOrder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("BillOrderNumberDigits")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BillOrderNumberExample")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BillOrderNumberSeperater")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BillOrderPrefix")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BillOrders");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.BusinessLocation", b =>
@@ -631,64 +609,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Designations");
-                });
-
-            modelBuilder.Entity("Settings.Domain.Entities.Employee", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AddressId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CompanyId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CountryId")
-                        .HasColumnType("int");
-
-                    b.Property<DateOnly>("DateOfBirth")
-                        .HasColumnType("date");
-
-                    b.Property<int>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EmployeeCode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("EmployeeName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("StateId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AddressId");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("CompanyId");
-
-                    b.HasIndex("CountryId");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.HasIndex("StateId");
-
-                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.JobApplicationCategory", b =>
@@ -1294,31 +1214,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("Purchases");
                 });
 
-            modelBuilder.Entity("Settings.Domain.Entities.PurchaseOrder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("PurchaseOrderNumberDigits")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PurchaseOrderNumberExample")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PurchaseOrderNumberSeperater")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PurchaseOrderPrefix")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PurchaseOrders");
-                });
-
             modelBuilder.Entity("Settings.Domain.Entities.RecruitCustomQuestionSetting", b =>
                 {
                     b.Property<int>("Id")
@@ -1787,31 +1682,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("TimeLogs");
                 });
 
-            modelBuilder.Entity("Settings.Domain.Entities.VendorCredit", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("VendorCreditNumberDigits")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VendorCreditNumberExample")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VendorCreditNumberSeperater")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VendorCreditPrefix")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("VendorCredit");
-                });
-
             modelBuilder.Entity("Settings.Domain.Entities.Address", b =>
                 {
                     b.HasOne("Settings.Domain.Entities.City", "City")
@@ -1978,57 +1848,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.Navigation("Company");
 
                     b.Navigation("Department");
-                });
-
-            modelBuilder.Entity("Settings.Domain.Entities.Employee", b =>
-                {
-                    b.HasOne("Settings.Domain.Entities.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Settings.Domain.Entities.City", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Settings.Domain.Entities.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Settings.Domain.Entities.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Settings.Domain.Entities.Department", "Department")
-                        .WithMany()
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Settings.Domain.Entities.State", "State")
-                        .WithMany()
-                        .HasForeignKey("StateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Address");
-
-                    b.Navigation("City");
-
-                    b.Navigation("Company");
-
-                    b.Navigation("Country");
-
-                    b.Navigation("Department");
-
-                    b.Navigation("State");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.ProjectSetting", b =>

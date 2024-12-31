@@ -2,17 +2,18 @@
 using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
-namespace Settings.Application.Features.Client.Commands.UpdateClient;
-public class UpdateClientCommandHandler : IRequestHandler<UpdateClientCommand, int>
+namespace Settings.Application.Features.Employee.Commands.UpdateEmployee;
+public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeCommand, int>
 {
-    private readonly IGenericRepository<Domain.Entities.Client> _repository;
+    private readonly IGenericRepository<Domain.Entities.Employee> _repository;
     private readonly IGenericRepository<Address> _addressRepository;
-    public UpdateClientCommandHandler(IGenericRepository<Domain.Entities.Client> repository, IGenericRepository<Address> addressRepository)
+    public UpdateEmployeeCommandHandler(IGenericRepository<Domain.Entities.Employee> repository, IGenericRepository<Address> addressRepository)
     {
         _repository = repository;
         _addressRepository = addressRepository;
     }
-    public async Task<int> Handle(UpdateClientCommand request, CancellationToken cancellationToken)
+
+    public async Task<int> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
     {
         var address = new Address
         {
@@ -25,20 +26,20 @@ public class UpdateClientCommandHandler : IRequestHandler<UpdateClientCommand, i
             IsActive = true
         };
         var insertedAddress = await _addressRepository.UpdateAsyncwithEntity(address);
-        var product = new Domain.Entities.Client
+        var product = new Domain.Entities.Employee
         {
             Id = request.Id,
-            ClientName = request.ClientName,
-            ClientCode = request.ClientCode,
+            EmployeeCode = request.EmployeeCode,
+            EmployeeName = request.EmployeeName,
             Description = request.Description,
-            Email = request.Email,
+            DateOfBirth = request.DateOfBirth,
             CompanyId = request.CompanyId,
             PhoneNumber = request.PhoneNumber,
             AddressId = request.AddressId,
             CountryId = request.CountryId,
             StateId = request.StateId,
             CityId = request.CityId,
-            
+
         };
         await _repository.UpdateAsync(product);
         return request.Id;
