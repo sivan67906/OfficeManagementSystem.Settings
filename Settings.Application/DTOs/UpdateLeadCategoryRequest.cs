@@ -2,5 +2,5 @@
 
 public class UpdateLeadCategoryRequest : LeadCategoryBaseModel
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 }

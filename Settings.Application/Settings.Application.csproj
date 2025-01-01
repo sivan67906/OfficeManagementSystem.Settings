@@ -15,11 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Settings.Domain\Settings.Domain.csproj" />
+    <Folder Include="Common\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
+    <ProjectReference Include="..\Settings.Domain\Settings.Domain.csproj" />
   </ItemGroup>
 
 </Project>

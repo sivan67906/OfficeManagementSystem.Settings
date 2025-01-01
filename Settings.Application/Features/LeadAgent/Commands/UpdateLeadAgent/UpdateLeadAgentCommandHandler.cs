@@ -7,6 +7,7 @@ namespace Settings.Application.Feauters.LeadAgent.Commands.UpdateLeadAgent
 {
     public class UpdateLeadAgentCommandHandler : IRequestHandler<UpdateLeadAgentCommand, string>
     {
+        
         private readonly IGenericRepository<Domain.Entities.LeadAgent> _repository;
         private readonly IValidator<UpdateLeadAgentRequest> _validator;
         public UpdateLeadAgentCommandHandler(IGenericRepository<Domain.Entities.LeadAgent> repository

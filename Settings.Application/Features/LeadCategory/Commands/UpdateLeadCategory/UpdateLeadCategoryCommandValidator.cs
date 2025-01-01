@@ -8,8 +8,8 @@ public class UpdateLeadCategoryCommandValidator : AbstractValidator<UpdateLeadCa
     public UpdateLeadCategoryCommandValidator()
     {
         RuleFor(x => x.Id)
-            .NotEmpty().WithMessage("Category Id should not be empty")
-            .LessThan(0).WithMessage("Category Id must be greater than zero");
+            .NotEmpty().WithMessage("Category Id should not be empty");
+            
         RuleFor(x => x.CategoryName)
             .NotEmpty().WithMessage("Category Name should not be empty")
             .MaximumLength(25).WithMessage("Category Name must not exceed 25 Characters")

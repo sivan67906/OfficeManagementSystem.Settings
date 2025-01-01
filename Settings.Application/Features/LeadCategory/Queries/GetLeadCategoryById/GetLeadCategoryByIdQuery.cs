@@ -3,4 +3,4 @@ using Settings.Domain.Responses;
 
 namespace Settings.Application.Feauters.LeadCategory.Queries.GetLeadCategoryById;
 
-public record GetLeadCategoryByIdQuery(int Id) : IRequest<ServerResponse>;
+public record GetLeadCategoryByIdQuery(Guid Id) : IRequest<ServerResponse>;
