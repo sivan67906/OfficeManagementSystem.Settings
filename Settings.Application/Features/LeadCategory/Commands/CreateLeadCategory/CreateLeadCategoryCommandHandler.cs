@@ -34,18 +34,6 @@ internal class CreateLeadCategoryCommandHandler : IRequestHandler<CreateLeadCate
         await _repository.CreateAsync(product);
         return new ServerResponse(IsSuccess: true, Message: "Lead Category Created Succcessfully", Data: product);
     }
-
-    //public async Task<int> Handle(CreateLeadCategoryCommand request, CancellationToken cancellationToken)
-    //{
-    //    var product = new Domain.Entities.LeadCategory
-    //    {
-    //        CategoryName = request.CategoryName,
-
-    //    };
-
-    //    await _repository.CreateAsync(product);
-    //    return product.Id;
-    //}
 }
 
 

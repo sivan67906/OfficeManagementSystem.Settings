@@ -16,9 +16,13 @@
     <ItemGroup>
         <EditorConfigFiles Remove="D:\Workspace\OMS\OfficeManagementSystem.Configuration\Configuration.Domain\.editorconfig" />
     </ItemGroup>
-
+    
     <ItemGroup>
-        <None Include="D:\Workspace\OMS\OfficeManagementSystem.Configuration\Configuration.Domain\.editorconfig" />
+      <EditorConfigFiles Remove="D:\Workspace\OMS\OfficeManagementSystem.Settings\Settings.Domain\.editorconfig" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Include="D:\Workspace\OMS\OfficeManagementSystem.Settings\Settings.Domain\.editorconfig" />
     </ItemGroup>
 
 </Project>

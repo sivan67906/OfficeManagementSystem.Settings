@@ -1,4 +1,5 @@
 using MediatR;
+using Settings.Application.DTOs;
 using Settings.Domain.Interfaces;
 using Settings.Domain.Responses;
 
@@ -11,22 +12,17 @@ namespace Settings.Application.Feauters.LeadCategory.Queries.GetAllLeadCategorie
 
         public async Task<ServerResponse> Handle(GetAllLeadCategoryQuery request, CancellationToken cancellationToken)
         {
-            return new ServerResponse(Message: "Not Implemented");
+            var categories = await _repository.GetAllAsync();
+            if (!categories.Any()) return new ServerResponse(IsSuccess: false, Message: "No Lead Category there");
+
+            var categorylist = categories.Select(x => new GetLeadCategory
+            {
+                Id = x.Id,
+                CategoryName = x.CategoryName!
+            }).ToList();
+
+            return new ServerResponse(IsSuccess: true, Message: "GetAll Lead Categories Executed", Data: categorylist);
         }
-
-        //public async Task<IEnumerable<LeadCategoryDTO>> Handle(GetAllLeadCategoryQuery request, CancellationToken cancellationToken)
-        //{
-        //    var categorys = await _repository.GetAllAsync();
-
-        //    var categorylist = categorys.Select(x => new LeadCategoryDTO
-        //    {
-        //        Id = x.Id,
-        //        CategoryName = x.CategoryName
-
-        //    }).ToList();
-
-        //    return categorylist;
-        //}
     }
 }
 

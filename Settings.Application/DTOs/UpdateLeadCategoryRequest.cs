@@ -1,9 +1,6 @@
-﻿namespace Settings.Application.DTOs
+﻿namespace Settings.Application.DTOs;
+
+public class UpdateLeadCategoryRequest : LeadCategoryBaseModel
 {
-    public class UpdateLeadCategoryRequest : LeadCategoryBaseModel
-    {
-        public int Id { get; set; }
-    }
+    public int Id { get; set; }
 }
-
-
