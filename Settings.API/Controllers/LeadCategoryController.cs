@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Settings.Application.DTOs;
 using Settings.Application.Feauters.LeadCategory.Commands.CreateLeadCategory;
 using Settings.Application.Feauters.LeadCategory.Commands.DeleteLeadCategory;
 using Settings.Application.Feauters.LeadCategory.Commands.UpdateLeadCategory;
@@ -15,27 +16,25 @@ namespace Settings.API.Controllers
         private readonly IMediator _mediator;
         public LeadCategoryController(IMediator mediator) => _mediator = mediator;
 
-
         [HttpGet("GetById")]
-        public async Task<IActionResult> GetById(Guid Id)
+        public async Task<IActionResult> GetById(GetLeadCategory leadCategory)
         {
-            var product = await _mediator.Send(new GetLeadCategoryByIdQuery { Id = Id });
-            if (product is not null) { return Ok(product); }
-            return NotFound();
+            var result = await _mediator.Send(new GetLeadCategoryByIdQuery(leadCategory.Id));
+            return Ok(result);
         }
 
 
         [HttpPost("Create")]
-        public async Task<IActionResult> Create(CreateLeadCategoryCommand command)
+        public async Task<IActionResult> Create(CreateLeadCategoryRequest leadCategory)
         {
-            var id = await _mediator.Send(command);
-            return CreatedAtAction(nameof(GetById), new { id }, command);
+            var result = await _mediator.Send(new CreateLeadCategoryCommand(leadCategory));
+            return Ok(result);
         }
 
         [HttpPut("Update")]
-        public async Task<IActionResult> Update(UpdateLeadCategoryCommand command)
+        public async Task<IActionResult> Update(UpdateLeadCategoryRequest leadCategory)
         {
-            await _mediator.Send(command);
+            await _mediator.Send(new UpdateLeadCategoryCommand(leadCategory));
             return NoContent();
         }
 
@@ -50,7 +49,7 @@ namespace Settings.API.Controllers
         [HttpDelete("Delete")]
         public async Task<IActionResult> Delete(Guid Id)
         {
-            await _mediator.Send(new DeleteLeadCategoryCommand { Id = Id });
+            await _mediator.Send(new DeleteLeadCategoryCommand(Id));
             return NoContent();
         }
     }

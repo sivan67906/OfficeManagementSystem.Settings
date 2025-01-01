@@ -1,12 +1,9 @@
 using MediatR;
+using Settings.Application.DTOs;
 
 namespace Settings.Application.Feauters.LeadAgent.Commands.UpdateLeadAgent
 {
-    public class UpdateLeadAgentCommand : IRequest<Guid>
-    {
-        public Guid Id { get; set; }
-        public string? AgentName { get; set; }
-    }
+    public record UpdateLeadAgentCommand(UpdateLeadAgentRequest LeadAgent) : IRequest<string>;
 }
 
 

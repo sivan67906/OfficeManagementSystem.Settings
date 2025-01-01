@@ -6,5 +6,3 @@ namespace Settings.Application.DTOs
         public string? AgentName { get; set; }
     }
 }
-
-

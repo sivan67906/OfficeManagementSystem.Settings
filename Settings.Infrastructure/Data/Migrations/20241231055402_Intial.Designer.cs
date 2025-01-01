@@ -12,8 +12,13 @@ using Settings.Infrastructure.Persistence;
 namespace Settings.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
+<<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241231055402_Intial.Designer.cs
     [Migration("20241231055402_Intial")]
     partial class Intial
+========
+    [Migration("20250101044628_asdf")]
+    partial class asdf
+>>>>>>>> 695805260bd72bcd0e8ab59ebbe0182aa222f8a7:Settings.Infrastructure/Data/Migrations/20250101044628_asdf.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

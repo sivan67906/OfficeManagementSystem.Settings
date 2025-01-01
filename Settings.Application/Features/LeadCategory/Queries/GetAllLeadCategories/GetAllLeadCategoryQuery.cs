@@ -1,11 +1,6 @@
 using MediatR;
-using Settings.Application.DTOs;
+using Settings.Domain.Responses;
 
-namespace Settings.Application.Feauters.LeadCategory.Queries.GetAllLeadCategories
-{
-    public class GetAllLeadCategoryQuery : IRequest<IEnumerable<LeadCategoryDTO>>
-    {
-    }
-}
+namespace Settings.Application.Feauters.LeadCategory.Queries.GetAllLeadCategories;
 
-
+public record GetAllLeadCategoryQuery : IRequest<ServerResponse>;

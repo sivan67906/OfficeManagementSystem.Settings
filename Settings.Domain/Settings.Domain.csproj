@@ -11,15 +11,18 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
         <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
-
     </ItemGroup>
     
     <ItemGroup>
         <EditorConfigFiles Remove="D:\Workspace\OMS\OfficeManagementSystem.Configuration\Configuration.Domain\.editorconfig" />
     </ItemGroup>
-
+    
     <ItemGroup>
-        <None Include="D:\Workspace\OMS\OfficeManagementSystem.Configuration\Configuration.Domain\.editorconfig" />
+      <EditorConfigFiles Remove="D:\Workspace\OMS\OfficeManagementSystem.Settings\Settings.Domain\.editorconfig" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Include="D:\Workspace\OMS\OfficeManagementSystem.Settings\Settings.Domain\.editorconfig" />
     </ItemGroup>
 
 </Project>

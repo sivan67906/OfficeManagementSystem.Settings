@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Settings.Application.Features.ProjectStatus.Commands.UpdateProjectStatusDefault;
 using Settings.Application.Features.ProjectStatuses.Commands.CreateProjectStatus;
 using Settings.Application.Features.ProjectStatuses.Commands.DeleteProjectStatus;
 using Settings.Application.Features.ProjectStatuses.Commands.UpdateProjectStatus;
@@ -45,17 +46,12 @@ public class ProjectStatusController : ControllerBase
     }
 
     [HttpPut("UpdateDefaultStatus")]
-    public async Task<IActionResult> Update(Guid Id)
+    public async Task<IActionResult> Update1(UpdateProjectStatusDefaultCommand command)
     {
-        var projectStatus = await _mediator.Send(new GetProjectStatusByIdQuery { Id = Id });
+        //var projectStatus = await _mediator.Send(new GetProjectStatusByIdQuery { Id = command.Id });
 
-        if (projectStatus is null) return NoContent();
-        UpdateProjectStatusCommand command = new UpdateProjectStatusCommand();
-        command.Id = projectStatus.Id;
-        command.Name = projectStatus.Name;
-        command.ColorCode = projectStatus.ColorCode;
-        command.IsDefaultStatus = true;
-        command.Status = projectStatus.Status;
+        //if (projectStatus is null) return NoContent();
+        //projectStatus.Id = command.Id;
 
         await _mediator.Send(command);
         return NoContent();
