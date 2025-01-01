@@ -14,20 +14,29 @@ internal class UpdateProjectStatusDefaultCommandHandler : IRequestHandler<Update
 
     public async System.Threading.Tasks.Task Handle(UpdateProjectStatusDefaultCommand request, CancellationToken cancellationToken)
     {
-        var projectStatus = await _projectStatusRepository.GetByIdAsync(request.Id);
+        //var projectStatus = await _projectStatusRepository.GetByIdAsync(request.Id);
+        var projectStatus = await _projectStatusRepository.GetAllAsync();
 
-
-
-        var projectStatusUpdate = new Settings.Domain.Entities.ProjectStatus
+        foreach (var entity in projectStatus)
         {
-            Id = projectStatus.Id,
-            Name = projectStatus.Name,
-            ColorCode = projectStatus.ColorCode,
-            IsDefaultStatus = true,
-            Status = projectStatus.Status,
-            UpdatedDate = DateTime.Now
-        };
-
-        await _projectStatusRepository.UpdateAsync(projectStatusUpdate);
+            if (entity.Id == request.Id)
+            {
+                entity.Id = request.Id;
+                entity.IsDefaultStatus = true;
+                entity.UpdatedDate = DateTime.Now;
+                await _projectStatusRepository.UpdateAsync(entity);
+            }
+            else
+            {
+                entity.IsDefaultStatus = false;
+                await _projectStatusRepository.UpdateAsync(entity);
+            }
+        }
+        //var projectStatusUpdate = new Settings.Domain.Entities.ProjectStatus
+        //{
+        //    Id = projectStatus.Id,
+        //    IsDefaultStatus = true,
+        //    UpdatedDate = DateTime.Now
+        //};
     }
 }

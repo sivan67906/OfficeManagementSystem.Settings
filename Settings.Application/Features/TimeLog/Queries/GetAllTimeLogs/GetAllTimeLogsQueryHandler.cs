@@ -8,14 +8,10 @@ namespace Settings.Application.Features.TimeLogs.Queries.GetAllTimeLogs;
 internal class GetAllTimeLogsQueryHandler : IRequestHandler<GetAllTimeLogsQuery, IEnumerable<TimeLogDTO>>
 {
     private readonly IGenericRepository<TimeLog> _timeLogRepository;
-    private readonly IGenericRepository<ProjectReminderPerson> _projectReminderPersonRepository;
-
     public GetAllTimeLogsQueryHandler(
-        IGenericRepository<TimeLog> timeLogRepository,
-        IGenericRepository<ProjectReminderPerson> projectReminderPersonRepository)
+        IGenericRepository<TimeLog> timeLogRepository)
     {
         _timeLogRepository = timeLogRepository;
-        _projectReminderPersonRepository = projectReminderPersonRepository;
     }
 
     public async Task<IEnumerable<TimeLogDTO>> Handle(GetAllTimeLogsQuery request, CancellationToken cancellationToken)

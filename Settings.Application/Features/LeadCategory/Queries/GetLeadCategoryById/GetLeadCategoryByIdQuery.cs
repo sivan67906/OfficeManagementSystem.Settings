@@ -1,12 +1,6 @@
 using MediatR;
-using Settings.Application.DTOs;
+using Settings.Domain.Responses;
 
-namespace Settings.Application.Feauters.LeadCategory.Queries.GetLeadCategoryById
-{
-    public class GetLeadCategoryByIdQuery : IRequest<LeadCategoryDTO>
-    {
-        public int Id { get; set; }
-    }
-}
+namespace Settings.Application.Feauters.LeadCategory.Queries.GetLeadCategoryById;
 
-
+public record GetLeadCategoryByIdQuery(int Id) : IRequest<ServerResponse>;

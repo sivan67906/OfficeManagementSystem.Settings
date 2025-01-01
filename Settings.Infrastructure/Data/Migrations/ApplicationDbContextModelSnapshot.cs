@@ -64,7 +64,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("CityId");
 
-                    b.ToTable("Address");
+                    b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Applications", b =>
@@ -184,7 +184,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("StateId");
 
-                    b.ToTable("BusinessLocation");
+                    b.ToTable("BusinessLocations");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.BusinessType", b =>
@@ -214,7 +214,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BusinessType");
+                    b.ToTable("BusinessTypes");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Category", b =>
@@ -244,7 +244,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.City", b =>
@@ -278,9 +278,6 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("StateId");
 
-<<<<<<< HEAD
-                    b.ToTable("City");
-=======
                     b.ToTable("Cities");
                 });
 
@@ -335,7 +332,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasIndex("StateId");
 
                     b.ToTable("clients");
->>>>>>> 0c054cde543e8ed5b774f918a889888c72dbd037
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Company", b =>
@@ -394,7 +390,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Company");
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Contract", b =>
@@ -448,7 +444,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Country");
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Currency", b =>
@@ -590,7 +586,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Department");
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Designation", b =>
@@ -634,14 +630,10 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Designation");
+                    b.ToTable("Designations");
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("Settings.Domain.Entities.Employee", b =>
-=======
-            modelBuilder.Entity("Settings.Domain.Entities.FinanceInvoiceSetting", b =>
->>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -649,7 +641,6 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-<<<<<<< HEAD
                     b.Property<int>("AddressId")
                         .HasColumnType("int");
 
@@ -698,7 +689,16 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasIndex("StateId");
 
                     b.ToTable("Employees");
-=======
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.FinanceInvoiceSetting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -833,7 +833,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FinanceUnitSettings");
->>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.JobApplicationCategory", b =>
@@ -1024,8 +1023,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("AgentTicket")
-<<<<<<< HEAD
-=======
                         .HasColumnType("bit");
 
                     b.Property<bool>("AttendanceReminder")
@@ -1249,206 +1246,34 @@ namespace Settings.Infrastructure.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
->>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
                         .HasColumnType("bit");
 
-                    b.Property<bool>("AttendanceReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("AutoTaskReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ContractSigned")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("EmployeeAssigntoProject")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("EstimateDeclined")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("EventInvite")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("EventReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("FollowUpReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("InvoiceCreated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("InvoiceReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Leadnotification")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LeaveApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LeaveRejected")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LeaveUpdated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ModulesEmailNotificationAttendanceReminderNew")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ModulesEmailNotificationEventInviteNew")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ModulesEmailNotificationEventReminderNew")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ModulesEmailNotificationTestNotification")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("MultipleLeaveApplication")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewClientTask")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewExpenseAddedbyAdmin")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewExpenseAddedbyMember")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewFileUploadedtoProject")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewLeaveApplication")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewLeaveRequest")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewMultipleLeaveApplication")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewNoticePublished")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewOrder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewPayment")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewProductPurchase")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewProject")
-                        .HasColumnType("bit");
+                    b.Property<string>("LeaveNotificationJson")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("NewPropoInvoiceUpdatedsal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewProposal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewRecurringInvoice")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewSupportTicketRequest")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewTask")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewTicketReply")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NewTicketRequest")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NoticeUpdated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("OrderUpdated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PaymentReceived")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PaymentReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ProjectReminder")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ProposalApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ProposalRejected")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RecurringExpenseStatusUpdated")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RecurringInvoiceStatusUpdated")
-                        .HasColumnType("bit");
+                    b.Property<string>("PaymentNotificationJson")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("RemovalRequestAdminNotification")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestApprovedLead")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestApprovedUser")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestReject")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestRejectLead")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RemovalRequestRejectUser")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("SubTaskAssigneeAdded")
-                        .HasColumnType("bit");
+                    b.Property<string>("ProjectNotificationJson")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("SubTaskCompleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TaskComment")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TaskCompleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TaskCompletedClient")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TaskNote")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TaskReminder")
-                        .HasColumnType("bit");
+                    b.Property<string>("ProposalNotificationJson")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("TaskUpdateClient")
-                        .HasColumnType("bit");
+                    b.Property<string>("ReminderNotificationJson")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("TaskUpdated")
-                        .HasColumnType("bit");
+                    b.Property<string>("RequestNotificationJson")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("TwoFactorCode")
-                        .HasColumnType("bit");
+                    b.Property<string>("TaskNotificationJson")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("UserJoinViaInvitation")
-                        .HasColumnType("bit");
+                    b.Property<string>("TicketNotificationJson")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("UserRegistrationAddedbyAdmin")
-                        .HasColumnType("bit");
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -1693,7 +1518,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("Purchases");
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("Settings.Domain.Entities.PurchaseOrder", b =>
                 {
                     b.Property<int>("Id")
@@ -1719,8 +1543,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("PurchaseOrders");
                 });
 
-=======
->>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
             modelBuilder.Entity("Settings.Domain.Entities.RecruitCustomQuestionSetting", b =>
                 {
                     b.Property<int>("Id")
@@ -2003,7 +1825,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("DesignationId");
 
-                    b.ToTable("Role");
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.State", b =>
@@ -2037,7 +1859,7 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("State");
+                    b.ToTable("States");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Task", b =>
@@ -2189,11 +2011,7 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.ToTable("TimeLogs");
                 });
 
-<<<<<<< HEAD
-            modelBuilder.Entity("Settings.Domain.Entities.VendorCredit", b =>
-=======
             modelBuilder.Entity("Settings.Domain.Entities.TimesheetSetting", b =>
->>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2201,23 +2019,6 @@ namespace Settings.Infrastructure.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-<<<<<<< HEAD
-                    b.Property<string>("VendorCreditNumberDigits")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VendorCreditNumberExample")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VendorCreditNumberSeperater")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VendorCreditPrefix")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("VendorCredit");
-=======
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -2267,7 +2068,31 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.HasIndex("TaskId");
 
                     b.ToTable("TimesheetSettings");
->>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
+                });
+
+            modelBuilder.Entity("Settings.Domain.Entities.VendorCredit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("VendorCreditNumberDigits")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VendorCreditNumberExample")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VendorCreditNumberSeperater")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VendorCreditPrefix")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VendorCredit");
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.Address", b =>
@@ -2438,7 +2263,6 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.Navigation("Department");
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("Settings.Domain.Entities.Employee", b =>
                 {
                     b.HasOne("Settings.Domain.Entities.Address", "Address")
@@ -2488,7 +2312,8 @@ namespace Settings.Infrastructure.Data.Migrations
                     b.Navigation("Department");
 
                     b.Navigation("State");
-=======
+                });
+
             modelBuilder.Entity("Settings.Domain.Entities.FinanceInvoiceSetting", b =>
                 {
                     b.HasOne("Settings.Domain.Entities.Language", "Language")
@@ -2498,7 +2323,6 @@ namespace Settings.Infrastructure.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Language");
->>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1
                 });
 
             modelBuilder.Entity("Settings.Domain.Entities.ProjectSetting", b =>

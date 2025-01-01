@@ -1,24 +1,37 @@
+using FluentValidation;
 using MediatR;
-using Settings.Domain.Entities;
+using Settings.Application.DTOs;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Feauters.LeadAgent.Commands.CreateLeadAgent
 {
-    public class CreateLeadAgentCommandHandler : IRequestHandler<CreateLeadAgentCommand, int>
+    public class CreateLeadAgentCommandHandler : IRequestHandler<CreateLeadAgentCommand, string>
     {
         private readonly IGenericRepository<Domain.Entities.LeadAgent> _leadagentRepository;
-        public CreateLeadAgentCommandHandler(IGenericRepository<Domain.Entities.LeadAgent> leadagentRepository) => _leadagentRepository = leadagentRepository;
-
-        public async Task<int> Handle(CreateLeadAgentCommand request, CancellationToken cancellationToken)
+        private readonly IValidator<CreateLeadAgentRequest> _validator;
+        public CreateLeadAgentCommandHandler(IGenericRepository<Domain.Entities.LeadAgent> leadagentRepository, IValidator<CreateLeadAgentRequest> validator)
         {
+            _leadagentRepository = leadagentRepository;
+            _validator = validator;
+        }
+
+        public async Task<string> Handle(CreateLeadAgentCommand request, CancellationToken cancellationToken)
+        {
+
+            var validate = await _validator.ValidateAsync(request.LeadAgent);
+            if (!validate.IsValid)
+            {
+                var erroList = string.Join("; ", validate.Errors.Select(error => error.ErrorMessage));
+
+                return erroList.ToString()!;
+            }
             var leadAgent = new Domain.Entities.LeadAgent
             {
-                AgentName = request.AgentName,
-                
+                AgentName = request.LeadAgent.AgentName
             };
 
             await _leadagentRepository.CreateAsync(leadAgent);
-            return leadAgent.Id;
+            return "Agent Created Successfully";
         }
     }
 }

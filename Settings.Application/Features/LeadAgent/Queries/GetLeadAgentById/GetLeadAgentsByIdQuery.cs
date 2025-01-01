@@ -1,12 +1,8 @@
 using MediatR;
-using Settings.Application.DTOs;
+using Settings.Domain.Responses;
 
-namespace Settings.Application.Feauters.LeadAgent.Queries.GetLeadAgentById
-{
-    public class GetLeadAgentsByIdQuery : IRequest<LeadAgentDTO>
-    {
-        public int Id { get; set; }
-    }
-}
+namespace Settings.Application.Feauters.LeadAgent.Queries.GetLeadAgentById;
+
+public record GetLeadAgentsByIdQuery(int Id) : IRequest<ServerResponse>;
 
 

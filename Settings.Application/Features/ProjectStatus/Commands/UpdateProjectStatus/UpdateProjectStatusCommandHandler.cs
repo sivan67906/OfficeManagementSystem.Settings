@@ -13,17 +13,49 @@ internal class UpdateProjectStatusCommandHandler : IRequestHandler<UpdateProject
 
     public async System.Threading.Tasks.Task Handle(UpdateProjectStatusCommand request, CancellationToken cancellationToken)
     {
-        var projectStatus = new Settings.Domain.Entities.ProjectStatus
-        {
-            Id = request.Id,
-            Name = request.Name,
-            ColorCode = request.ColorCode,
-            IsDefaultStatus = request.IsDefaultStatus,
-            Status = request.Status,
-            UpdatedDate = DateTime.Now
-        };
 
-        await _projectStatusRepository.UpdateAsync(projectStatus);
+        if (request.IsDefaultStatus == true)
+        {
+            var projectStatusExistUpdate = await _projectStatusRepository.GetAllAsync();
+
+            foreach (var entity in projectStatusExistUpdate)
+            {
+                if (entity.Id == request.Id)
+                {
+                    entity.Id = request.Id;
+                    entity.Name = request.Name;
+                    entity.ColorCode = request.ColorCode;
+                    entity.IsDefaultStatus = request.IsDefaultStatus;
+                    entity.Status = request.Status;
+                    entity.UpdatedDate = DateTime.Now;
+                    await _projectStatusRepository.UpdateAsync(entity);
+                }
+                else
+                {
+                    entity.IsDefaultStatus = false;
+                    await _projectStatusRepository.UpdateAsync(entity);
+                }
+            }
+        }
+        else
+        {
+            var projectStatus = new Settings.Domain.Entities.ProjectStatus
+            {
+                Id = request.Id,
+                Name = request.Name,
+                ColorCode = request.ColorCode,
+                IsDefaultStatus = request.IsDefaultStatus,
+                Status = request.Status,
+                UpdatedDate = DateTime.Now
+            };
+
+            await _projectStatusRepository.UpdateAsync(projectStatus);
+        }
+
+
+
+
+
     }
 }
 

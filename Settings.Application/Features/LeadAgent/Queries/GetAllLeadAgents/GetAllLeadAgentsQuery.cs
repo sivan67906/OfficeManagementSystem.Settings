@@ -1,11 +1,8 @@
 using MediatR;
-using Settings.Application.DTOs;
+using Settings.Domain.Responses;
 
-namespace Settings.Application.Feauters.LeadAgent.Queries.GetAllLeadAgents
-{
-    public class GetAllLeadAgentsQuery : IRequest<IEnumerable<LeadAgentDTO>>
-    {
-    }
-}
+namespace Settings.Application.Feauters.LeadAgent.Queries.GetAllLeadAgents;
+
+public record GetAllLeadAgentsQuery : IRequest<ServerResponse>;
 
 
