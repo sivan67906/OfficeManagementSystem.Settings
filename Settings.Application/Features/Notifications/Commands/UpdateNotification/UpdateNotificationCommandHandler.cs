@@ -3,7 +3,7 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Notifications.Commands.UpdateNotification;
-public class UpdateNotificationCommandHandler : IRequestHandler<UpdateNotificationCommand, int>
+public class UpdateNotificationCommandHandler : IRequestHandler<UpdateNotificationCommand, Guid>
 {
     private readonly IGenericRepository<Notification> _notifyrepo;
     public UpdateNotificationCommandHandler(IGenericRepository<Notification> notifyrepo)
@@ -11,7 +11,7 @@ public class UpdateNotificationCommandHandler : IRequestHandler<UpdateNotificati
         _notifyrepo = notifyrepo;
     }
 
-    public async Task<int> Handle(UpdateNotificationCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(UpdateNotificationCommand request, CancellationToken cancellationToken)
     {
         var product = new Notification
         {

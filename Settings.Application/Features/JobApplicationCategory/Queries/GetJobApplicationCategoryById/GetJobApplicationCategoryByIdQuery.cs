@@ -6,7 +6,7 @@ namespace Settings.Application.Features.JobApplicationCategories.Queries.GetJobA
 {
     public class GetJobApplicationCategoryByIdQuery : IRequest<JobApplicationCategoryDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

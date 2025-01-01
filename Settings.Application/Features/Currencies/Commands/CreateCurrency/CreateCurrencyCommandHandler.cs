@@ -3,12 +3,12 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Currencies.Commands.CreateCurrency;
-public class CreateCurrencyCommandHandler : IRequestHandler<CreateCurrencyCommand, int>
+public class CreateCurrencyCommandHandler : IRequestHandler<CreateCurrencyCommand, Guid>
 {
     private readonly IGenericRepository<Currency> _currencyRepo;
     public CreateCurrencyCommandHandler(IGenericRepository<Currency> currencyRepo) => _currencyRepo = currencyRepo;
 
-    public async Task<int> Handle(CreateCurrencyCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateCurrencyCommand request, CancellationToken cancellationToken)
     {
         var currency = new Currency
         {

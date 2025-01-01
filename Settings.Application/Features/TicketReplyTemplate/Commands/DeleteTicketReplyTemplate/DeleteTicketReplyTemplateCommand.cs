@@ -4,7 +4,7 @@ namespace Settings.Application.Features.TicketReplyTemplates.Commands.DeleteTick
 {
     public class DeleteTicketReplyTemplateCommand : IRequest
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

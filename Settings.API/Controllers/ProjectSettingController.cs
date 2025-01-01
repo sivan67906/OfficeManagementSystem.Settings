@@ -23,7 +23,7 @@ public class ProjectSettingController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var projectSetting = await _mediator.Send(new GetProjectSettingByIdQuery { Id = Id });
         if (projectSetting is not null) { return Ok(projectSetting); }
@@ -45,7 +45,7 @@ public class ProjectSettingController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteProjectSettingCommand { Id = Id });
         return NoContent();

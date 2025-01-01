@@ -3,5 +3,5 @@
 namespace Settings.Application.Features.Notifications.Commands.DeleteNotification;
 public class DeleteNotificationCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 }

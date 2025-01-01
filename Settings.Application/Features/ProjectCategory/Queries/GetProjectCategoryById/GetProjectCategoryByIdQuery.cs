@@ -5,7 +5,7 @@ namespace Settings.Application.Features.ProjectCategories.Queries.GetProjectCate
 {
     public class GetProjectCategoryByIdQuery : IRequest<ProjectCategoryDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

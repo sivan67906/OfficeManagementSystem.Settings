@@ -2,12 +2,12 @@
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Applications.Commands.UpdateApplocation;
-public class UpdateApplicationCommandHandler : IRequestHandler<UpdateApplicationCommand, int>
+public class UpdateApplicationCommandHandler : IRequestHandler<UpdateApplicationCommand, Guid>
 {
     private readonly IGenericRepository<Domain.Entities.Applications> _appliRepo;
     public UpdateApplicationCommandHandler(IGenericRepository<Domain.Entities.Applications> repository) => _appliRepo = repository;
 
-    public async Task<int> Handle(UpdateApplicationCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(UpdateApplicationCommand request, CancellationToken cancellationToken)
     {
         var application = new Domain.Entities.Applications
         {

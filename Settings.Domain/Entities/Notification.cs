@@ -1,7 +1,7 @@
 namespace Settings.Domain.Entities;
 public class Notification
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public bool ContractSigned { get; set; }
     public bool EstimateDeclined { get; set; }
     public bool EventInvite { get; set; }

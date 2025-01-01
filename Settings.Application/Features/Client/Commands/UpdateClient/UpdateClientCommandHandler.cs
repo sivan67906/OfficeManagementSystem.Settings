@@ -3,7 +3,7 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Client.Commands.UpdateClient;
-public class UpdateClientCommandHandler : IRequestHandler<UpdateClientCommand, int>
+public class UpdateClientCommandHandler : IRequestHandler<UpdateClientCommand, Guid>
 {
     private readonly IGenericRepository<Domain.Entities.Client> _repository;
     private readonly IGenericRepository<Address> _addressRepository;
@@ -12,7 +12,7 @@ public class UpdateClientCommandHandler : IRequestHandler<UpdateClientCommand, i
         _repository = repository;
         _addressRepository = addressRepository;
     }
-    public async Task<int> Handle(UpdateClientCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(UpdateClientCommand request, CancellationToken cancellationToken)
     {
         var address = new Address
         {

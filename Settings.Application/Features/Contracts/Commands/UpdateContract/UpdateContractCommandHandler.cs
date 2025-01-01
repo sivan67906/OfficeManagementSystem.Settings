@@ -3,12 +3,12 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Contracts.Commands.UpdateContract;
-public class UpdateContractCommandHandler : IRequestHandler<UpdateContractCommand, int>
+public class UpdateContractCommandHandler : IRequestHandler<UpdateContractCommand, Guid>
 {
     private IGenericRepository<Contract> _contractRepository;
     public UpdateContractCommandHandler(IGenericRepository<Contract> repository) => _contractRepository = repository;
 
-    public async Task<int> Handle(UpdateContractCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(UpdateContractCommand request, CancellationToken cancellationToken)
     {
         var currency = new Contract
         {

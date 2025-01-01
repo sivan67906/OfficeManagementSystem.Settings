@@ -3,12 +3,12 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Plannings.Commands.UpdatePlanning;
-public class UpdatePlanningCommandHandler : IRequestHandler<UpdatePlanningCommand, int>
+public class UpdatePlanningCommandHandler : IRequestHandler<UpdatePlanningCommand, Guid>
 {
     private readonly IGenericRepository<Planning> _planrepo;
     public UpdatePlanningCommandHandler(IGenericRepository<Planning> planrepo) => _planrepo = planrepo;
 
-    public async Task<int> Handle(UpdatePlanningCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(UpdatePlanningCommand request, CancellationToken cancellationToken)
     {
         var product = new Planning
         {

@@ -4,7 +4,7 @@ namespace Settings.Domain.Entities;
 
 public class Address
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? Address1 { get; set; }
     public string? Address2 { get; set; }
     public string? ZipCode { get; set; }
@@ -16,7 +16,7 @@ public class Address
     public bool IsActive { get; set; } = true;
 
     [ForeignKey(nameof(CityId))]
-    public int CityId { get; set; }
+    public Guid CityId { get; set; }
     public City City { get; set; } = null!;
 }
 

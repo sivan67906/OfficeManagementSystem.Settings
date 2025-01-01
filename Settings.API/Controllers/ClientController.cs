@@ -17,7 +17,7 @@ public class ClientController : ControllerBase
 
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var product = await _mediator.Send(new GetClientByIdQuery { Id = Id });
         if (product is not null) { return Ok(product); }
@@ -49,7 +49,7 @@ public class ClientController : ControllerBase
 
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteClientCommand { Id = Id });
         return NoContent();

@@ -5,7 +5,7 @@ namespace Settings.Application.Features.Countries.Queries.GetCountryById
 {
     public class GetCountryByIdQuery : IRequest<CountryDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

@@ -4,7 +4,7 @@ namespace Settings.Application.Features.ProjectStatuses.Commands.UpdateProjectSt
 
 public class UpdateProjectStatusCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? Name { get; set; }
     public string? ColorCode { get; set; }
     public bool IsDefaultStatus { get; set; }

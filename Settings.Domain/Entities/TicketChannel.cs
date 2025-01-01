@@ -6,7 +6,7 @@ public sealed class TicketChannel
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? TicketChannelCode { get; set; }
     public string? TicketChannelName { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

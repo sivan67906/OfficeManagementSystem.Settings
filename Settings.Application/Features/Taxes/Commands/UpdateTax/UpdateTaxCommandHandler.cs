@@ -3,12 +3,12 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Taxes.Commands.UpdateTax;
-public class UpdateTaxCommandHandler : IRequestHandler<UpdateTaxCommand, int>
+public class UpdateTaxCommandHandler : IRequestHandler<UpdateTaxCommand, Guid>
 {
     private readonly IGenericRepository<Tax> _taxRepository;
     public UpdateTaxCommandHandler(IGenericRepository<Tax> taxRepository) => _taxRepository = taxRepository;
 
-    public async Task<int> Handle(UpdateTaxCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(UpdateTaxCommand request, CancellationToken cancellationToken)
     {
         var product = new Tax
         {

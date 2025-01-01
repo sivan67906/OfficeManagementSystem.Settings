@@ -23,7 +23,7 @@ public class BusinessLocationController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var businessLocation = await _mediator.Send(new GetBusinessLocationByIdQuery { Id = Id });
         if (businessLocation is not null) { return Ok(businessLocation); }
@@ -45,7 +45,7 @@ public class BusinessLocationController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteBusinessLocationCommand { Id = Id });
         return NoContent();

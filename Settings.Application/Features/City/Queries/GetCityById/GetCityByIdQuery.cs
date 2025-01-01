@@ -5,7 +5,7 @@ namespace Settings.Application.Features.Cities.Queries.GetCityById
 {
     public class GetCityByIdQuery : IRequest<CityDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

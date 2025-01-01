@@ -5,7 +5,7 @@ namespace Settings.Application.Features.Departments.Queries.GetDepartmentById
 {
     public class GetDepartmentByIdQuery : IRequest<DepartmentDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

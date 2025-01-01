@@ -1,9 +1,9 @@
 ﻿using MediatR;
 
 namespace Settings.Application.Features.Purchases.Commands.UpdatePurchase;
-public class UpdatePurchaseCommand : IRequest<int>
+public class UpdatePurchaseCommand : IRequest<Guid>
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? PurchaseOrderPrefix { get; set; }
     public string? PurchaseOrderNumberSeperater { get; set; }
     public string? PurchaseOrderNumberDigits { get; set; }

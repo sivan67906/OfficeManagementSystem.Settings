@@ -4,7 +4,7 @@ namespace Settings.Application.Features.RecruitGeneralSettings.Commands.UpdateRe
 
 public class UpdateRecruitGeneralSettingCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? GeneralCompanyName { get; set; }
     public string? GeneralCompanyWebsite { get; set; }
     public string? GeneralCompanyLogo { get; set; }

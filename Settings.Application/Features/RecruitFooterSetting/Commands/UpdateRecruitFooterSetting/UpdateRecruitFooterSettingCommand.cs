@@ -4,7 +4,7 @@ namespace Settings.Application.Features.RecruitFooterSettings.Commands.UpdateRec
 
 public class UpdateRecruitFooterSettingCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? FooterTitle { get; set; }
     public string? FooterSlug { get; set; }
     public int FooterStatusId { get; set; }

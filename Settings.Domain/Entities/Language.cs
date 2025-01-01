@@ -6,7 +6,7 @@ public sealed class Language
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? LanguageCode { get; set; }
     public string? LanguageName { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

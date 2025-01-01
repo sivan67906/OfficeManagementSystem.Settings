@@ -1,7 +1,7 @@
 namespace Settings.Application.DTOs;
 public class RecruitJobApplicationStatusSettingDTO
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public int JobApplicationPositionId { get; set; }
     public string? JobApplicationPositionName { get; set; }
     public int JobApplicationCategoryId { get; set; }

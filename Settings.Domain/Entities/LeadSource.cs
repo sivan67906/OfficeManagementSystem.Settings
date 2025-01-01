@@ -2,7 +2,7 @@
 {
     public sealed class LeadSource
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string? source { get; set; }
     }
 }

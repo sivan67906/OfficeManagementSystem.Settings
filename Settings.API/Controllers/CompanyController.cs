@@ -23,7 +23,7 @@ public class CompanyController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var company = await _mediator.Send(new GetCompanyByIdQuery { Id = Id });
         if (company is not null) { return Ok(company); }
@@ -45,7 +45,7 @@ public class CompanyController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteCompanyCommand { Id = Id });
         return NoContent();

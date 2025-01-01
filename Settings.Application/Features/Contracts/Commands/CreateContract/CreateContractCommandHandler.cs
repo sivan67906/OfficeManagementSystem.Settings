@@ -3,12 +3,12 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Contracts.Commands.CreateContract;
-public class CreateContractCommandHandler : IRequestHandler<CreateContractCommand, int>
+public class CreateContractCommandHandler : IRequestHandler<CreateContractCommand, Guid>
 {
     private readonly IGenericRepository<Contract> _contractRepo;
     public CreateContractCommandHandler(IGenericRepository<Contract> repository) => _contractRepo = repository;
 
-    public async Task<int> Handle(CreateContractCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateContractCommand request, CancellationToken cancellationToken)
     {
         var Contract = new Contract
         {

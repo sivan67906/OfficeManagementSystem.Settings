@@ -1,9 +1,9 @@
 ﻿using MediatR;
 
 namespace Settings.Application.Features.Notifications.Commands.CreateNotification;
-public class CreateNotificationCommand : IRequest<int>
+public class CreateNotificationCommand : IRequest<Guid>
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public bool ContractSigned { get; set; }
     public bool EstimateDeclined { get; set; }
     public bool EventInvite { get; set; }

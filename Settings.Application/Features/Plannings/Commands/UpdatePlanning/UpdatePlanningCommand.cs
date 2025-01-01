@@ -1,9 +1,9 @@
 ﻿using MediatR;
 
 namespace Settings.Application.Features.Plannings.Commands.UpdatePlanning;
-public class UpdatePlanningCommand : IRequest<int>
+public class UpdatePlanningCommand : IRequest<Guid>
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? Name { get; set; }
     public float PlanPrice { get; set; }
     public int Validity { get; set; }

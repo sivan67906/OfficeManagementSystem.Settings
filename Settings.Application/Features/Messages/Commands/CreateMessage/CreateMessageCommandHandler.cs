@@ -3,12 +3,12 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Messages.Commands.CreateMessage;
-public class CreateMessageCommandHandler : IRequestHandler<CreateMessageCommand, int>
+public class CreateMessageCommandHandler : IRequestHandler<CreateMessageCommand, Guid>
 {
     private readonly IGenericRepository<Message> _messagerepository;
     public CreateMessageCommandHandler(IGenericRepository<Message> messagerepository) => _messagerepository = messagerepository;
 
-    public async Task<int> Handle(CreateMessageCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateMessageCommand request, CancellationToken cancellationToken)
     {
         var client = new Message
         {

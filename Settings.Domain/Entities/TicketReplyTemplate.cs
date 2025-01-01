@@ -6,7 +6,7 @@ public sealed class TicketReplyTemplate
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? TicketReplyTemplateCode { get; set; }
     public string? TicketReplyTemplateName { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

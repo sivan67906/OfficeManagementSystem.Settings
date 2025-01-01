@@ -3,12 +3,12 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Currencies.Commands.UpdateCurrency;
-public class UpdateCurrencyCommandHandler : IRequestHandler<UpdateCurrencyCommand, int>
+public class UpdateCurrencyCommandHandler : IRequestHandler<UpdateCurrencyCommand, Guid>
 {
     private readonly IGenericRepository<Currency> _currencyRepository;
     public UpdateCurrencyCommandHandler(IGenericRepository<Currency> currencyRepository) => _currencyRepository = currencyRepository;
 
-    public async Task<int> Handle(UpdateCurrencyCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(UpdateCurrencyCommand request, CancellationToken cancellationToken)
     {
         var currency = new Currency
         {

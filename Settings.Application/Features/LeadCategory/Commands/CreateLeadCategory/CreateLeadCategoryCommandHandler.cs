@@ -3,12 +3,12 @@ using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Feauters.LeadCategory.Commands.CreateLeadCategory
 {
-    public class CreateLeadCategoryCommandHandler : IRequestHandler<CreateLeadCategoryCommand, int>
+    public class CreateLeadCategoryCommandHandler : IRequestHandler<CreateLeadCategoryCommand, Guid>
     {
         private readonly IGenericRepository<Domain.Entities.LeadCategory> _repository;
         public CreateLeadCategoryCommandHandler(IGenericRepository<Domain.Entities.LeadCategory> repository) => _repository = repository;
 
-        public async Task<int> Handle(CreateLeadCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateLeadCategoryCommand request, CancellationToken cancellationToken)
         {
             var product = new Domain.Entities.LeadCategory
             {

@@ -6,7 +6,7 @@ namespace Settings.Application.Features.FinanceInvoiceTemplateSettings.Queries.G
 {
     public class GetFinanceInvoiceTemplateSettingByIdQuery : IRequest<FinanceInvoiceTemplateSettingDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

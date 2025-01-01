@@ -6,7 +6,7 @@ namespace Settings.Application.Features.RecruitNotificationSettings.Queries.GetR
 {
     public class GetRecruitNotificationSettingByIdQuery : IRequest<RecruitNotificationSettingDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

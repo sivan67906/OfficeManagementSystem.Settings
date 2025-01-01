@@ -6,7 +6,7 @@ namespace Settings.Application.Features.FinancePrefixSettings.Queries.GetFinance
 {
     public class GetFinancePrefixSettingByIdQuery : IRequest<FinancePrefixSettingDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

@@ -6,7 +6,7 @@ public sealed class CustomQuestionCategory
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? CQCategoryCode { get; set; }
     public string? CQCategoryName { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

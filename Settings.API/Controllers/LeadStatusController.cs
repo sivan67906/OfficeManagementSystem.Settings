@@ -28,7 +28,7 @@ namespace Settings.API.Controllers
         }
 
         [HttpGet("GetById")]
-        public async Task<IActionResult> GetById(int Id)
+        public async Task<IActionResult> GetById(Guid Id)
         {
             var product = await _leadStatusRepository.GetByIdAsync(Id);
             if (product is null) return NotFound();
@@ -67,10 +67,10 @@ namespace Settings.API.Controllers
         }
 
         [HttpDelete("Delete")]
-        public async Task<IActionResult> DeleteProduct(int id)
+        public async Task<IActionResult> DeleteProduct(Guid id)
         {
             //var existingProduct = await _leadStatusRepository.GetByIdAsync(id);
-            if (id == 0) return NotFound();
+            if (id == null) return NotFound();
             await _leadStatusRepository.DeleteAsync(id);
             return NoContent();
         }

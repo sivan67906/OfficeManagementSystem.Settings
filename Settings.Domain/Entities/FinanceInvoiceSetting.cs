@@ -6,7 +6,7 @@ public sealed class FinanceInvoiceSetting
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? FILogoPath { get; set; }
     public string? FILogoImageFileName { get; set; }
     public string? FIAuthorisedImagePath { get; set; }

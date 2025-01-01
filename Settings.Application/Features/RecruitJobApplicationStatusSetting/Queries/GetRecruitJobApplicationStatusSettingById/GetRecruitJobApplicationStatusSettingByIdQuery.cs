@@ -6,7 +6,7 @@ namespace Settings.Application.Features.RecruitJobApplicationStatusSettings.Quer
 {
     public class GetRecruitJobApplicationStatusSettingByIdQuery : IRequest<RecruitJobApplicationStatusSettingDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

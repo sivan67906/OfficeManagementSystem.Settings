@@ -6,7 +6,7 @@ namespace Settings.Application.Features.TicketChannels.Queries.GetTicketChannelB
 {
     public class GetTicketChannelByIdQuery : IRequest<TicketChannelDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

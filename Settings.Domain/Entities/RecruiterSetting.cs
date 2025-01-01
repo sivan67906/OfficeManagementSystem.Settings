@@ -6,7 +6,7 @@ public sealed class RecruiterSetting
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? RecruiterName { get; set; }
     public int RecruiterStatusId { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

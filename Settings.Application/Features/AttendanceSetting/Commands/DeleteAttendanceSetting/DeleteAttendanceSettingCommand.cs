@@ -4,7 +4,7 @@ namespace Settings.Application.Features.AttendanceSettings.Commands.DeleteAttend
 {
     public class DeleteAttendanceSettingCommand : IRequest
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

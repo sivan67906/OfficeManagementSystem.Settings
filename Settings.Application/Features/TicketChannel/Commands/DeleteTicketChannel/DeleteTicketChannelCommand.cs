@@ -4,7 +4,7 @@ namespace Settings.Application.Features.TicketChannels.Commands.DeleteTicketChan
 {
     public class DeleteTicketChannelCommand : IRequest
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

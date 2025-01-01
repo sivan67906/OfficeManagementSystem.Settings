@@ -4,12 +4,12 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Notifications.Commands.CreateNotification;
-public class CreateNotificationCommandHandler : IRequestHandler<CreateNotificationCommand, int>
+public class CreateNotificationCommandHandler : IRequestHandler<CreateNotificationCommand, Guid>
 {
     private readonly IGenericRepository<Notification> _notifyrepo;
     public CreateNotificationCommandHandler(IGenericRepository<Notification> notifyrepo) => _notifyrepo = notifyrepo;
 
-    public async Task<int> Handle(CreateNotificationCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateNotificationCommand request, CancellationToken cancellationToken)
     {
         var client = new Notification
         {

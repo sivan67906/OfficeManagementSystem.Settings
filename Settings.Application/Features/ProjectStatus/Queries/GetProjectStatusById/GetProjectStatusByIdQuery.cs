@@ -5,7 +5,7 @@ namespace Settings.Application.Features.ProjectStatuses.Queries.GetProjectStatus
 {
     public class GetProjectStatusByIdQuery : IRequest<ProjectStatusDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

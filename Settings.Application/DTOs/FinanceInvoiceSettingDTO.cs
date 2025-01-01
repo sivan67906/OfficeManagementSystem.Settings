@@ -1,7 +1,7 @@
 namespace Settings.Application.DTOs;
 public class FinanceInvoiceSettingDTO
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? FILogoPath { get; set; }
     public string? FILogoImageFileName { get; set; }
     public string? FIAuthorisedImagePath { get; set; }

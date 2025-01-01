@@ -3,7 +3,7 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Purchases.Commands.CreatePurchase;
-public class CreatePurchaseCommandHandler : IRequestHandler<CreatePurchaseCommand, int>
+public class CreatePurchaseCommandHandler : IRequestHandler<CreatePurchaseCommand, Guid>
 {
     private readonly IGenericRepository<Purchase> _purchaseRepository;
     public CreatePurchaseCommandHandler(IGenericRepository<Purchase> purchaseRepository)
@@ -11,7 +11,7 @@ public class CreatePurchaseCommandHandler : IRequestHandler<CreatePurchaseComman
         _purchaseRepository = purchaseRepository;
     }
 
-    public async Task<int> Handle(CreatePurchaseCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreatePurchaseCommand request, CancellationToken cancellationToken)
     {
         var client = new Purchase
         {

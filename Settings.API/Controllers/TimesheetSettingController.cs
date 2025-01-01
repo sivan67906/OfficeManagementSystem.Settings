@@ -23,7 +23,7 @@ public class TimesheetSettingController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var timesheetSetting = await _mediator.Send(new GetTimesheetSettingByIdQuery { Id = Id });
         if (timesheetSetting is not null) { return Ok(timesheetSetting); }
@@ -45,7 +45,7 @@ public class TimesheetSettingController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteTimesheetSettingCommand { Id = Id });
         return NoContent();

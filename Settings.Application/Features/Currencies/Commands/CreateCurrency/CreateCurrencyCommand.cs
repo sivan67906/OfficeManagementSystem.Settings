@@ -1,7 +1,7 @@
 ﻿using MediatR;
 
 namespace Settings.Application.Features.Currencies.Commands.CreateCurrency;
-public class CreateCurrencyCommand : IRequest<int>
+public class CreateCurrencyCommand : IRequest<Guid>
 {
    
     public string? CurrencyName { get; set; }

@@ -4,7 +4,7 @@ namespace Settings.Application.Features.RecruitJobApplicationStatusSettings.Comm
 
 public class UpdateRecruitJobApplicationStatusSettingCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public int JobApplicationPositionId { get; set; }
     public int JobApplicationCategoryId { get; set; }
     public string? JASStatus { get; set; }

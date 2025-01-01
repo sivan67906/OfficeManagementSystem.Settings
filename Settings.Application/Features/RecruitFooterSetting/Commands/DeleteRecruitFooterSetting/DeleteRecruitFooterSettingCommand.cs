@@ -4,7 +4,7 @@ namespace Settings.Application.Features.RecruitFooterSettings.Commands.DeleteRec
 {
     public class DeleteRecruitFooterSettingCommand : IRequest
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

@@ -6,7 +6,7 @@ namespace Settings.Application.Features.RecruitFooterSettings.Queries.GetRecruit
 {
     public class GetRecruitFooterSettingByIdQuery : IRequest<RecruitFooterSettingDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

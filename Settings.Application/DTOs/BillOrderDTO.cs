@@ -1,7 +1,7 @@
 ﻿namespace Settings.Application.DTOs;
 public class BillOrderDTO
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? BillOrderPrefix { get; set; }
     public string? BillOrderNumberSeperater { get; set; }
     public string? BillOrderNumberDigits { get; set; }

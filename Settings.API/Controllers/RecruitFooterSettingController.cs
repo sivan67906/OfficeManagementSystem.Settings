@@ -23,7 +23,7 @@ public class RecruitFooterSettingController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var recruitFooterSetting = await _mediator.Send(new GetRecruitFooterSettingByIdQuery { Id = Id });
         if (recruitFooterSetting is not null) { return Ok(recruitFooterSetting); }
@@ -45,7 +45,7 @@ public class RecruitFooterSettingController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteRecruitFooterSettingCommand { Id = Id });
         return NoContent();

@@ -6,7 +6,7 @@ public class NotificationMain
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? CommonNotificationJson { get; set; }
     public string? LeaveNotificationJson { get; set; }
     public string? ProposalNotificationJson { get; set; }

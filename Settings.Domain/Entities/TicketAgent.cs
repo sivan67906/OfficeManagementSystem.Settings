@@ -6,7 +6,7 @@ public sealed class TicketAgent
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? TicketAgentCode { get; set; }
     public string? TicketAgentName { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

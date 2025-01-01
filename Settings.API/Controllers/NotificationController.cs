@@ -15,7 +15,7 @@ public class NotificationController : ControllerBase
     public NotificationController(IMediator mediator) => _mediator = mediator;
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var notification = await _mediator.Send(new GetNotificationByIdQuery { Id = Id });
         if (notification is not null) { return Ok(notification); }
@@ -49,7 +49,7 @@ public class NotificationController : ControllerBase
 
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteNotificationCommand { Id = Id });
         return NoContent();

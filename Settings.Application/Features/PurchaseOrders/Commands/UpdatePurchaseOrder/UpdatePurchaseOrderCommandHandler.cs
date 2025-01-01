@@ -3,7 +3,7 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.PurchaseOrders.Commands.UpdatePurchaseOrder;
-public class UpdatePurchaseOrderCommandHandler : IRequestHandler<UpdatePurchaseOrderCommand, int>
+public class UpdatePurchaseOrderCommandHandler : IRequestHandler<UpdatePurchaseOrderCommand, Guid>
 {
     private readonly IGenericRepository<PurchaseOrder> _purchaseOrderRepository;
     public UpdatePurchaseOrderCommandHandler(IGenericRepository<PurchaseOrder> purchaseOrderRepository)
@@ -11,7 +11,7 @@ public class UpdatePurchaseOrderCommandHandler : IRequestHandler<UpdatePurchaseO
         _purchaseOrderRepository = purchaseOrderRepository;
     }
 
-    public async Task<int> Handle(UpdatePurchaseOrderCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(UpdatePurchaseOrderCommand request, CancellationToken cancellationToken)
     {
         var purchaseOrder = new PurchaseOrder
         {

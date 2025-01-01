@@ -3,5 +3,5 @@
 namespace Settings.Application.Features.Currencies.Commands.DeleteCurrency;
 public class DeleteCurrencyCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 }

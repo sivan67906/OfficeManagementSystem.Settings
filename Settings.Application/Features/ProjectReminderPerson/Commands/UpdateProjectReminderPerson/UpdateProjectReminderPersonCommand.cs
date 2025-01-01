@@ -4,7 +4,7 @@ namespace Settings.Application.Features.ProjectReminderPersons.Commands.UpdatePr
 
 public class UpdateProjectReminderPersonCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? Name { get; set; }
 }
 

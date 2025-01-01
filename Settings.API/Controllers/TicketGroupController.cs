@@ -23,7 +23,7 @@ public class TicketGroupController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var ticketGroup = await _mediator.Send(new GetTicketGroupByIdQuery { Id = Id });
         if (ticketGroup is not null) { return Ok(ticketGroup); }
@@ -45,7 +45,7 @@ public class TicketGroupController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteTicketGroupCommand { Id = Id });
         return NoContent();

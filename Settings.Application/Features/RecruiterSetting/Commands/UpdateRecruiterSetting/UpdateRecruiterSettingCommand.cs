@@ -4,7 +4,7 @@ namespace Settings.Application.Features.RecruiterSettings.Commands.UpdateRecruit
 
 public class UpdateRecruiterSettingCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? RecruiterName { get; set; }
     public int RecruiterStatusId { get; set; }
 }

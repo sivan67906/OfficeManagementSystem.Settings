@@ -4,7 +4,7 @@ namespace Settings.Application.Features.FinanceInvoiceSettings.Commands.UpdateFi
 
 public class UpdateFinanceInvoiceSettingCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? FILogoPath { get; set; }
     public string? FILogoImageFileName { get; set; }
     public string? FIAuthorisedImagePath { get; set; }

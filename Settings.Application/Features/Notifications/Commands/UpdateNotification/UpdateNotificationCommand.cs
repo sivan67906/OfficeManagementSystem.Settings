@@ -1,9 +1,9 @@
 ﻿using MediatR;
 
 namespace Settings.Application.Features.Notifications.Commands.UpdateNotification;
-public class UpdateNotificationCommand : IRequest<int>
+public class UpdateNotificationCommand : IRequest<Guid>
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public bool ContractSigned { get; set; }
     public bool EstimateDeclined { get; set; }
     public bool EventInvite { get; set; }

@@ -4,7 +4,7 @@ namespace Settings.Application.Features.ProjectReminderPersons.Commands.DeletePr
 {
     public class DeleteProjectReminderPersonCommand : IRequest
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

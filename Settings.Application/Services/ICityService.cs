@@ -4,6 +4,6 @@ namespace Settings.Application.Services;
 
 public interface ICityService
 {
-    Task<IEnumerable<City>> GetCitiesByParentId(int stateId);
+    Task<IEnumerable<City>> GetCitiesByParentId(Guid stateId);
 }
 

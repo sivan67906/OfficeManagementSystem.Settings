@@ -3,5 +3,5 @@
 namespace Settings.Application.Features.BillOrders.Commands.DeleteBillOrder;
 public class DeleteBillOrderCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 }

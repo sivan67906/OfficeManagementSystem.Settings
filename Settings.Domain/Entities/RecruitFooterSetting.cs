@@ -6,7 +6,7 @@ public sealed class RecruitFooterSetting
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? FooterTitle { get; set; }
     public string? FooterSlug { get; set; }
     public int FooterStatusId { get; set; }

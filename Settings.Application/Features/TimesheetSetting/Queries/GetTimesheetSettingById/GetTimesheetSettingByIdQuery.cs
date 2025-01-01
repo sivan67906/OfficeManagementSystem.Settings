@@ -6,7 +6,7 @@ namespace Settings.Application.Features.TimesheetSettings.Queries.GetTimesheetSe
 {
     public class GetTimesheetSettingByIdQuery : IRequest<TimesheetSettingDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

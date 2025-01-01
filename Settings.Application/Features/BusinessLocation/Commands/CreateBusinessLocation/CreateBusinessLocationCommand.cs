@@ -4,11 +4,11 @@ namespace Settings.Application.Features.BusinessLocations.Commands.CreateBusines
 
 public class CreateBusinessLocationCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? Code { get; set; }
     public string? Name { get; set; }
-    public int CompanyId { get; set; }
-    public int AddressId { get; set; }
+    public Guid CompanyId { get; set; }
+    public Guid AddressId { get; set; }
     public string? Address1 { get; set; }
     public string? Address2 { get; set; }
     public string? ZipCode { get; set; }
@@ -16,9 +16,9 @@ public class CreateBusinessLocationCommand : IRequest
     public string? TaxNumber { get; set; }
     public string? Latitude { get; set; }
     public string? Longitude { get; set; }
-    public int CountryId { get; set; }
-    public int StateId { get; set; }
-    public int CityId { get; set; }
+    public Guid CountryId { get; set; }
+    public Guid StateId { get; set; }
+    public Guid CityId { get; set; }
     public string? CountryName { get; set; }
     public string? StateName { get; set; }
     public string? CityName { get; set; }

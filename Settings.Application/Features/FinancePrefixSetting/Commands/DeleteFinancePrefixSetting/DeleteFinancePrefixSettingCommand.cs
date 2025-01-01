@@ -4,7 +4,7 @@ namespace Settings.Application.Features.FinancePrefixSettings.Commands.DeleteFin
 {
     public class DeleteFinancePrefixSettingCommand : IRequest
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

@@ -6,7 +6,7 @@ namespace Settings.Application.Features.Languages.Queries.GetLanguageById
 {
     public class GetLanguageByIdQuery : IRequest<LanguageDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

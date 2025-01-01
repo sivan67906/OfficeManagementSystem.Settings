@@ -4,7 +4,7 @@ namespace Settings.Application.Features.CustomQuestionCategories.Commands.Update
 
 public class UpdateCustomQuestionCategoryCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? CQCategoryCode { get; set; }
     public string? CQCategoryName { get; set; }
 }

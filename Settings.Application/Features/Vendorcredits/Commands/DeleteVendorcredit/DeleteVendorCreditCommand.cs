@@ -3,5 +3,5 @@
 namespace Settings.Application.Features.Vendorcredits.Commands.DeleteVendorcredit;
 public class DeleteVendorCreditCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 }

@@ -1,9 +1,9 @@
 ﻿using MediatR;
 
 namespace Settings.Application.Features.Currencies.Commands.UpdateCurrency;
-public class UpdateCurrencyCommand : IRequest<int>
+public class UpdateCurrencyCommand : IRequest<Guid>
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? CurrencyName { get; set; }
     public string? CurrencySymbol { get; set; }
     public string? CurrencyCode { get; set; }

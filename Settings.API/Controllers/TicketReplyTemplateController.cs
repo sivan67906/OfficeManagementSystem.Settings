@@ -23,7 +23,7 @@ public class TicketReplyTemplateController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var ticketReplyTemplate = await _mediator.Send(new GetTicketReplyTemplateByIdQuery { Id = Id });
         if (ticketReplyTemplate is not null) { return Ok(ticketReplyTemplate); }
@@ -45,7 +45,7 @@ public class TicketReplyTemplateController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteTicketReplyTemplateCommand { Id = Id });
         return NoContent();

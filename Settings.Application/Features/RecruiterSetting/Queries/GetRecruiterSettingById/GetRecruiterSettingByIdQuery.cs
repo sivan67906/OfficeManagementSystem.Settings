@@ -6,7 +6,7 @@ namespace Settings.Application.Features.RecruiterSettings.Queries.GetRecruiterSe
 {
     public class GetRecruiterSettingByIdQuery : IRequest<RecruiterSettingDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

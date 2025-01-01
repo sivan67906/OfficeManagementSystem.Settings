@@ -4,7 +4,7 @@ namespace Settings.Application.Features.AttendanceSettings.Commands.UpdateAttend
 
 public class UpdateAttendanceSettingCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? AttendanceSettingCode { get; set; }
     public string? AttendanceSettingName { get; set; }
 }

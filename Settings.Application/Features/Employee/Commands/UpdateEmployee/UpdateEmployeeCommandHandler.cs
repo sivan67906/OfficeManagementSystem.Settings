@@ -3,7 +3,7 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Employee.Commands.UpdateEmployee;
-public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeCommand, int>
+public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeCommand, Guid>
 {
     private readonly IGenericRepository<Domain.Entities.Employee> _repository;
     private readonly IGenericRepository<Address> _addressRepository;
@@ -13,7 +13,7 @@ public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeComman
         _addressRepository = addressRepository;
     }
 
-    public async Task<int> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
     {
         var address = new Address
         {

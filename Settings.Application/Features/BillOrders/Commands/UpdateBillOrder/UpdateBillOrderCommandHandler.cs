@@ -3,7 +3,7 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.BillOrders.Commands.UpdateBillOrder;
-public class UpdateBillOrderCommandHandler : IRequestHandler<UpdateBillOrderCommand, int>
+public class UpdateBillOrderCommandHandler : IRequestHandler<UpdateBillOrderCommand, Guid>
 {
     private readonly IGenericRepository<BillOrder> _billOrdersRepository;
     public UpdateBillOrderCommandHandler(IGenericRepository<BillOrder> billOrdersRepository)
@@ -11,7 +11,7 @@ public class UpdateBillOrderCommandHandler : IRequestHandler<UpdateBillOrderComm
         _billOrdersRepository = billOrdersRepository;
     }
 
-    public async Task<int> Handle(UpdateBillOrderCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(UpdateBillOrderCommand request, CancellationToken cancellationToken)
     {
         var billOrder = new BillOrder
         {

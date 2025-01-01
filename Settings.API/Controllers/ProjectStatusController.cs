@@ -23,7 +23,7 @@ public class ProjectStatusController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var projectStatus = await _mediator.Send(new GetProjectStatusByIdQuery { Id = Id });
         if (projectStatus is not null) { return Ok(projectStatus); }
@@ -45,7 +45,7 @@ public class ProjectStatusController : ControllerBase
     }
 
     [HttpPut("UpdateDefaultStatus")]
-    public async Task<IActionResult> Update(int Id)
+    public async Task<IActionResult> Update(Guid Id)
     {
         var projectStatus = await _mediator.Send(new GetProjectStatusByIdQuery { Id = Id });
 
@@ -62,7 +62,7 @@ public class ProjectStatusController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteProjectStatusCommand { Id = Id });
         return NoContent();

@@ -6,7 +6,7 @@ public sealed class JobApplicationPosition
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? JAPositionCode { get; set; }
     public string? JAPositionName { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

@@ -6,7 +6,7 @@ public sealed class RecruitJobApplicationStatusSetting
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public int JobApplicationPositionId { get; set; }
     public int JobApplicationCategoryId { get; set; }
     public string? JASStatus { get; set; }

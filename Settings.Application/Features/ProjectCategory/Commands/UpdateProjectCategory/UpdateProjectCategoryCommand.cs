@@ -4,7 +4,7 @@ namespace Settings.Application.Features.ProjectCategories.Commands.UpdateProject
 
 public class UpdateProjectCategoryCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? Name { get; set; }
 }
 

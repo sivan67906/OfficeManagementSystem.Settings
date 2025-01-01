@@ -23,7 +23,7 @@ public class BusinessTypeController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var businessType = await _mediator.Send(new GetBusinessTypeByIdQuery { Id = Id });
         if (businessType is not null) { return Ok(businessType); }
@@ -45,7 +45,7 @@ public class BusinessTypeController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteBusinessTypeCommand { Id = Id });
         return NoContent();

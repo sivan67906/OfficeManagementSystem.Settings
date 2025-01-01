@@ -1,7 +1,7 @@
 ﻿using MediatR;
 
 namespace Settings.Application.Features.Messages.Commands.CreateMessage;
-public class CreateMessageCommand : IRequest<int>
+public class CreateMessageCommand : IRequest<Guid>
 {
     public bool AllowChatClientEmployee { get; set; }
     public bool All { get; set; }

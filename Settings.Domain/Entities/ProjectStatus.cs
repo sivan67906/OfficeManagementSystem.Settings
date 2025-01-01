@@ -6,7 +6,7 @@ public sealed class ProjectStatus
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? Name { get; set; }
     public string? ColorCode { get; set; }
     public bool IsDefaultStatus { get; set; }

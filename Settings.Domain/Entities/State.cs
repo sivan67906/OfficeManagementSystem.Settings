@@ -4,7 +4,7 @@ namespace Settings.Domain.Entities;
 
 public class State
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? Code { get; set; }
     public required string Name { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
@@ -12,7 +12,7 @@ public class State
     public bool IsActive { get; set; } = true;
 
     [ForeignKey(nameof(CountryId))]
-    public int CountryId { get; set; }
+    public Guid CountryId { get; set; }
     public Country? Country { get; set; }
     public ICollection<City> Cities { get; set; } = new List<City>();
 }

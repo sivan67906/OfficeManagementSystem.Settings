@@ -16,7 +16,7 @@ public class VendorCreditController : ControllerBase
 
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var product = await _mediator.Send(new GetVendorCreditByIdQuery { Id = Id });
         if (product is not null) { return Ok(product); }
@@ -47,7 +47,7 @@ public class VendorCreditController : ControllerBase
 
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteVendorCreditCommand { Id = Id });
         return NoContent();

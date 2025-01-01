@@ -7,7 +7,7 @@ namespace Settings.Infrastructure.Services;
 public class CityService(IGenericRepository<City> cityRepository)
     : ICityService
 {
-    public async Task<IEnumerable<City>> GetCitiesByParentId(int stateId)
+    public async Task<IEnumerable<City>> GetCitiesByParentId(Guid stateId)
     {
         var cities = await cityRepository.GetAllAsync();
         return cities.Where(x => x.StateId == stateId && x.IsActive == true);

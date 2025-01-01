@@ -6,7 +6,7 @@ namespace Settings.Application.Features.CustomQuestionCategories.Queries.GetCust
 {
     public class GetCustomQuestionCategoryByIdQuery : IRequest<CustomQuestionCategoryDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

@@ -6,7 +6,7 @@ public sealed class TimeLog
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? CBTimeLogJsonSettings { get; set; }
     public bool IsTimeTrackerReminderEnabled { get; set; }
     public string? TLTime { get; set; }

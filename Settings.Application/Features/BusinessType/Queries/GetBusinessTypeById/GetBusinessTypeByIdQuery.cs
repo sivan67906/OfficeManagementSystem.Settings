@@ -5,7 +5,7 @@ namespace Settings.Application.Features.BusinessTypes.Queries.GetBusinessTypeByI
 {
     public class GetBusinessTypeByIdQuery : IRequest<BusinessTypeDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

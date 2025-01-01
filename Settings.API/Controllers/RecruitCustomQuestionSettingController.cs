@@ -23,7 +23,7 @@ public class RecruitCustomQuestionSettingController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var recruitCustomQuestionSetting = await _mediator.Send(new GetRecruitCustomQuestionSettingByIdQuery { Id = Id });
         if (recruitCustomQuestionSetting is not null) { return Ok(recruitCustomQuestionSetting); }
@@ -45,7 +45,7 @@ public class RecruitCustomQuestionSettingController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteRecruitCustomQuestionSettingCommand { Id = Id });
         return NoContent();

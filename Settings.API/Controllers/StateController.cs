@@ -24,7 +24,7 @@ public class StateController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var state = await _mediator.Send(new GetStateByIdQuery { Id = Id });
         if (state is not null) { return Ok(state); }
@@ -32,7 +32,7 @@ public class StateController : ControllerBase
     }
 
     [HttpGet("GetByParentId")]
-    public async Task<IActionResult> GetByParentId(int parentId)
+    public async Task<IActionResult> GetByParentId(Guid parentId)
     {
         var state = await _mediator.Send(new GetStatesByParentIdQuery { CountryId = parentId });
         if (state is not null) { return Ok(state); }
@@ -54,7 +54,7 @@ public class StateController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteStateCommand { Id = Id });
         return NoContent();

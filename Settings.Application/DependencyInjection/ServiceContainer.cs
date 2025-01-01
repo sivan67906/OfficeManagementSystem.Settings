@@ -12,5 +12,6 @@ public static class ServiceContainer
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
         });
         return services;
+        //services.AddValidatorsFromAssemblyContaining<>();
     }
 }

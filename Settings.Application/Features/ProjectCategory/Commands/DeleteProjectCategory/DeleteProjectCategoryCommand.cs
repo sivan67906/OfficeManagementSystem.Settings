@@ -4,7 +4,7 @@ namespace Settings.Application.Features.ProjectCategories.Commands.DeleteProject
 {
     public class DeleteProjectCategoryCommand : IRequest
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

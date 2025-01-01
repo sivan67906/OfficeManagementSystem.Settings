@@ -4,6 +4,6 @@ namespace Settings.Application.Services;
 
 public interface IStateService
 {
-    Task<IEnumerable<State>> GetStatesByParentId(int countryId);
+    Task<IEnumerable<State>> GetStatesByParentId(Guid countryId);
 }
 

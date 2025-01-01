@@ -4,7 +4,7 @@ namespace Settings.Application.Features.JobApplicationPositions.Commands.DeleteJ
 {
     public class DeleteJobApplicationPositionCommand : IRequest
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

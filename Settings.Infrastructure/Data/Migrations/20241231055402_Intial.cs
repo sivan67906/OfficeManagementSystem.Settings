@@ -12,6 +12,22 @@ namespace Settings.Infrastructure.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "BillOrders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BillOrderPrefix = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BillOrderNumberSeperater = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BillOrderNumberDigits = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BillOrderNumberExample = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BillOrders", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "BusinessTypes",
                 columns: table => new
                 {
@@ -135,6 +151,56 @@ namespace Settings.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "FinanceInvoiceTemplateSettings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FIRBTemplateJsonSettings = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FinanceInvoiceTemplateSettings", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FinancePrefixSettings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FICBPrefixJsonSettings = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FinancePrefixSettings", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FinanceUnitSettings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FUnitCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FUnitName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FIsDefault = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FinanceUnitSettings", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "JobApplicationCategories",
                 columns: table => new
                 {
@@ -166,6 +232,23 @@ namespace Settings.Infrastructure.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_JobApplicationPositions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Languages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LanguageCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LanguageName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Languages", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -239,8 +322,6 @@ namespace Settings.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-<<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241227155710_Intial.cs
-========
                 name: "NotificationMains",
                 columns: table => new
                 {
@@ -266,7 +347,6 @@ namespace Settings.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
->>>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1:Settings.Infrastructure/Data/Migrations/20241227100235_Initial.cs
                 name: "Notifications",
                 columns: table => new
                 {
@@ -436,6 +516,22 @@ namespace Settings.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PurchaseOrders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PurchaseOrderPrefix = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PurchaseOrderNumberSeperater = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PurchaseOrderNumberDigits = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PurchaseOrderNumberExample = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PurchaseOrders", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Purchases",
                 columns: table => new
                 {
@@ -594,6 +690,22 @@ namespace Settings.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "VendorCredit",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    VendorCreditPrefix = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VendorCreditNumberSeperater = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VendorCreditNumberDigits = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VendorCreditNumberExample = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VendorCredit", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Companies",
                 columns: table => new
                 {
@@ -620,13 +732,13 @@ namespace Settings.Infrastructure.Data.Migrations
                         column: x => x.BusinessTypeId,
                         principalTable: "BusinessTypes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Companies_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -650,7 +762,7 @@ namespace Settings.Infrastructure.Data.Migrations
                         column: x => x.CountryId,
                         principalTable: "Countries",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -675,7 +787,7 @@ namespace Settings.Infrastructure.Data.Migrations
                         column: x => x.CurrencyId,
                         principalTable: "Currencies",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -701,13 +813,13 @@ namespace Settings.Infrastructure.Data.Migrations
                         column: x => x.CustomQuestionCategoryId,
                         principalTable: "CustomQuestionCategories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_RecruitCustomQuestionSettings_CustomQuestionTypes_CustomQuestionTypeId",
                         column: x => x.CustomQuestionTypeId,
                         principalTable: "CustomQuestionTypes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -733,13 +845,47 @@ namespace Settings.Infrastructure.Data.Migrations
                         column: x => x.JobApplicationCategoryId,
                         principalTable: "JobApplicationCategories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_RecruitJobApplicationStatusSettings_JobApplicationPositions_JobApplicationPositionId",
                         column: x => x.JobApplicationPositionId,
                         principalTable: "JobApplicationPositions",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FinanceInvoiceSettings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FILogoPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FILogoImageFileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FIAuthorisedImagePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FIAuthorisedImageFileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FILanguageId = table.Column<int>(type: "int", nullable: false),
+                    FIDueAfter = table.Column<int>(type: "int", nullable: false),
+                    FISendReminderBefore = table.Column<int>(type: "int", nullable: false),
+                    FISendReminderAfterEveryId = table.Column<int>(type: "int", nullable: false),
+                    FISendReminderAfterEvery = table.Column<int>(type: "int", nullable: false),
+                    FICBGeneralJsonSettings = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FICBClientInfoJsonSettings = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FITerms = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FIOtherInfo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FinanceInvoiceSettings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FinanceInvoiceSettings_Languages_FILanguageId",
+                        column: x => x.FILanguageId,
+                        principalTable: "Languages",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -763,7 +909,7 @@ namespace Settings.Infrastructure.Data.Migrations
                         column: x => x.ProjectReminderPersonId,
                         principalTable: "ProjectReminderPersons",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -789,7 +935,7 @@ namespace Settings.Infrastructure.Data.Migrations
                         column: x => x.CompanyId,
                         principalTable: "Companies",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -813,7 +959,45 @@ namespace Settings.Infrastructure.Data.Migrations
                         column: x => x.StateId,
                         principalTable: "States",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TimesheetSettings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProjectId = table.Column<int>(type: "int", nullable: false),
+                    TaskId = table.Column<int>(type: "int", nullable: false),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    StartTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StartDateTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    EndTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EndDateTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Memo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TotalHours = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TimesheetSettings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TimesheetSettings_ProjectSettings_ProjectId",
+                        column: x => x.ProjectId,
+                        principalTable: "ProjectSettings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TimesheetSettings_Tasks_TaskId",
+                        column: x => x.TaskId,
+                        principalTable: "Tasks",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -873,7 +1057,7 @@ namespace Settings.Infrastructure.Data.Migrations
                         column: x => x.CityId,
                         principalTable: "Cities",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -1022,6 +1206,65 @@ namespace Settings.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Employees",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EmployeeCode = table.Column<int>(type: "int", nullable: false),
+                    EmployeeName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateOfBirth = table.Column<DateOnly>(type: "date", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DepartmentId = table.Column<int>(type: "int", nullable: false),
+                    CompanyId = table.Column<int>(type: "int", nullable: false),
+                    AddressId = table.Column<int>(type: "int", nullable: false),
+                    CountryId = table.Column<int>(type: "int", nullable: false),
+                    StateId = table.Column<int>(type: "int", nullable: false),
+                    CityId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Employees", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Employees_Addresses_AddressId",
+                        column: x => x.AddressId,
+                        principalTable: "Addresses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Employees_Cities_CityId",
+                        column: x => x.CityId,
+                        principalTable: "Cities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Employees_Companies_CompanyId",
+                        column: x => x.CompanyId,
+                        principalTable: "Companies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Employees_Countries_CountryId",
+                        column: x => x.CountryId,
+                        principalTable: "Countries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Employees_Departments_DepartmentId",
+                        column: x => x.DepartmentId,
+                        principalTable: "Departments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Employees_States_StateId",
+                        column: x => x.StateId,
+                        principalTable: "States",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TimeLogs",
                 columns: table => new
                 {
@@ -1044,7 +1287,7 @@ namespace Settings.Infrastructure.Data.Migrations
                         column: x => x.RoleId,
                         principalTable: "Roles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -1138,6 +1381,41 @@ namespace Settings.Infrastructure.Data.Migrations
                 column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Employees_AddressId",
+                table: "Employees",
+                column: "AddressId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Employees_CityId",
+                table: "Employees",
+                column: "CityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Employees_CompanyId",
+                table: "Employees",
+                column: "CompanyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Employees_CountryId",
+                table: "Employees",
+                column: "CountryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Employees_DepartmentId",
+                table: "Employees",
+                column: "DepartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Employees_StateId",
+                table: "Employees",
+                column: "StateId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FinanceInvoiceSettings_FILanguageId",
+                table: "FinanceInvoiceSettings",
+                column: "FILanguageId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ProjectSettings_ProjectReminderPersonId",
                 table: "ProjectSettings",
                 column: "ProjectReminderPersonId",
@@ -1187,6 +1465,16 @@ namespace Settings.Infrastructure.Data.Migrations
                 name: "IX_TimeLogs_RoleId",
                 table: "TimeLogs",
                 column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TimesheetSettings_ProjectId",
+                table: "TimesheetSettings",
+                column: "ProjectId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TimesheetSettings_TaskId",
+                table: "TimesheetSettings",
+                column: "TaskId");
         }
 
         /// <inheritdoc />
@@ -1196,6 +1484,9 @@ namespace Settings.Infrastructure.Data.Migrations
                 name: "Applications");
 
             migrationBuilder.DropTable(
+                name: "BillOrders");
+
+            migrationBuilder.DropTable(
                 name: "BusinessLocations");
 
             migrationBuilder.DropTable(
@@ -1203,6 +1494,21 @@ namespace Settings.Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Contracts");
+
+            migrationBuilder.DropTable(
+                name: "Employees");
+
+            migrationBuilder.DropTable(
+                name: "FinanceInvoiceSettings");
+
+            migrationBuilder.DropTable(
+                name: "FinanceInvoiceTemplateSettings");
+
+            migrationBuilder.DropTable(
+                name: "FinancePrefixSettings");
+
+            migrationBuilder.DropTable(
+                name: "FinanceUnitSettings");
 
             migrationBuilder.DropTable(
                 name: "LeadAgents");
@@ -1220,12 +1526,9 @@ namespace Settings.Infrastructure.Data.Migrations
                 name: "Messages");
 
             migrationBuilder.DropTable(
-<<<<<<<< HEAD:Settings.Infrastructure/Data/Migrations/20241227155710_Intial.cs
-========
                 name: "NotificationMains");
 
             migrationBuilder.DropTable(
->>>>>>>> 61f98cdf5b9c3a2f4f3b3797f5f9094dab2ecaa1:Settings.Infrastructure/Data/Migrations/20241227100235_Initial.cs
                 name: "Notifications");
 
             migrationBuilder.DropTable(
@@ -1238,10 +1541,10 @@ namespace Settings.Infrastructure.Data.Migrations
                 name: "ProjectCategories");
 
             migrationBuilder.DropTable(
-                name: "ProjectSettings");
+                name: "ProjectStatuses");
 
             migrationBuilder.DropTable(
-                name: "ProjectStatuses");
+                name: "PurchaseOrders");
 
             migrationBuilder.DropTable(
                 name: "Purchases");
@@ -1265,13 +1568,16 @@ namespace Settings.Infrastructure.Data.Migrations
                 name: "RecruitNotificationSettings");
 
             migrationBuilder.DropTable(
-                name: "Tasks");
-
-            migrationBuilder.DropTable(
                 name: "Taxes");
 
             migrationBuilder.DropTable(
                 name: "TimeLogs");
+
+            migrationBuilder.DropTable(
+                name: "TimesheetSettings");
+
+            migrationBuilder.DropTable(
+                name: "VendorCredit");
 
             migrationBuilder.DropTable(
                 name: "Currencies");
@@ -1280,7 +1586,7 @@ namespace Settings.Infrastructure.Data.Migrations
                 name: "Addresses");
 
             migrationBuilder.DropTable(
-                name: "ProjectReminderPersons");
+                name: "Languages");
 
             migrationBuilder.DropTable(
                 name: "CustomQuestionCategories");
@@ -1298,10 +1604,19 @@ namespace Settings.Infrastructure.Data.Migrations
                 name: "Roles");
 
             migrationBuilder.DropTable(
+                name: "ProjectSettings");
+
+            migrationBuilder.DropTable(
+                name: "Tasks");
+
+            migrationBuilder.DropTable(
                 name: "Cities");
 
             migrationBuilder.DropTable(
                 name: "Designations");
+
+            migrationBuilder.DropTable(
+                name: "ProjectReminderPersons");
 
             migrationBuilder.DropTable(
                 name: "States");

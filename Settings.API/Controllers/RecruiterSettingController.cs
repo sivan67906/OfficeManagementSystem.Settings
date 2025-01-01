@@ -23,7 +23,7 @@ public class RecruiterSettingController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var recruiterSetting = await _mediator.Send(new GetRecruiterSettingByIdQuery { Id = Id });
         if (recruiterSetting is not null) { return Ok(recruiterSetting); }
@@ -45,7 +45,7 @@ public class RecruiterSettingController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteRecruiterSettingCommand { Id = Id });
         return NoContent();

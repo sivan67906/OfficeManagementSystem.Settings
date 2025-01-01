@@ -1,7 +1,7 @@
 ﻿using MediatR;
 
 namespace Settings.Application.Features.Plannings.Commands.CreatePlanning;
-public class CreatePlanningCommand : IRequest<int>
+public class CreatePlanningCommand : IRequest<Guid>
 {
     public string? Name { get; set; }
     public float PlanPrice { get; set; }

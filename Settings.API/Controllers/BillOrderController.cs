@@ -22,7 +22,7 @@ public class BillOrderController : ControllerBase
 
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var product = await _mediator.Send(new GetBillOrderByIdQuery { Id = Id });
         if (product is not null) { return Ok(product); }
@@ -53,7 +53,7 @@ public class BillOrderController : ControllerBase
 
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteBillOrderCommand { Id = Id });
         return NoContent();

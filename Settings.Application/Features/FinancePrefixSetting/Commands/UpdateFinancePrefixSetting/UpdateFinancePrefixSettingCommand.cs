@@ -4,7 +4,7 @@ namespace Settings.Application.Features.FinancePrefixSettings.Commands.UpdateFin
 
 public class UpdateFinancePrefixSettingCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? FICBPrefixJsonSettings { get; set; }
 }
 

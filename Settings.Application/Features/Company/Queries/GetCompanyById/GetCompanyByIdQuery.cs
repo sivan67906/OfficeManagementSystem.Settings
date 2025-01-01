@@ -5,7 +5,7 @@ namespace Settings.Application.Features.Companies.Queries.GetCompanyById
 {
     public class GetCompanyByIdQuery : IRequest<CompanyDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

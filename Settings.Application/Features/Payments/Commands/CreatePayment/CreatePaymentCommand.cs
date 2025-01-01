@@ -1,7 +1,7 @@
 ﻿using MediatR;
 
 namespace Settings.Application.Features.Payments.Commands.CreatePayment;
-public class CreatePaymentCommand : IRequest<int>
+public class CreatePaymentCommand : IRequest<Guid>
 {
     public string? Method { get; set; }
     public string? Description { get; set; }

@@ -3,7 +3,7 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.BillOrders.Commands.CreateBillOrder;
-public class CreateBillOrderCommandHandler : IRequestHandler<CreateBillOrderCommand, int>
+public class CreateBillOrderCommandHandler : IRequestHandler<CreateBillOrderCommand, Guid>
 {
     private readonly IGenericRepository<BillOrder> _billOrdersRepository;
     public CreateBillOrderCommandHandler(IGenericRepository<BillOrder> billOrdersRepository)
@@ -11,7 +11,7 @@ public class CreateBillOrderCommandHandler : IRequestHandler<CreateBillOrderComm
         _billOrdersRepository = billOrdersRepository;
     }
 
-    public async Task<int> Handle(CreateBillOrderCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateBillOrderCommand request, CancellationToken cancellationToken)
     {
         var billOrder = new BillOrder
         {

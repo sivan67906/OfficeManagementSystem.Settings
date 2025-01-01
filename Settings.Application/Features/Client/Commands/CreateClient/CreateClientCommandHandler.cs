@@ -7,9 +7,9 @@ public class CreateClientCommandHandler(
     IGenericRepository<Domain.Entities.Client> clientRepository,
     IGenericRepository<Address> addressRepository
 
-    ) : IRequestHandler<CreateClientCommand, int>
+    ) : IRequestHandler<CreateClientCommand, Guid>
 {
-    public async Task<int> Handle(CreateClientCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateClientCommand request, CancellationToken cancellationToken)
     {
         var address = new Address
         {

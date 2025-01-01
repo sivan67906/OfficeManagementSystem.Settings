@@ -23,7 +23,7 @@ public class TimeLogController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var timeLog = await _mediator.Send(new GetTimeLogByIdQuery { Id = Id });
         if (timeLog is not null) { return Ok(timeLog); }
@@ -45,7 +45,7 @@ public class TimeLogController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteTimeLogCommand { Id = Id });
         return NoContent();

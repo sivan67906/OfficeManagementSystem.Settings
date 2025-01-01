@@ -6,7 +6,7 @@ namespace Settings.Application.Features.FinanceUnitSettings.Queries.GetFinanceUn
 {
     public class GetFinanceUnitSettingByIdQuery : IRequest<FinanceUnitSettingDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

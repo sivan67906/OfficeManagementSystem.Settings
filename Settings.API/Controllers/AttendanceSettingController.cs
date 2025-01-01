@@ -23,7 +23,7 @@ public class AttendanceSettingController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var attendanceSetting = await _mediator.Send(new GetAttendanceSettingByIdQuery { Id = Id });
         if (attendanceSetting is not null) { return Ok(attendanceSetting); }
@@ -45,7 +45,7 @@ public class AttendanceSettingController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteAttendanceSettingCommand { Id = Id });
         return NoContent();

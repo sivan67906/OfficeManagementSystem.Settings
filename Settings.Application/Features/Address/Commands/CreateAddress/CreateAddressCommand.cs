@@ -9,7 +9,7 @@ public class CreateAddressCommand : IRequest
     public string? ZipCode { get; set; }
     public string? Latitude { get; set; }
     public string? Longitude { get; set; }
-    public int CityId { get; set; }
+    public Guid CityId { get; set; }
     public bool IsPrimary { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     public bool IsActive { get; set; } = true;

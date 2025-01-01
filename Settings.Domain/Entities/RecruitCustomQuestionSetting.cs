@@ -6,7 +6,7 @@ public sealed class RecruitCustomQuestionSetting
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? CQQuestion { get; set; }
     public int CustomQuestionTypeId { get; set; }
     public int CustomQuestionCategoryId { get; set; }

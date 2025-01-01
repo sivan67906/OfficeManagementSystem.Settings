@@ -1,7 +1,7 @@
 ﻿namespace Settings.Domain.Entities;
 public sealed class Task
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public int BeforeXDate { get; set; }
     public bool SendReminderDueDate {  get; set; }
     public int AfterXDate { get; set; }

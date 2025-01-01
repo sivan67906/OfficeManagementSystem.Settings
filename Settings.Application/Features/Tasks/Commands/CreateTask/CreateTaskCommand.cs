@@ -1,7 +1,7 @@
 ﻿using MediatR;
 
 namespace Settings.Application.Features.Tasks.Commands.CreateTask;
-public class CreateTaskCommand : IRequest<int>
+public class CreateTaskCommand : IRequest<Guid>
 {
     public int BeforeXDate { get; set; }
     public bool SendReminderDueDate { get; set; }

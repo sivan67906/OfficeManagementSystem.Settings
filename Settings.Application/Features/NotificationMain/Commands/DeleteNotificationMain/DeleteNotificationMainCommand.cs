@@ -4,7 +4,7 @@ namespace Settings.Application.Features.NotificationMains.Commands.DeleteNotific
 {
     public class DeleteNotificationMainCommand : IRequest
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

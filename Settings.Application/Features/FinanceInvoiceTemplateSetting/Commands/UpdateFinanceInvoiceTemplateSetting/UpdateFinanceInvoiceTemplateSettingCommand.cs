@@ -4,7 +4,7 @@ namespace Settings.Application.Features.FinanceInvoiceTemplateSettings.Commands.
 
 public class UpdateFinanceInvoiceTemplateSettingCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? FIRBTemplateJsonSettings { get; set; }
 }
 

@@ -23,7 +23,7 @@ public class FinanceInvoiceTemplateSettingController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var financeInvoiceTemplateSetting = await _mediator.Send(new GetFinanceInvoiceTemplateSettingByIdQuery { Id = Id });
         if (financeInvoiceTemplateSetting is not null) { return Ok(financeInvoiceTemplateSetting); }
@@ -45,7 +45,7 @@ public class FinanceInvoiceTemplateSettingController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteFinanceInvoiceTemplateSettingCommand { Id = Id });
         return NoContent();

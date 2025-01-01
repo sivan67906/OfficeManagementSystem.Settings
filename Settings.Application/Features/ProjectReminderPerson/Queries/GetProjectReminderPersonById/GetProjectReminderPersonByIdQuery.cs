@@ -5,7 +5,7 @@ namespace Settings.Application.Features.ProjectReminderPersons.Queries.GetProjec
 {
     public class GetProjectReminderPersonByIdQuery : IRequest<ProjectReminderPersonDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

@@ -2,7 +2,7 @@
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Tasks.Commands.CreateTask;
-public class CreateTaskCommandHandler : IRequestHandler<CreateTaskCommand, int>
+public class CreateTaskCommandHandler : IRequestHandler<CreateTaskCommand, Guid>
 {
     private readonly IGenericRepository<Domain.Entities.Task> _repository;
     public CreateTaskCommandHandler(IGenericRepository<Domain.Entities.Task> repository)
@@ -10,7 +10,7 @@ public class CreateTaskCommandHandler : IRequestHandler<CreateTaskCommand, int>
         _repository = repository;
     }
 
-    public async Task<int> Handle(CreateTaskCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateTaskCommand request, CancellationToken cancellationToken)
     {
         var client = new Domain.Entities.Task
         {

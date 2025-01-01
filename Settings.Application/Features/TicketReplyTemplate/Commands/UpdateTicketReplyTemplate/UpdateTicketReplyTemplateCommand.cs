@@ -4,7 +4,7 @@ namespace Settings.Application.Features.TicketReplyTemplates.Commands.UpdateTick
 
 public class UpdateTicketReplyTemplateCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? TicketReplyTemplateCode { get; set; }
     public string? TicketReplyTemplateName { get; set; }
 }

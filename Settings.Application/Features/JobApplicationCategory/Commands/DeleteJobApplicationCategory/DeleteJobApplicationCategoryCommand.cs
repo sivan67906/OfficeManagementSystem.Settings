@@ -4,7 +4,7 @@ namespace Settings.Application.Features.JobApplicationCategories.Commands.Delete
 {
     public class DeleteJobApplicationCategoryCommand : IRequest
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

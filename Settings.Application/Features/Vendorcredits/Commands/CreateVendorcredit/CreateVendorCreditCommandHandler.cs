@@ -3,7 +3,7 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Vendorcredits.Commands.CreateVendorcredit;
-public class CreateVendorCreditCommandHandler : IRequestHandler<CreateVendorCreditCommand, int>
+public class CreateVendorCreditCommandHandler : IRequestHandler<CreateVendorCreditCommand, Guid>
 {
     private readonly IGenericRepository<VendorCredit> _vendorrepo;
     public CreateVendorCreditCommandHandler(IGenericRepository<VendorCredit> vendorrepo)
@@ -11,7 +11,7 @@ public class CreateVendorCreditCommandHandler : IRequestHandler<CreateVendorCred
         _vendorrepo = vendorrepo;
     }
 
-    public async Task<int> Handle(CreateVendorCreditCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateVendorCreditCommand request, CancellationToken cancellationToken)
     {
         var client = new VendorCredit
         {

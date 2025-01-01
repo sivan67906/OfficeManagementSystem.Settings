@@ -23,7 +23,7 @@ public class AddressController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var address = await _mediator.Send(new GetAddressByIdQuery { Id = Id });
         if (address is not null) { return Ok(address); }
@@ -45,7 +45,7 @@ public class AddressController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteAddressCommand { Id = Id });
         return NoContent();

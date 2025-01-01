@@ -23,7 +23,7 @@ public class TicketChannelController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var ticketChannel = await _mediator.Send(new GetTicketChannelByIdQuery { Id = Id });
         if (ticketChannel is not null) { return Ok(ticketChannel); }
@@ -45,7 +45,7 @@ public class TicketChannelController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteTicketChannelCommand { Id = Id });
         return NoContent();

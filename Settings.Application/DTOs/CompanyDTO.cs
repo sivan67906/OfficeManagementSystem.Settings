@@ -2,15 +2,15 @@ namespace Settings.Application.DTOs;
 
 public class CompanyDTO
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? Name { get; set; }
     public string? RegnNumber { get; set; }
     public string? Email { get; set; }
     public string? PhoneNumber { get; set; }
     public int EstablishedYear { get; set; }
     public string? Website { get; set; }
-    public int BusinessTypeId { get; set; }
-    public int CategoryId { get; set; }
+    public Guid BusinessTypeId { get; set; }
+    public Guid CategoryId { get; set; }
     public string? BusinessTypeName { get; set; }
     public string? CategoryName { get; set; }
     public string? Description { get; set; }

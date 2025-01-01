@@ -6,7 +6,7 @@ public sealed class RecruitNotificationSetting
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? CBEMailJsonSettings { get; set; }
     public string? CBEMailNotificationJsonSettings { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

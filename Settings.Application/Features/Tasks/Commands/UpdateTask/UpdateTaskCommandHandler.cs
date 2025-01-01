@@ -2,7 +2,7 @@
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Tasks.Commands.UpdateTask;
-public class UpdateTaskCommandHandler : IRequestHandler<UpdateTaskCommand, int>
+public class UpdateTaskCommandHandler : IRequestHandler<UpdateTaskCommand, Guid>
 {
     private readonly IGenericRepository<Domain.Entities.Task> _repository;
     public UpdateTaskCommandHandler(IGenericRepository<Domain.Entities.Task> repository)
@@ -10,7 +10,7 @@ public class UpdateTaskCommandHandler : IRequestHandler<UpdateTaskCommand, int>
         _repository = repository;
     }
 
-    public async Task<int> Handle(UpdateTaskCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(UpdateTaskCommand request, CancellationToken cancellationToken)
     {
         var product = new Domain.Entities.Task
         {

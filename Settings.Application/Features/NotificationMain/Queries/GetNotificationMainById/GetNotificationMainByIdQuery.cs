@@ -6,7 +6,7 @@ namespace Settings.Application.Features.NotificationMains.Queries.GetNotificatio
 {
     public class GetNotificationMainByIdQuery : IRequest<NotificationMainDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

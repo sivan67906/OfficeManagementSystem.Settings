@@ -1,9 +1,9 @@
 ﻿using MediatR;
 
 namespace Settings.Application.Features.Tasks.Commands.UpdateTask;
-public class UpdateTaskCommand : IRequest<int>
+public class UpdateTaskCommand : IRequest<Guid>
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public int BeforeXDate { get; set; }
     public bool SendReminderDueDate { get; set; }
     public int AfterXDate { get; set; }

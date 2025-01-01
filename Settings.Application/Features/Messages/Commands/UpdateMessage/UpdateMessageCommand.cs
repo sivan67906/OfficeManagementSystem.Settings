@@ -1,9 +1,9 @@
 ﻿using MediatR;
 
 namespace Settings.Application.Features.Messages.Commands.UpdateMessage;
-public class UpdateMessageCommand : IRequest<int>
+public class UpdateMessageCommand : IRequest<Guid>
 {
-    public int Id {  get; set; }
+    public Guid Id {  get; set; }
     public bool AllowChatClientEmployee { get; set; }
     public bool All { get; set; }
     public bool OnlyProjectMembercanwithclient { get; set; }

@@ -6,7 +6,7 @@ public sealed class ProjectReminderPerson
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? Code { get; set; }
     public string? Name { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

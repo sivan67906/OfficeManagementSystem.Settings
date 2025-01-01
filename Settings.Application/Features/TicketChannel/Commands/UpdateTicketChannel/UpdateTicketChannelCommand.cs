@@ -4,7 +4,7 @@ namespace Settings.Application.Features.TicketChannels.Commands.UpdateTicketChan
 
 public class UpdateTicketChannelCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? TicketChannelCode { get; set; }
     public string? TicketChannelName { get; set; }
 }

@@ -5,7 +5,7 @@ namespace Settings.Application.Features.BusinessLocations.Queries.GetBusinessLoc
 {
     public class GetBusinessLocationByIdQuery : IRequest<BusinessLocationDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

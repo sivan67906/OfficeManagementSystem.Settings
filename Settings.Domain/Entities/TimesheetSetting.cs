@@ -6,7 +6,7 @@ public sealed class TimesheetSetting
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public int ProjectId { get; set; }
     public int TaskId { get; set; }
     public int EmployeeId { get; set; }

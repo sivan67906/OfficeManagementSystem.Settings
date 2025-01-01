@@ -2,12 +2,12 @@
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Applications.Commands.CreateApplication;
-public class CreateApplicationCommandHandler : IRequestHandler<CreateApplicationCommand, int>
+public class CreateApplicationCommandHandler : IRequestHandler<CreateApplicationCommand, Guid>
 {
     private readonly IGenericRepository<Domain.Entities.Applications> _applirepo;
     public CreateApplicationCommandHandler(IGenericRepository<Domain.Entities.Applications> applirepo) => _applirepo = applirepo;
 
-    public async Task<int> Handle(CreateApplicationCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateApplicationCommand request, CancellationToken cancellationToken)
     {
         var application = new Domain.Entities.Applications
         {

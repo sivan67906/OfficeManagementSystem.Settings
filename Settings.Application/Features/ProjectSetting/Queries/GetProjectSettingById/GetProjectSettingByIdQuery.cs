@@ -6,7 +6,7 @@ namespace Settings.Application.Features.ProjectSettings.Queries.GetProjectSettin
 {
     public class GetProjectSettingByIdQuery : IRequest<ProjectSettingDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

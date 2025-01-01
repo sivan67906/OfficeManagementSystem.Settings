@@ -3,7 +3,7 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Payments.Commands.CreatePayment;
-public class CreatePaymentCommandHandler : IRequestHandler<CreatePaymentCommand, int>
+public class CreatePaymentCommandHandler : IRequestHandler<CreatePaymentCommand, Guid>
 {
     private readonly IGenericRepository<Payment> _repository;
     public CreatePaymentCommandHandler(IGenericRepository<Payment> repository)
@@ -11,7 +11,7 @@ public class CreatePaymentCommandHandler : IRequestHandler<CreatePaymentCommand,
         _repository = repository;
     }
 
-    public async Task<int> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
     {
         var client = new Payment
         {

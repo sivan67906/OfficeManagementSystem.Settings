@@ -6,7 +6,7 @@ namespace Settings.Application.Features.TicketReplyTemplates.Queries.GetTicketRe
 {
     public class GetTicketReplyTemplateByIdQuery : IRequest<TicketReplyTemplateDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

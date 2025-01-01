@@ -6,7 +6,7 @@ namespace Settings.Application.Features.RecruitCustomQuestionSettings.Queries.Ge
 {
     public class GetRecruitCustomQuestionSettingByIdQuery : IRequest<RecruitCustomQuestionSettingDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

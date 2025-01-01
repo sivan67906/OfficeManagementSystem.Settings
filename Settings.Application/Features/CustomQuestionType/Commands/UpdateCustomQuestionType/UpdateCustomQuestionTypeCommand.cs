@@ -4,7 +4,7 @@ namespace Settings.Application.Features.CustomQuestionTypes.Commands.UpdateCusto
 
 public class UpdateCustomQuestionTypeCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? CQTypeCode { get; set; }
     public string? CQTypeName { get; set; }
 }

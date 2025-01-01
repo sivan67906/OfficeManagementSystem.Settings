@@ -6,7 +6,7 @@ namespace Settings.Application.Features.JobApplicationPositions.Queries.GetJobAp
 {
     public class GetJobApplicationPositionByIdQuery : IRequest<JobApplicationPositionDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

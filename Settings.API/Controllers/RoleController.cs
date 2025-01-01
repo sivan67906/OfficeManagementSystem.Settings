@@ -23,7 +23,7 @@ public class RoleController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var role = await _mediator.Send(new GetRoleByIdQuery { Id = Id });
         if (role is not null) { return Ok(role); }
@@ -45,7 +45,7 @@ public class RoleController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteRoleCommand { Id = Id });
         return NoContent();

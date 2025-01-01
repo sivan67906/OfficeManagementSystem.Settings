@@ -4,7 +4,7 @@ namespace Settings.Application.Features.FinanceInvoiceSettings.Commands.DeleteFi
 {
     public class DeleteFinanceInvoiceSettingCommand : IRequest
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
 

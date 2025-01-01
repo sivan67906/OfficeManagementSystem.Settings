@@ -6,7 +6,7 @@ public sealed class JobApplicationCategory
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? JACategoryCode { get; set; }
     public string? JACategoryName { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

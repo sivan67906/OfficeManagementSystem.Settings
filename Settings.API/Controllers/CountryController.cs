@@ -23,7 +23,7 @@ public class CountryController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(int Id)
+    public async Task<IActionResult> GetById(Guid Id)
     {
         var country = await _mediator.Send(new GetCountryByIdQuery { Id = Id });
         if (country is not null) { return Ok(country); }
@@ -45,7 +45,7 @@ public class CountryController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public async Task<IActionResult> Delete(int Id)
+    public async Task<IActionResult> Delete(Guid Id)
     {
         await _mediator.Send(new DeleteCountryCommand { Id = Id });
         return NoContent();

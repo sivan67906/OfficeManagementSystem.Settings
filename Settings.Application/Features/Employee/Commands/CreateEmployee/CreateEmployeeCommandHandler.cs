@@ -5,9 +5,9 @@ using Settings.Domain.Interfaces;
 namespace Settings.Application.Features.Employee.Commands.CreateEmployee;
 public class CreateEmployeeCommandHandler(IGenericRepository<Domain.Entities.Employee> employee, 
     IGenericRepository<Address> addressrepo)
-    : IRequestHandler<CreateEmployeeCommand, int>
+    : IRequestHandler<CreateEmployeeCommand, Guid>
 {
-    public async Task<int> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
     {
         var address = new Address
         {

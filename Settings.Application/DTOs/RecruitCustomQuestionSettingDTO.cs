@@ -1,7 +1,7 @@
 namespace Settings.Application.DTOs;
 public class RecruitCustomQuestionSettingDTO
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? CQQuestion { get; set; }
     public int CustomQuestionTypeId { get; set; }
     public string? CustomQuestionTypeName { get; set; }

@@ -3,7 +3,7 @@ using Settings.Domain.Entities;
 using Settings.Domain.Interfaces;
 
 namespace Settings.Application.Features.Vendorcredits.Commands.UpdateVendorcredit;
-public class UpdateVendorCreditCommandHandler : IRequestHandler<UpdateVendorCreditCommand, int>
+public class UpdateVendorCreditCommandHandler : IRequestHandler<UpdateVendorCreditCommand, Guid>
 {
     private readonly IGenericRepository<VendorCredit> _repository;
     public UpdateVendorCreditCommandHandler(IGenericRepository<VendorCredit> repository)
@@ -11,7 +11,7 @@ public class UpdateVendorCreditCommandHandler : IRequestHandler<UpdateVendorCred
         _repository = repository;
     }
 
-    public async Task<int> Handle(UpdateVendorCreditCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(UpdateVendorCreditCommand request, CancellationToken cancellationToken)
     {
         var vendor = new VendorCredit
         {

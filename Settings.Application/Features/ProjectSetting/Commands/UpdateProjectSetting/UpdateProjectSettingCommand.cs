@@ -4,7 +4,7 @@ namespace Settings.Application.Features.ProjectSettings.Commands.UpdateProjectSe
 
 public class UpdateProjectSettingCommand : IRequest
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public bool IsSendReminder { get; set; }
     public int SendReminderTo { get; set; }
     public int ProjectReminderPersonId { get; set; }

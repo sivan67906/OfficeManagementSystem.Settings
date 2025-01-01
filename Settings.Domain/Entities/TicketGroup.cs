@@ -6,7 +6,7 @@ public sealed class TicketGroup
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? TicketGroupCode { get; set; }
     public string? TicketGroupName { get; set; }
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

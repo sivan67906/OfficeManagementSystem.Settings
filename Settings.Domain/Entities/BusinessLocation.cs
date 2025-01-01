@@ -7,14 +7,14 @@ public sealed class BusinessLocation
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? Code { get; set; }
     public string? Name { get; set; }
-    public int CompanyId { get; set; }
-    public int AddressId { get; set; }
-    public int CountryId { get; set; }
-    public int StateId { get; set; }
-    public int CityId { get; set; }
+    public Guid CompanyId { get; set; }
+    public Guid AddressId { get; set; }
+    public Guid CountryId { get; set; }
+    public Guid StateId { get; set; }
+    public Guid CityId { get; set; }
     public string? TaxName { get; set; }
     public string? TaxNumber { get; set; }
     public DateTime CreatedDate { get; set; }

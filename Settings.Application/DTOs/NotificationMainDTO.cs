@@ -1,7 +1,7 @@
 namespace Settings.Application.DTOs;
 public class NotificationMainDTO
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string? CommonNotificationMainJson { get; set; }
     public string? LeaveNotificationMainJson { get; set; }
     public string? ProposalNotificationMainJson { get; set; }
