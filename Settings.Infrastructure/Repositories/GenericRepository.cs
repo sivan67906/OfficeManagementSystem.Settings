@@ -1,57 +1,37 @@
 ﻿//using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Settings.Domain.Interfaces;
 using Settings.Infrastructure.Persistence;
 
 namespace Settings.Infrastructure.Repositories;
 
-public class GenericRepository<T> : IGenericRepository<T> where T : class
+public abstract class GenericRepository<TEntity>(ApplicationDbContext _context, DbSet<TEntity> _dbSet) where TEntity : class
 {
-    private readonly ApplicationDbContext _context;
-    private readonly DbSet<T> _dbSet;
+    public void Add(TEntity entity) => _dbSet.Add(entity);
 
-    public GenericRepository(ApplicationDbContext context)
+    public void Update(TEntity entity)
     {
-        _context = context;
-        _dbSet = _context.Set<T>();
+        _dbSet.Attach(entity);
+        _context.Entry(entity).State = EntityState.Modified;
     }
-    public async Task CreateAsync(T entity)
+    public void Delete(TEntity entity)
     {
-        await _dbSet.AddAsync(entity);
-        await _context.SaveChangesAsync();
-    }
-    public async Task<T> CreateAsyncwithEntity(T entity)
-    {
-        await _dbSet.AddAsync(entity);
-        await _context.SaveChangesAsync();
-        return entity;
-    }
-    public async Task DeleteAsync(Guid Id)
-    {
-        var entity = await _dbSet.FindAsync(Id);
+        if (_context.Entry(entity).State == EntityState.Detached)
+        {
+            _dbSet.Attach(entity);
+        }
         _dbSet.Remove(entity);
-       await _context.SaveChangesAsync();
     }
-
-    public async Task<IEnumerable<T>> GetAllAsync()
+    public async Task<TEntity?> GetByIdAsync(Guid id)
     {
-        return await _dbSet.ToListAsync();
+        return await _dbSet.FindAsync(id);
     }
-
-    public async Task<T?> GetByIdAsync(Guid Id)
+    public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
-        return await _dbSet.FindAsync(Id);
+        return await _dbSet.AsNoTracking().ToListAsync();
     }
-
-    public async Task UpdateAsync(T entity)
+    public async Task<bool> IsAvailableByNameAsync(string name)
     {
-        _dbSet.Update(entity);
-        await _context.SaveChangesAsync();
-    }
-    public async Task<T> UpdateAsyncwithEntity(T entity)
-    {
-        _dbSet.Update(entity);
-        await _context.SaveChangesAsync();
-        return entity;
+        var item = await _context.Set<TEntity>().FirstOrDefaultAsync(x => EF.Property<string>(x, "Name") == name);
+        return item != null;
     }
 }

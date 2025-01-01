@@ -1,9 +1,9 @@
 using MediatR;
-using Settings.Application.DTOs;
+using Settings.Application.DTOs.LeadCategory;
 using Settings.Domain.Interfaces;
 using Settings.Domain.Responses;
 
-namespace Settings.Application.Feauters.LeadCategory.Queries.GetLeadCategoryById
+namespace Settings.Application.Features.LeadCategories.GetLeadCategoryById
 {
     public class GetLeadCategoryByIdQueryHandler : IRequestHandler<GetLeadCategoryByIdQuery, ServerResponse>
     {

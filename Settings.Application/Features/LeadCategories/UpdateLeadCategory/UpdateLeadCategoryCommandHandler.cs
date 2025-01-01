@@ -1,10 +1,10 @@
 using FluentValidation;
 using MediatR;
-using Settings.Application.DTOs;
+using Settings.Application.DTOs.LeadCategory;
 using Settings.Domain.Interfaces;
 using Settings.Domain.Responses;
 
-namespace Settings.Application.Feauters.LeadCategory.Commands.UpdateLeadCategory
+namespace Settings.Application.Features.LeadCategories.UpdateLeadCategory
 {
     public class UpdateLeadCategoryCommandHandler : IRequestHandler<UpdateLeadCategoryCommand, ServerResponse>
     {

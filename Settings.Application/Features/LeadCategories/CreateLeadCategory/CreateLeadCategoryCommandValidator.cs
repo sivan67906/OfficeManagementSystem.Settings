@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Settings.Application.DTOs;
+using Settings.Application.DTOs.Lead;
 
-namespace Settings.Application.Feauters.LeadCategory.Commands.CreateLeadCategory;
+namespace Settings.Application.Features.LeadCategories.CreateLeadCategory;
 
 public class CreateLeadCategoryCommandValidator : AbstractValidator<CreateLeadCategoryRequest>
 {

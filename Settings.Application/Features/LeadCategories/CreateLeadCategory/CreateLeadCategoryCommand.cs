@@ -1,7 +1,7 @@
 using MediatR;
-using Settings.Application.DTOs;
+using Settings.Application.DTOs.Lead;
 using Settings.Domain.Responses;
 
-namespace Settings.Application.Feauters.LeadCategory.Commands.CreateLeadCategory;
+namespace Settings.Application.Features.LeadCategories.CreateLeadCategory;
 
 public record CreateLeadCategoryCommand(CreateLeadCategoryRequest LeadCategory) : IRequest<ServerResponse>;

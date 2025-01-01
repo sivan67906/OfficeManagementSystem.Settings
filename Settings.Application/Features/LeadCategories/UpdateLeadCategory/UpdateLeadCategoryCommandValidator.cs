@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Settings.Application.DTOs;
+using Settings.Application.DTOs.LeadCategory;
 
-namespace Settings.Application.Feauters.LeadCategory.Commands.CreateLeadCategory;
+namespace Settings.Application.Features.LeadCategories.UpdateLeadCategory;
 
 public class UpdateLeadCategoryCommandValidator : AbstractValidator<UpdateLeadCategoryRequest>
 {
@@ -9,7 +9,7 @@ public class UpdateLeadCategoryCommandValidator : AbstractValidator<UpdateLeadCa
     {
         RuleFor(x => x.Id)
             .NotEmpty().WithMessage("Category Id should not be empty");
-            
+
         RuleFor(x => x.CategoryName)
             .NotEmpty().WithMessage("Category Name should not be empty")
             .MaximumLength(25).WithMessage("Category Name must not exceed 25 Characters")

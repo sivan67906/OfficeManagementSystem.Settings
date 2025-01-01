@@ -2,7 +2,7 @@ using MediatR;
 using Settings.Domain.Interfaces;
 using Settings.Domain.Responses;
 
-namespace Settings.Application.Feauters.LeadCategory.Commands.DeleteLeadCategory
+namespace Settings.Application.Features.LeadCategories.DeleteLeadCategory
 {
     public class DeleteLeadCategoryCommandHandler : IRequestHandler<DeleteLeadCategoryCommand, ServerResponse>
     {

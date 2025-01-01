@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Settings.Application.DTOs;
+using Settings.Application.DTOs.Lead;
+using Settings.Application.DTOs.LeadCategory;
 using Settings.Application.Feauters.LeadCategory.Commands.CreateLeadCategory;
 using Settings.Application.Feauters.LeadCategory.Commands.DeleteLeadCategory;
 using Settings.Application.Feauters.LeadCategory.Commands.UpdateLeadCategory;

@@ -1,4 +1,4 @@
-﻿namespace Settings.Application.DTOs;
+﻿namespace Settings.Application.DTOs.LeadCategory;
 
 public class UpdateLeadCategoryRequest : LeadCategoryBaseModel
 {

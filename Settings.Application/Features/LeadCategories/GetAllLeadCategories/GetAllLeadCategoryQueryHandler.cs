@@ -3,7 +3,7 @@ using Settings.Application.DTOs;
 using Settings.Domain.Interfaces;
 using Settings.Domain.Responses;
 
-namespace Settings.Application.Feauters.LeadCategory.Queries.GetAllLeadCategories
+namespace Settings.Application.Features.LeadCategories.GetAllLeadCategories
 {
     public class GetAllLeadCategoryQueryHandler : IRequestHandler<GetAllLeadCategoryQuery, ServerResponse>
     {
